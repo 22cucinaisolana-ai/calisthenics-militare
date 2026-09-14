@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programma 12 settimane — ripresa e preparazione kart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --carta:#F1F2EE;
+  --carta-alt:#E7E9E3;
+  --inchiostro:#16211F;
+  --blu:#1B3A6B;
+  --rosso:#C0281B;
+  --verde:#4E6F3F;
+  --grigio:#7E8580;
+  --linea:#D2D6CE;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--carta);
+  color:var(--inchiostro);
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:17px;
+  line-height:1.62;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px 96px}
+
+.testata{padding:56px 0 28px;border-bottom:3px solid var(--inchiostro)}
+.kicker{font-family:"Barlow",sans-serif;font-size:13px;letter-spacing:.06em;color:var(--grigio);margin:0 0 10px;font-weight:500}
+h1{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:700;font-size:clamp(38px,7vw,66px);line-height:.95;margin:0 0 14px;letter-spacing:-.01em}
+.sottotitolo{font-size:19px;color:#39443F;margin:0 0 26px;max-width:56ch}
+.scheda-dati{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:2px;background:var(--linea);border:1px solid var(--linea)}
+.scheda-dati div{background:var(--carta);padding:10px 12px}
+.scheda-dati dt{font-family:"Barlow",sans-serif;font-size:12px;color:var(--grigio);margin:0 0 2px;font-weight:500}
+.scheda-dati dd{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:25px;margin:0;line-height:1.1;font-variant-numeric:tabular-nums}
+
+.timeline{margin:38px 0 8px}
+.timeline svg{width:100%;height:auto;display:block}
+
+section{margin:52px 0 0}
+h2{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:clamp(27px,4vw,36px);line-height:1.08;margin:0 0 6px;padding-bottom:7px;border-bottom:2px solid var(--inchiostro)}
+h3{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:23px;margin:34px 0 6px;line-height:1.15}
+h4{font-family:"Barlow",sans-serif;font-weight:600;font-size:15px;margin:16px 0 4px;color:var(--blu)}
+p{margin:0 0 15px;max-width:70ch}
+ul{margin:0 0 15px;padding-left:20px;max-width:70ch}
+li{margin:0 0 6px}
+a{color:var(--blu);text-underline-offset:2px}
+a:focus-visible{outline:2.5px solid var(--rosso);outline-offset:2px}
+.nota{color:var(--grigio);font-size:15px}
+
+table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-family:"Barlow",sans-serif;font-size:15px;font-variant-numeric:tabular-nums}
+caption{text-align:left;font-family:"Barlow",sans-serif;font-size:13px;color:var(--grigio);padding-bottom:6px}
+th{text-align:left;font-weight:600;font-size:13px;color:var(--grigio);border-bottom:2px solid var(--inchiostro);padding:6px 10px 6px 0;vertical-align:bottom}
+td{border-bottom:1px solid var(--linea);padding:9px 10px 9px 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:2px solid var(--inchiostro)}
+td.g{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:18px;white-space:nowrap}
+.num{white-space:nowrap}
+
+.regola{border-left:4px solid var(--rosso);background:rgba(192,40,27,.05);padding:14px 18px;margin:22px 0}
+.regola p{margin:0;max-width:64ch}
+.regola strong{font-family:"Barlow",sans-serif;font-weight:600}
+.ok{border-left:4px solid var(--verde);background:rgba(78,111,63,.06);padding:14px 18px;margin:22px 0}
+.ok p{margin:0;max-width:64ch}
+
+.esercizio{border-top:1px solid var(--linea);padding:26px 0 6px;display:grid;grid-template-columns:210px 1fr;gap:26px;align-items:start}
+.esercizio:first-of-type{border-top:2px solid var(--inchiostro)}
+.fig{width:100%;height:auto;background:var(--carta-alt);border:1px solid var(--linea)}
+.esercizio h3{margin:0 0 4px}
+.tag{font-family:"Barlow",sans-serif;font-size:12px;font-weight:500;color:var(--grigio);margin:0 0 10px}
+.esercizio p{font-size:16px;margin:0 0 10px}
+.esercizio ul{font-size:16px;margin:0 0 10px}
+.video{display:inline-block;font-family:"Barlow",sans-serif;font-size:14px;font-weight:500;border:1.5px solid var(--blu);color:var(--blu);padding:5px 12px;text-decoration:none;margin-top:4px}
+.video:hover{background:var(--blu);color:var(--carta)}
+.errore{color:var(--rosso)}
+.log td{height:34px}
+
+footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--linea);font-family:"Barlow",sans-serif;font-size:13px;color:var(--grigio)}
+
+@media (max-width:620px){
+  body{font-size:16px}
+  .esercizio{grid-template-columns:1fr;gap:14px}
+  .fig{max-width:300px}
+  table{font-size:14px}
+  .wrap{padding:0 16px 64px}
+}
+@media print{
+  body{background:#fff;font-size:11.5pt}
+  .video{display:none}
+  .esercizio{break-inside:avoid}
+  h2{break-after:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+svg .s{stroke:var(--inchiostro);stroke-width:3.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg .h{fill:var(--inchiostro)}
+svg .gh{stroke:var(--grigio);stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.45}
+svg .ghf{fill:var(--grigio);opacity:.45}
+svg .ground{stroke:var(--grigio);stroke-width:2;opacity:.5}
+svg .att{stroke:var(--rosso);stroke-width:2;fill:none;stroke-dasharray:5 4}
+svg .ref{stroke:var(--verde);stroke-width:1.8;stroke-dasharray:3 4;fill:none}
+svg .obj{stroke:var(--inchiostro);stroke-width:2.4;fill:none}
+svg text{font-family:"Barlow",sans-serif;font-size:11px;fill:var(--grigio)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="testata">
+  <p class="kicker">Scheda di preparazione · 14 settembre 2026</p>
+  <h1>Dodici settimane<br>per tornare in moto</h1>
+  <p class="sottotitolo">Ricostruzione della base dopo vent'anni di stop, con il lavoro specifico per il kart innestato dentro. Non è un programma per fare numeri subito: è quello che serve perché tra due anni i numeri arrivino, senza esserti fatto male prima.</p>
+  <dl class="scheda-dati">
+    <div><dt>Età</dt><dd>40</dd></div>
+    <div><dt>Statura</dt><dd>173 cm</dd></div>
+    <div><dt>Peso</dt><dd>77 kg</dd></div>
+    <div><dt>Fermo da</dt><dd>2006</dd></div>
+    <div><dt>Kart da</dt><dd>giugno</dd></div>
+    <div><dt>Sedute</dt><dd>3 + 2</dd></div>
+  </dl>
+
+  <div class="timeline">
+    <svg viewBox="0 0 800 96" role="img">
+      <title>Tre blocchi: settimane 1-4 tendini, 5-8 volume, 9-12 densità</title>
+      <rect x="0" y="30" width="258" height="26" fill="#4E6F3F" opacity=".22"></rect>
+      <rect x="264" y="30" width="258" height="26" fill="#1B3A6B" opacity=".22"></rect>
+      <rect x="528" y="30" width="272" height="26" fill="#C0281B" opacity=".22"></rect>
+      <line x1="0" y1="30" x2="258" y2="30" stroke="#4E6F3F" stroke-width="4"></line>
+      <line x1="264" y1="30" x2="522" y2="30" stroke="#1B3A6B" stroke-width="4"></line>
+      <line x1="528" y1="30" x2="800" y2="30" stroke="#C0281B" stroke-width="4"></line>
+      <text x="0" y="22" style="font-size:13px;font-weight:600;fill:#4E6F3F">Settimane 1–4</text>
+      <text x="264" y="22" style="font-size:13px;font-weight:600;fill:#1B3A6B">Settimane 5–8</text>
+      <text x="528" y="22" style="font-size:13px;font-weight:600;fill:#C0281B">Settimane 9–12</text>
+      <text x="0" y="70" style="font-size:14px;fill:#16211F">Adattare tendini e articolazioni</text>
+      <text x="264" y="70" style="font-size:14px;fill:#16211F">Costruire volume</text>
+      <text x="528" y="70" style="font-size:14px;fill:#16211F">Primi test a tempo</text>
+      <text x="0" y="88">tecnica pulita, volumi bassi</text>
+      <text x="264" y="88">più serie, più ripetizioni</text>
+      <text x="528" y="88">densità e resistenza</text>
+    </svg>
+  </div>
+</header>
+
+<section>
+  <h2>Le sei regole che tengono in piedi tutto il resto</h2>
+  <p>Se dovessi dimenticare la scheda e ricordare solo questa pagina, andrebbe ancora bene.</p>
+  <ul>
+    <li><strong>Mai due sedute di forza di fila.</strong> Il muscolo recupera in 48 ore, il tendine in molte di più. A quarant'anni la distanza fra i due tempi si allarga.</li>
+    <li><strong>Il primo mese fai metà di quello che senti di poter fare.</strong> Fiato e muscoli torneranno prima dei tendini, e ti convinceranno a strafare.</li>
+    <li><strong>Una ripetizione in più a settimana, non cinque.</strong> La progressione noiosa è quella che arriva in fondo.</li>
+    <li><strong>Tecnica prima del numero.</strong> Meglio 5 piegamenti puliti che 12 con il bacino che affonda: quelli sbagliati, moltiplicati per migliaia, diventano una tendinite della spalla.</li>
+    <li><strong>Il collo va per ultimo e va piano.</strong> Solo isometrie leggere per i primi 3-4 mesi. Niente ponti, niente carichi.</li>
+    <li><strong>Se un dolore è articolare e non muscolare, fermati.</strong> Il muscolo brucia e indolenzisce; l'articolazione punge, tira, fa male il giorno dopo a freddo. Il secondo tipo non si allena, si fa vedere.</li>
+  </ul>
+  <div class="regola">
+    <p><strong>Prima di iniziare:</strong> visita medico-sportiva con elettrocardiogramma. Dopo vent'anni di stop e a quarant'anni non è burocrazia, è la cosa più sensata di questa pagina. Costa poco ed è comunque obbligatoria per l'agonismo.</p>
+  </div>
+</section>
+
+<section>
+  <h2>La settimana</h2>
+  <p>Tre sedute di forza da 30-35 minuti, due di corsa da 25-30, due giorni liberi. Il kart, quando c'è, occupa la domenica.</p>
+  <table>
+    <caption>Settimana tipo — sposta i giorni se serve, ma tieni gli intervalli</caption>
+    <thead><tr><th>Giorno</th><th>Seduta</th><th>Contenuto</th><th class="num">Durata</th></tr></thead>
+    <tbody>
+      <tr><td class="g">Lun</td><td>A · Generale</td><td>Spinta, gambe, core</td><td class="num">35'</td></tr>
+      <tr><td class="g">Mar</td><td>Corsa lenta</td><td>Ritmo conversazione</td><td class="num">25-30'</td></tr>
+      <tr><td class="g">Mer</td><td>K · Kart</td><td>Collo, presa, rotazione, avambracci</td><td class="num">20'</td></tr>
+      <tr><td class="g">Gio</td><td>Riposo</td><td>Camminata se ne hai voglia</td><td class="num">—</td></tr>
+      <tr><td class="g">Ven</td><td>B · Generale</td><td>Tirata, core, spinta leggera</td><td class="num">35'</td></tr>
+      <tr><td class="g">Sab</td><td>Corsa breve</td><td>Con tratti veloci — salta se domenica c'è gara</td><td class="num">25'</td></tr>
+      <tr><td class="g">Dom</td><td>Kart / riposo</td><td>—</td><td class="num">—</td></tr>
+    </tbody>
+  </table>
+  <div class="regola">
+    <p><strong>Regola del sabato:</strong> se domenica vai in pista, il sabato non ti alleni. Un collo affaticato reagisce più lentamente sui cordoli ed è messo peggio di un collo poco allenato. Tieni la seduta pesante a inizio settimana.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Le tre sedute</h2>
+
+  <h3>Seduta A · generale, spinta e gambe</h3>
+  <table>
+    <thead><tr><th>Esercizio</th><th class="num">Sett. 1–4</th><th class="num">Sett. 5–8</th><th class="num">Sett. 9–12</th></tr></thead>
+    <tbody>
+      <tr><td>Piegamenti su rialzo</td><td class="num">3 × 5-8</td><td class="num">4 × 8-12</td><td class="num">4 × 12-18 (a terra)</td></tr>
+      <tr><td>Squat a corpo libero</td><td class="num">3 × 12</td><td class="num">3 × 18</td><td class="num">4 × 20-25</td></tr>
+      <tr><td>Affondi alternati</td><td class="num">2 × 8 per gamba</td><td class="num">3 × 10</td><td class="num">3 × 12-15</td></tr>
+      <tr><td>Plank frontale</td><td class="num">3 × 20-30"</td><td class="num">3 × 45"</td><td class="num">3 × 60-75"</td></tr>
+      <tr><td>Appensione alla sbarra</td><td class="num">3 × 15-20"</td><td class="num">3 × 30"</td><td class="num">3 × 45"</td></tr>
+    </tbody>
+  </table>
+  <p class="nota">Recupero 90 secondi tra le serie nel primo blocco, 60 nel secondo, 45 nel terzo. Ridurre il recupero è di per sé una progressione.</p>
+
+  <h3>Seduta B · generale, tirata e core</h3>
+  <table>
+    <thead><tr><th>Esercizio</th><th class="num">Sett. 1–4</th><th class="num">Sett. 5–8</th><th class="num">Sett. 9–12</th></tr></thead>
+    <tbody>
+      <tr><td>Rematore su barra bassa</td><td class="num">3 × 6</td><td class="num">4 × 10</td><td class="num">4 × 12-15</td></tr>
+      <tr><td>Trazioni negative</td><td class="num">—</td><td class="num">3 × 3 (5")</td><td class="num">3 × 4 (5")</td></tr>
+      <tr><td>Piegamenti in ginocchio</td><td class="num">2 × 8</td><td class="num">3 × 12</td><td class="num">3 × 15</td></tr>
+      <tr><td>Plank laterale</td><td class="num">3 × 20" per lato</td><td class="num">3 × 35"</td><td class="num">3 × 50"</td></tr>
+      <tr><td>Crunch controllato</td><td class="num">3 × 10</td><td class="num">3 × 18</td><td class="num">4 × 25</td></tr>
+      <tr><td>Superman</td><td class="num">3 × 20"</td><td class="num">3 × 30"</td><td class="num">3 × 40"</td></tr>
+    </tbody>
+  </table>
+  <p class="nota">Le trazioni negative entrano solo dalla quinta settimana: prima le spalle non hanno ancora l'abitudine al carico in sospensione.</p>
+
+  <h3>Seduta K · specifica kart</h3>
+  <p>Venti minuti, nel giorno più lontano possibile dalla pista. Qui non conta la fatica, conta la qualità della contrazione.</p>
+  <table>
+    <thead><tr><th>Esercizio</th><th class="num">Sett. 1–4</th><th class="num">Sett. 5–8</th><th class="num">Sett. 9–12</th></tr></thead>
+    <tbody>
+      <tr><td>Isometrie collo · 4 direzioni</td><td class="num">2 × 15"</td><td class="num">2 × 20"</td><td class="num">3 × 20"</td></tr>
+      <tr><td>Appensione alla sbarra</td><td class="num">3 × 20"</td><td class="num">3 × 35"</td><td class="num">3 × 50"</td></tr>
+      <tr><td>Presa su asciugamano arrotolato</td><td class="num">3 × 20"</td><td class="num">3 × 30"</td><td class="num">3 × 40"</td></tr>
+      <tr><td>Rotazione busto contro elastico</td><td class="num">3 × 8 per lato</td><td class="num">3 × 12</td><td class="num">3 × 15</td></tr>
+      <tr><td>Mobilità spalle (bastone/asciugamano)</td><td class="num">2 × 10</td><td class="num">2 × 10</td><td class="num">2 × 10</td></tr>
+    </tbody>
+  </table>
+  <div class="ok">
+    <p>Perché proprio queste: il kart non ha sospensioni, quindi il corpo assorbe torsioni e vibrazioni al posto del telaio, e in gara il cuore arriva a frequenze molto alte. Sono condizioni che si allenano con il lavoro statico — tenere, non muovere — più che con le ripetizioni veloci.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Gli esercizi</h2>
+  <p class="nota">I disegni mostrano la posizione di lavoro; in grigio, dove esiste, la seconda posizione del movimento. I pulsanti aprono una ricerca video filtrata: guarda due o tre esecuzioni diverse prima di fidarti di una sola.</p>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Piegamento sulle braccia con le mani su un rialzo">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <rect class="obj" x="18" y="72" width="38" height="36"></rect>
+      <line class="s" x1="37" y1="72" x2="37" y2="50"></line>
+      <circle class="h" cx="29" cy="43" r="7"></circle>
+      <path class="s" d="M37 50 L92 70 L142 100 L152 106"></path>
+      <path class="gh" d="M37 72 L51 64 L37 60"></path>
+      <circle class="ghf" cx="29" cy="53" r="7"></circle>
+      <path class="gh" d="M37 60 L92 76 L142 100"></path>
+    </svg>
+    <div>
+      <h3>Piegamenti su rialzo</h3>
+      <p class="tag">Seduta A · petto, spalle, tricipiti, core</p>
+      <p>Mani su un tavolo, un davanzale o il bordo del divano. Più alto è l'appoggio, più leggero è l'esercizio: è la manopola con cui regoli la difficoltà senza mai dover fare ripetizioni sporche. Nel terzo blocco scendi progressivamente verso terra.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Mani poco più larghe delle spalle, all'altezza del petto, non delle clavicole.</li>
+        <li>Glutei e addome contratti: dalla testa ai talloni deve esserci una linea sola.</li>
+        <li>Gomiti a circa 45° dal busto, non aperti a T.</li>
+        <li>Scendi in 2 secondi, spingi in 1, senza rimbalzare in fondo.</li>
+      </ul>
+      <p class="errore">Errore più comune: il bacino che cede verso il basso e scarica tutto sulla zona lombare.</p>
+      <a class="video" href="https://www.youtube.com/results?search_query=piegamenti+sulle+braccia+esecuzione+corretta+tecnica" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Piegamento sulle braccia a terra">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <line class="s" x1="40" y1="106" x2="40" y2="78"></line>
+      <circle class="h" cx="32" cy="71" r="7"></circle>
+      <path class="s" d="M40 78 L94 88 L146 104 L157 108"></path>
+      <path class="gh" d="M40 106 L57 100 L40 94"></path>
+      <circle class="ghf" cx="32" cy="87" r="7"></circle>
+      <path class="gh" d="M40 94 L94 96 L146 104"></path>
+    </svg>
+    <div>
+      <h3>Piegamenti a terra</h3>
+      <p class="tag">Seduta A, terzo blocco · in ginocchio nella seduta B</p>
+      <p>La versione piena. Arriva quando ne fai 15 puliti su un rialzo di 30 centimetri, non prima. La variante in ginocchio non è una scorciatoia: serve nella seduta B come volume leggero, quando le spalle hanno già lavorato in tirata.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Petto a circa dieci centimetri da terra nel punto più basso, non a terra.</li>
+        <li>Spinta dalla parte bassa del palmo, non dalle dita.</li>
+        <li>Collo neutro: guarda un punto trenta centimetri davanti alle mani.</li>
+      </ul>
+      <a class="video" href="https://www.youtube.com/watch?v=MgCSo0xWj1M" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Rematore a corpo libero sotto una barra bassa">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <line class="obj" x1="30" y1="50" x2="176" y2="50"></line>
+      <line class="obj" x1="36" y1="50" x2="36" y2="108"></line>
+      <line class="obj" x1="170" y1="50" x2="170" y2="108"></line>
+      <line class="s" x1="104" y1="50" x2="104" y2="76"></line>
+      <circle class="h" cx="92" cy="80" r="7"></circle>
+      <path class="s" d="M104 76 L138 90 L172 102"></path>
+      <path class="gh" d="M104 50 L122 60 L104 64"></path>
+      <path class="gh" d="M104 64 L138 84 L172 102"></path>
+    </svg>
+    <div>
+      <h3>Rematore su barra bassa</h3>
+      <p class="tag">Seduta B · dorsali, bicipiti, core — la base delle trazioni</p>
+      <p>Sotto una sbarra bassa, un tavolo robusto o due sedie con un manico di scopa. Corpo disteso, talloni a terra, tiri il petto verso la barra. È l'esercizio che nei primi due mesi costruisce davvero le trazioni.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Regola la difficoltà con l'inclinazione: più il corpo è orizzontale, più è duro.</li>
+        <li>Parti portando indietro le scapole, poi piega i gomiti. Non il contrario.</li>
+        <li>Corpo rigido come nel plank per tutta la serie.</li>
+      </ul>
+      <p class="errore">Errore più comune: il bacino che si alza per aiutare il tiro.</p>
+      <a class="video" href="https://www.youtube.com/results?search_query=australian+pull+up+rematore+barra+bassa+tecnica" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Trazione negativa, discesa lenta dalla sbarra">
+      <line class="obj" x1="44" y1="18" x2="156" y2="18"></line>
+      <path class="s" d="M100 18 L84 34 L100 44"></path>
+      <path class="s" d="M100 18 L116 34 L100 44"></path>
+      <circle class="h" cx="100" cy="33" r="7.5"></circle>
+      <path class="s" d="M100 44 L100 78 L94 106"></path>
+      <path class="s" d="M100 78 L110 104"></path>
+      <path class="att" d="M150 40 L150 92"></path>
+      <path class="att" d="M144 84 L150 94 L156 84"></path>
+      <text x="152" y="70">3-5 s</text>
+    </svg>
+    <div>
+      <h3>Trazioni negative</h3>
+      <p class="tag">Seduta B, dal secondo blocco · il ponte verso le trazioni piene</p>
+      <p>Sali su una sedia fino a portare il mento sopra la sbarra, togli i piedi e scendi in 3-5 secondi controllando tutta la discesa. La fase negativa costruisce forza più in fretta di qualsiasi elastico, perché ti fa gestire il peso pieno.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Presa poco più larga delle spalle, palmi in avanti.</li>
+        <li>Non lasciarti cadere negli ultimi centimetri: è lì che si irritano i gomiti.</li>
+        <li>Recupero lungo, 2 minuti. Poche ripetizioni ma pesanti.</li>
+      </ul>
+      <a class="video" href="https://www.youtube.com/results?search_query=trazioni+negative+progressione+principianti" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Squat a corpo libero, vista laterale">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <path class="gh" d="M78 108 L78 66 L78 42"></path>
+      <circle class="ghf" cx="78" cy="34" r="7"></circle>
+      <path class="s" d="M64 108 L96 82 L70 74"></path>
+      <path class="s" d="M70 74 L66 50"></path>
+      <circle class="h" cx="60" cy="42" r="7.5"></circle>
+      <path class="s" d="M66 50 L104 54"></path>
+      <path class="ref" d="M64 108 L64 36"></path>
+    </svg>
+    <div>
+      <h3>Squat a corpo libero</h3>
+      <p class="tag">Seduta A · gambe, glutei, mobilità di anca e caviglia</p>
+      <p>Piedi alla larghezza delle spalle, punte leggermente aperte, braccia avanti a bilanciare. Scendi finché le cosce sono parallele a terra, o finché la schiena resta dritta: quale delle due arriva prima.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Il peso resta su tutto il piede, non sulle punte.</li>
+        <li>Le ginocchia seguono la direzione delle punte, non cedono verso l'interno.</li>
+        <li>Petto alto: se la schiena si arrotonda in fondo, fermati più in alto.</li>
+      </ul>
+      <p class="nota">Se dopo vent'anni la caviglia non ti lascia scendere, mettiti un libro sottile sotto i talloni per i primi due mesi.</p>
+      <a class="video" href="https://www.youtube.com/results?search_query=squat+corpo+libero+tecnica+corretta+principianti" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Affondo, vista laterale">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <path class="s" d="M58 108 L58 78 L96 72"></path>
+      <path class="s" d="M96 72 L124 100 L146 108"></path>
+      <path class="s" d="M96 72 L92 48"></path>
+      <circle class="h" cx="90" cy="39" r="7.5"></circle>
+      <path class="ref" d="M92 30 L96 76"></path>
+    </svg>
+    <div>
+      <h3>Affondi alternati</h3>
+      <p class="tag">Seduta A · gambe una alla volta, equilibrio, anche</p>
+      <p>Un passo avanti, ginocchio posteriore che scende verso terra senza toccarla, poi risali spingendo con il tallone davanti. Rimettono a posto gli squilibri destra-sinistra, che dopo vent'anni di sedentarietà ci sono quasi sempre.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Busto verticale, non inclinato in avanti.</li>
+        <li>Il ginocchio davanti resta sopra la caviglia, non oltre la punta del piede.</li>
+        <li>Se perdi l'equilibrio appoggia due dita al muro, invece di accorciare il movimento.</li>
+      </ul>
+      <a class="video" href="https://www.youtube.com/results?search_query=affondi+esecuzione+corretta+tecnica" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Plank frontale sugli avambracci">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <line class="s" x1="34" y1="104" x2="62" y2="104"></line>
+      <line class="s" x1="40" y1="104" x2="40" y2="80"></line>
+      <circle class="h" cx="30" cy="74" r="7"></circle>
+      <path class="s" d="M40 80 L96 88 L150 104 L161 108"></path>
+      <path class="ref" d="M40 80 L150 104"></path>
+    </svg>
+    <div>
+      <h3>Plank frontale</h3>
+      <p class="tag">Seduta A · addome profondo — l'esercizio più utile in curva</p>
+      <p>Avambracci a terra, gomiti sotto le spalle, corpo in linea retta. In pista è quello che ti tiene fermo il busto contro i cordoli invece di farti aggrappare allo sterzo.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Spingi i gomiti contro il pavimento: la schiena si stabilizza da sola.</li>
+        <li>Bacino leggermente retroverso, come se volessi portare il pube verso l'ombelico.</li>
+        <li>Respira normalmente. Se trattieni il fiato stai tenendo troppo a lungo.</li>
+      </ul>
+      <p class="errore">Errore più comune: tenere due minuti con il bacino che affonda. Meglio trenta secondi perfetti.</p>
+      <a class="video" href="https://www.youtube.com/results?search_query=plank+esecuzione+corretta+errori+comuni" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Plank laterale">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <line class="s" x1="44" y1="106" x2="44" y2="80"></line>
+      <circle class="h" cx="36" cy="73" r="7"></circle>
+      <path class="s" d="M44 80 L98 92 L152 106"></path>
+      <line class="s" x1="44" y1="80" x2="44" y2="48"></line>
+      <path class="ref" d="M44 80 L152 106"></path>
+    </svg>
+    <div>
+      <h3>Plank laterale</h3>
+      <p class="tag">Seduta B · obliqui — il freno alle spinte laterali</p>
+      <p>Su un fianco, gomito sotto la spalla, bacino sollevato. È la controparte del plank frontale e lavora i muscoli che in curva impediscono al busto di scivolare verso l'esterno.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Spalla, anca e caviglia su una linea sola vista da sopra.</li>
+        <li>Non lasciare che la spalla d'appoggio si schiacci verso l'orecchio.</li>
+        <li>Se è troppo, piega le ginocchia e appoggiale: conta lo stesso.</li>
+      </ul>
+      <a class="video" href="https://www.youtube.com/results?search_query=plank+laterale+esecuzione+corretta" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Isometria del collo con resistenza della mano">
+      <circle class="s" cx="94" cy="44" r="19"></circle>
+      <line class="s" x1="94" y1="63" x2="94" y2="76"></line>
+      <line class="s" x1="64" y1="78" x2="124" y2="78"></line>
+      <path class="obj" d="M62 34 q8 -6 12 4 q2 8 -6 10 q-8 2 -6 -14 z"></path>
+      <path class="att" d="M134 44 L106 44"></path>
+      <path class="att" d="M112 39 L104 44 L112 49"></path>
+      <path class="att" d="M44 44 L72 44"></path>
+      <path class="att" d="M66 39 L74 44 L66 49"></path>
+      <text x="128" y="64">testa spinge</text>
+      <text x="22" y="64">mano resiste</text>
+    </svg>
+    <div>
+      <h3>Isometrie del collo</h3>
+      <p class="tag">Seduta K · la parte più importante e la più delicata</p>
+      <p>Seduto, schiena dritta. Appoggi la mano alla fronte, alla nuca o alla tempia e spingi la testa contro la mano <em>senza che la testa si muova di un millimetro</em>. Quattro direzioni: avanti, indietro, destra, sinistra. Quindici secondi per direzione, respirando normalmente.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Spinta al 30-40% della forza massima, non al massimo. È l'unico esercizio dove la percentuale conta più delle ripetizioni.</li>
+        <li>Nessun movimento visibile. Se la testa si sposta, stai spingendo troppo.</li>
+        <li>Non andare in apnea, e rilascia lentamente, mai di colpo.</li>
+      </ul>
+      <div class="regola">
+        <p><strong>Limiti per i primi tre-quattro mesi:</strong> solo isometrie a mano. Niente ponti del collo, niente caschi zavorrati, niente elastici. È l'area del programma in cui vale la pena farsi guardare una volta da un fisioterapista o da un preparatore: gli esercizi sono banali, l'esecuzione sbagliata no.</p>
+      </div>
+      <a class="video" href="https://www.youtube.com/results?search_query=esercizi+isometrici+collo+cervicale+principianti" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Appensione alla sbarra a braccia tese">
+      <line class="obj" x1="44" y1="18" x2="156" y2="18"></line>
+      <line class="s" x1="88" y1="18" x2="88" y2="46"></line>
+      <line class="s" x1="112" y1="18" x2="112" y2="46"></line>
+      <circle class="h" cx="100" cy="36" r="7.5"></circle>
+      <path class="s" d="M88 46 L112 46"></path>
+      <path class="s" d="M100 46 L100 78 L94 108"></path>
+      <path class="s" d="M100 78 L110 106"></path>
+    </svg>
+    <div>
+      <h3>Appensione alla sbarra</h3>
+      <p class="tag">Sedute A e K · presa, avambracci, decompressione della colonna</p>
+      <p>Ti appendi e resti lì. Sembra niente ed è uno degli esercizi col miglior rapporto beneficio-rischio del programma: allena la presa che ti serve sullo sterzo, prepara le spalle alle trazioni e decomprime la schiena.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Braccia tese ma spalle attive: non restare appeso passivamente con le scapole in alto, tirale leggermente in basso.</li>
+        <li>Se la presa cede prima del tempo va bene, è proprio il punto.</li>
+        <li>Scendi appoggiando i piedi, non saltando giù.</li>
+      </ul>
+      <a class="video" href="https://www.youtube.com/results?search_query=dead+hang+appensione+sbarra+tecnica" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Superman a pancia in giù">
+      <line class="ground" x1="8" y1="104" x2="192" y2="104"></line>
+      <path class="s" d="M34 66 Q70 96 110 94 Q148 92 166 68"></path>
+      <circle class="h" cx="62" cy="80" r="7"></circle>
+      <path class="att" d="M34 78 L34 60"></path>
+      <path class="att" d="M28 66 L34 56 L40 66"></path>
+      <path class="att" d="M166 80 L166 62"></path>
+      <path class="att" d="M160 68 L166 58 L172 68"></path>
+    </svg>
+    <div>
+      <h3>Superman</h3>
+      <p class="tag">Seduta B · catena posteriore, lombari, postura</p>
+      <p>A pancia in giù, sollevi braccia e gambe di pochi centimetri e tieni. Bilancia tutto il lavoro di spinta e serve alla postura in kart, dove si sta piegati in avanti per ore.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Pochi centimetri bastano: non è una prova di quanto inarchi.</li>
+        <li>Collo neutro, sguardo a terra. Non alzare la testa.</li>
+        <li>Se pizzica la zona lombare, solleva meno o alterna braccio destro e gamba sinistra.</li>
+      </ul>
+      <a class="video" href="https://www.youtube.com/results?search_query=superman+esercizio+lombari+esecuzione" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Crunch controllato">
+      <line class="ground" x1="8" y1="106" x2="192" y2="106"></line>
+      <path class="s" d="M58 106 L84 74 L114 98"></path>
+      <path class="s" d="M114 98 L138 82"></path>
+      <circle class="h" cx="146" cy="76" r="7.5"></circle>
+      <path class="gh" d="M114 98 L146 100"></path>
+      <circle class="ghf" cx="156" cy="96" r="7"></circle>
+      <path class="att" d="M160 90 L152 78"></path>
+    </svg>
+    <div>
+      <h3>Crunch controllato</h3>
+      <p class="tag">Seduta B · retto addominale — e il test dei due minuti</p>
+      <p>Ginocchia piegate, mani incrociate sul petto o alle tempie senza tirare. Sollevi le spalle da terra di una ventina di centimetri e scendi. È anche l'esercizio del test militare, quindi nel terzo blocco si lavora a tempo.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Il movimento è corto: la zona lombare resta a terra.</li>
+        <li>Mani mai dietro la nuca a tirare. È il modo più veloce per farsi male alla cervicale, e a te la cervicale serve altrove.</li>
+        <li>Espira salendo.</li>
+      </ul>
+      <a class="video" href="https://www.youtube.com/results?search_query=crunch+addominali+esecuzione+corretta+errori" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+</section>
+
+<section>
+  <h2>La corsa</h2>
+  <p>Due sedute a settimana, ognuna con un compito diverso. La lenta costruisce il motore, la breve lavora sul fiato che serve negli ultimi giri di una manche, quando la lucidità cala.</p>
+  <table>
+    <thead><tr><th>Seduta</th><th>Struttura</th><th>Come deve sembrare</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="g">Lenta</td>
+        <td>25-30' continui, 35' dall'ottava settimana</td>
+        <td>Riesci a parlare a frasi intere. Se non ci riesci, rallenta o alterna corsa e camminata.</td>
+      </tr>
+      <tr>
+        <td class="g">Breve</td>
+        <td>10' lenti, poi 6-8 × (1' veloce + 2' lenti), poi 5' lenti</td>
+        <td>Il minuto veloce è impegnativo ma non massimale: devi poterlo ripetere tutte le volte uguale.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="nota">Nelle prime quattro settimane la seduta breve non esiste: fai due corse lente. I tratti veloci entrano dalla quinta, quando tendini e caviglie hanno già un mese di lavoro alle spalle.</p>
+</section>
+
+<section>
+  <h2>Test e verifiche</h2>
+  <p>Fai il test all'inizio, poi alla fine di ogni blocco. Non più spesso: testarsi è faticoso e non allena.</p>
+  <table class="log">
+    <caption>Segna i numeri qui — servono più a te che a chiunque altro</caption>
+    <thead><tr><th>Prova</th><th class="num">Oggi</th><th class="num">Sett. 4</th><th class="num">Sett. 8</th><th class="num">Sett. 12</th><th class="num">A 24 mesi</th></tr></thead>
+    <tbody>
+      <tr><td>Piegamenti in 2 minuti</td><td></td><td></td><td></td><td></td><td class="num">45-55</td></tr>
+      <tr><td>Trazioni massime</td><td></td><td></td><td></td><td></td><td class="num">12-15</td></tr>
+      <tr><td>Crunch in 2 minuti</td><td></td><td></td><td></td><td></td><td class="num">55-65</td></tr>
+      <tr><td>Plank massimo</td><td></td><td></td><td></td><td></td><td class="num">2-3'</td></tr>
+      <tr><td>Corsa 3 km</td><td></td><td></td><td></td><td></td><td class="num">13-14'</td></tr>
+      <tr><td>Appensione massima</td><td></td><td></td><td></td><td></td><td class="num">90"</td></tr>
+    </tbody>
+  </table>
+  <p>C'è un settimo indicatore che non si misura col cronometro ed è il più importante per il kart: <strong>a che punto della manche cominci a perdere tempo sul giro</strong>. Se a giugno calavi dopo dieci minuti e a dicembre reggi fino alla fine, il programma sta funzionando, qualunque cosa dicano le altre righe.</p>
+</section>
+
+<section>
+  <h2>Dieta</h2>
+  <p>Questa sezione resta vuota finché non mi dai qualche dato. Una dieta scritta senza sapere cosa mangi, a che ora e quanto tempo hai per cucinare è carta sprecata: sotto trovi esattamente quello che mi serve.</p>
+
+  <h3>Cosa mi serve da te</h3>
+  <ul>
+    <li><strong>L'obiettivo.</strong> Perdere qualche chilo, restare come sei mettendo un po' di muscolo, o solo mangiare meglio senza pensare al peso. In kart il peso conta, ma dipende dalla categoria e dal peso minimo previsto: dimmi se corri con un limite.</li>
+    <li><strong>Una giornata tipo di come mangi adesso.</strong> Dalla colazione all'ultima cosa prima di dormire, senza aggiustare il tiro. Se salti i pasti scrivilo: è un'informazione, non una colpa.</li>
+    <li><strong>Gli orari veri.</strong> Quando ti svegli, quando lavori, quando riesci ad allenarti, a che ora ceni. Se i tuoi orari sono quelli della ristorazione — servizio serale, cena a mezzanotte, pasto del personale a orari strani — la dieta si costruisce al contrario rispetto a una standard.</li>
+    <li><strong>Chi cucina e quanto tempo c'è.</strong> Mangi al lavoro, cucini a casa, o dipende dai giorni.</li>
+    <li><strong>Cosa non mangi.</strong> Cose che non ti piacciono o che eviti per qualunque motivo.</li>
+    <li><strong>Alcol e caffè.</strong> Quanto, e quando.</li>
+    <li><strong>Integratori e diete già provate</strong>, se ce ne sono state, e come è andata.</li>
+  </ul>
+
+  <h3>Le tre cose che valgono già da ora</h3>
+  <ul>
+    <li><strong>Acqua nei giorni di pista.</strong> In tuta e casco si perde molto più liquido di quanto sembri, e il calo di lucidità che si attribuisce alla stanchezza spesso è disidratazione. Bevi prima e tra una manche e l'altra, non solo quando hai sete.</li>
+    <li><strong>Proteine distribuite, non concentrate.</strong> Se stanno tutte nella cena il recupero ne risente: meglio una quota in ogni pasto.</li>
+    <li><strong>Non allenarti a stomaco pieno né del tutto vuoto.</strong> Un'ora e mezza-due dopo un pasto normale è la finestra comoda.</li>
+  </ul>
+  <p class="nota">Con le risposte questa sezione diventa un piano settimanale vero, con i pasti costruiti attorno alle sedute e una versione alternativa per i giorni di gara.</p>
+</section>
+
+<section>
+  <h2>Dopo la dodicesima settimana</h2>
+  <p>Alla fine di questo ciclo non sarai ai numeri della tabella: sarai una persona che può cominciare ad allenarsi sul serio senza rompersi. È esattamente l'obiettivo.</p>
+  <p>Da lì i due percorsi divergono. La parte generale passa al lavoro a tempo: serie da eseguire in due minuti, densità crescente, trazioni piene stabilmente in programma. La parte kart aggiunge carico progressivo al collo — elastici prima, casco zavorrato molto più avanti — e resistenza alla presa più lunga.</p>
+  <p>I valori della colonna a 24 mesi sono realistici. I punteggi pieni dei test di idoneità per la fascia 35-45 anni sono un obiettivo da terzo anno. Ci si arriva. Serve solo arrivarci interi.</p>
+</section>
+
+<footer>
+  <p>Scheda compilata il 14 settembre 2026 su dati personali. Non sostituisce il parere di un medico o di un preparatore: la visita medico-sportiva viene prima della prima seduta, e sul lavoro del collo vale un controllo di persona.</p>
+</footer>
+
+</div>
+</body>
+</html>
