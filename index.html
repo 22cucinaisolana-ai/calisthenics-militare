@@ -2107,13 +2107,16 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
     var q=[0.40,0.55,0.70][blocco-1];
     var serie=[3,4,4][blocco-1];
     var n=Math.max(3, Math.round(max*q));
+    if(n>25) n=25;
     return serie+' × '+n;
   }
   function iso(max, blocco, suffisso){
     if(max===null||max<=0) return null;
     var q=[0.35,0.50,0.65][blocco-1];
     var serie=[2,3,3][blocco-1];
-    var n=Math.max(15, Math.round(max*q/5)*5);
+    var n=Math.round(max*q);
+    n=Math.min(n, Math.round(max*0.75));
+    n=Math.max(5, n);
     return serie+' × '+n+'"'+(suffisso||'');
   }
 
@@ -2124,7 +2127,8 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
     out.affondi=[1,2,3].map(function(b){
       if(d.tSquat===null) return null;
       var serie=[2,2,3][b-1];
-      var n=Math.max(5, Math.round(d.tSquat*[0.30,0.40,0.50][b-1]));
+      var n=Math.max(5, Math.round(d.tSquat*[0.20,0.26,0.32][b-1]));
+      if(n>12) n=12;
       return serie+' × '+n+' per gamba';
     });
     out.rematore=[1,2,3].map(function(b){ return rip(d.tRematore,b); });
@@ -2154,9 +2158,9 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
 
   function etichettaPiegamenti(max){
     if(max===null) return null;
-    if(max<8) return 'Piegamenti su rialzo alto (tavolo)';
-    if(max<15) return 'Piegamenti su rialzo basso (sedia)';
-    return 'Piegamenti a terra';
+    if(max<8) return 'Piegamenti — alza l\'appoggio di 15 cm';
+    if(max<15) return 'Piegamenti — tieni l\'appoggio di prova';
+    return 'Piegamenti — abbassa l\'appoggio di 15 cm';
   }
 
   function applicaScheda(d){
@@ -2477,9 +2481,10 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   function scrivi(d){ try{ localStorage.setItem(CHIAVE,JSON.stringify(d)); return true; }catch(e){ return false; } }
   function num(id){ var e=document.getElementById(id); if(!e) return null; var v=parseFloat(e.value); return isNaN(v)?null:v; }
   function rip(max,b){ if(max===null||max<=0) return null; var q=[0.40,0.55,0.70][b-1], s=[3,3,4][b-1];
-    return s+' × '+Math.max(3,Math.round(max*q)); }
+    return s+' × '+Math.min(25,Math.max(3,Math.round(max*q))); }
   function iso(max,b,suf){ if(max===null||max<=0) return null; var q=[0.35,0.50,0.65][b-1], s=[2,3,3][b-1];
-    return s+' × '+Math.max(10,Math.round(max*q/5)*5)+'"'+(suf||''); }
+    var n=Math.min(Math.round(max*q), Math.round(max*0.75)); n=Math.max(5,n);
+    return s+' × '+n+'"'+(suf||''); }
 
   function calcola(d){
     var o={};
@@ -2491,7 +2496,7 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
     o.planklat=[1,2,3].map(function(b){ return iso(d.mPlank!==null?d.mPlank*0.7:null,b,' per lato'); });
     o.superman=[1,2,3].map(function(b){ return iso(d.mPlank!==null?d.mPlank*0.7:null,b); });
     o.affondi=[1,2,3].map(function(b){ if(d.mSquat===null) return null;
-      var s=[2,3,3][b-1]; return s+' × '+Math.max(4,Math.round(d.mSquat*[0.25,0.33,0.42][b-1]))+' per gamba'; });
+      var s=[2,3,3][b-1]; return s+' × '+Math.min(12,Math.max(4,Math.round(d.mSquat*[0.18,0.24,0.30][b-1])))+' per gamba'; });
     o.stepup=[1,2,3].map(function(b){ if(d.mSquat===null) return null;
       var s=[2,3,3][b-1]; return s+' × '+Math.max(5,Math.round(d.mSquat*[0.35,0.45,0.55][b-1]))+' per gamba'; });
     o.hinge=[1,2,3].map(function(b){ return rip(d.mSquat!==null?d.mSquat*0.8:null,b); });
