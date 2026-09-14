@@ -6,150 +6,316 @@
 <title>Programma 12 settimane — ripresa e preparazione kart</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --carta:#F1F2EE;
-  --carta-alt:#E7E9E3;
-  --inchiostro:#16211F;
-  --blu:#1B3A6B;
-  --rosso:#C0281B;
-  --verde:#4E6F3F;
-  --grigio:#7E8580;
-  --linea:#D2D6CE;
+  --arancio:#F2590F;
+  --arancio-scuro:#C13F06;
+  --arancio-tenue:#FFF1E8;
+  --sfondo:#F4F4F6;
+  --carta:#FFFFFF;
+  --carta-alt:#FAF7F4;
+  --inchiostro:#171820;
+  --grigio:#787C8A;
+  --linea:#E7E7EC;
+  --blu:#F2590F;            /* accento: tutto ciò che era blu ora è arancione */
+  --rosso:#D92D20;
+  --verde:#0E9384;
+  --raggio:18px;
+  --raggio-s:12px;
+  --ombra:0 1px 2px rgba(23,24,32,.05), 0 12px 28px -16px rgba(23,24,32,.22);
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{
-  margin:0;
-  background:var(--carta);
-  color:var(--inchiostro);
-  font-family:"Source Serif 4",Georgia,serif;
-  font-size:17px;
-  line-height:1.62;
+  margin:0;background:var(--sfondo);color:var(--inchiostro);
+  font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:820px;margin:0 auto;padding:0 24px 96px}
+.wrap{max-width:840px;margin:0 auto;padding:0 18px 80px}
 
-.testata{padding:56px 0 28px;border-bottom:3px solid var(--inchiostro)}
-.kicker{font-family:"Barlow",sans-serif;font-size:13px;letter-spacing:.06em;color:var(--grigio);margin:0 0 10px;font-weight:500}
-h1{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:700;font-size:clamp(38px,7vw,66px);line-height:.95;margin:0 0 14px;letter-spacing:-.01em}
-.sottotitolo{font-size:19px;color:#39443F;margin:0 0 26px;max-width:56ch}
-.scheda-dati{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:2px;background:var(--linea);border:1px solid var(--linea)}
-.scheda-dati div{background:var(--carta);padding:10px 12px}
-.scheda-dati dt{font-family:"Barlow",sans-serif;font-size:12px;color:var(--grigio);margin:0 0 2px;font-weight:500}
-.scheda-dati dd{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:25px;margin:0;line-height:1.1;font-variant-numeric:tabular-nums}
+/* ---- testata ---- */
+.testata{padding:40px 4px 22px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--arancio);margin:0 0 12px}
+h1{font-weight:800;font-size:clamp(32px,7vw,50px);line-height:1.06;margin:0 0 14px;letter-spacing:-.03em}
+.sottotitolo{font-size:17px;color:var(--grigio);margin:0 0 24px;max-width:54ch;line-height:1.55}
+.scheda-dati{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;margin:0}
+.scheda-dati div{background:var(--carta);padding:12px 14px;border-radius:var(--raggio-s);box-shadow:var(--ombra)}
+.scheda-dati dt{font-size:11px;color:var(--grigio);margin:0 0 2px;font-weight:600}
+.scheda-dati dd{font-weight:800;font-size:22px;margin:0;line-height:1.15;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 
-.timeline{margin:38px 0 8px}
+.timeline{margin:26px 0 0}
 .timeline svg{width:100%;height:auto;display:block}
 
-section{margin:52px 0 0}
-h2{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:clamp(27px,4vw,36px);line-height:1.08;margin:0 0 6px;padding-bottom:7px;border-bottom:2px solid var(--inchiostro)}
-h3{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:23px;margin:34px 0 6px;line-height:1.15}
-h4{font-family:"Barlow",sans-serif;font-weight:600;font-size:15px;margin:16px 0 4px;color:var(--blu)}
-p{margin:0 0 15px;max-width:70ch}
-ul{margin:0 0 15px;padding-left:20px;max-width:70ch}
-li{margin:0 0 6px}
-a{color:var(--blu);text-underline-offset:2px}
-a:focus-visible{outline:2.5px solid var(--rosso);outline-offset:2px}
-.nota{color:var(--grigio);font-size:15px}
+/* ---- barra sezioni ---- */
+.barra{position:sticky;top:0;z-index:20;background:var(--sfondo);padding:10px 0 8px}
+.barra-int{max-width:840px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:0 18px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.barra-int::-webkit-scrollbar{display:none}
+.tab{
+  flex:0 0 auto;appearance:none;cursor:pointer;font:inherit;font-size:14px;font-weight:700;
+  color:var(--grigio);background:var(--carta);border:1px solid var(--linea);
+  padding:9px 16px;border-radius:999px;white-space:nowrap;transition:none;
+}
+.tab:hover{color:var(--inchiostro)}
+.tab[aria-selected="true"]{background:var(--arancio);border-color:var(--arancio);color:#fff}
+.tab:focus-visible{outline:2.5px solid var(--inchiostro);outline-offset:2px}
+.conta{font-size:12px;font-weight:600;color:var(--grigio);margin:14px 0 10px;padding:0 4px}
 
-table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-family:"Barlow",sans-serif;font-size:15px;font-variant-numeric:tabular-nums}
-caption{text-align:left;font-family:"Barlow",sans-serif;font-size:13px;color:var(--grigio);padding-bottom:6px}
-th{text-align:left;font-weight:600;font-size:13px;color:var(--grigio);border-bottom:2px solid var(--inchiostro);padding:6px 10px 6px 0;vertical-align:bottom}
-td{border-bottom:1px solid var(--linea);padding:9px 10px 9px 0;vertical-align:top}
-tbody tr:last-child td{border-bottom:2px solid var(--inchiostro)}
-td.g{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:18px;white-space:nowrap}
+/* ---- pannelli ---- */
+.pannello{display:none;background:var(--carta);border-radius:var(--raggio);padding:28px 26px 32px;box-shadow:var(--ombra)}
+.pannello.attivo{display:block}
+.pannello > h2:first-child{margin-top:0}
+
+h2{font-weight:800;font-size:clamp(24px,4.2vw,32px);line-height:1.15;margin:0 0 8px;letter-spacing:-.025em}
+h3{font-weight:700;font-size:19px;margin:32px 0 8px;line-height:1.3;letter-spacing:-.015em}
+h4{font-weight:700;font-size:14px;margin:14px 0 4px;color:var(--arancio)}
+p{margin:0 0 14px;max-width:68ch}
+ul{margin:0 0 14px;padding-left:20px;max-width:68ch}
+li{margin:0 0 7px}
+a{color:var(--arancio);font-weight:600;text-underline-offset:2px}
+a:focus-visible{outline:2.5px solid var(--inchiostro);outline-offset:2px}
+.nota{color:var(--grigio);font-size:14px}
+.occhiello{font-size:16px;color:var(--grigio);margin:0 0 20px;max-width:62ch}
+
+/* ---- tabelle ---- */
+table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0 22px;font-size:14px;font-variant-numeric:tabular-nums}
+caption{text-align:left;font-size:12px;font-weight:600;color:var(--grigio);padding-bottom:8px}
+th{text-align:left;font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--grigio);padding:8px 12px;vertical-align:bottom;background:var(--sfondo)}
+th:first-child{border-radius:var(--raggio-s) 0 0 var(--raggio-s)}
+th:last-child{border-radius:0 var(--raggio-s) var(--raggio-s) 0}
+td{border-bottom:1px solid var(--linea);padding:11px 12px;vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+td.g{font-weight:800;font-size:15px;white-space:nowrap;letter-spacing:-.01em}
 .num{white-space:nowrap}
 
-.regola{border-left:4px solid var(--rosso);background:rgba(192,40,27,.05);padding:14px 18px;margin:22px 0}
-.regola p{margin:0;max-width:64ch}
-.regola strong{font-family:"Barlow",sans-serif;font-weight:600}
-.ok{border-left:4px solid var(--verde);background:rgba(78,111,63,.06);padding:14px 18px;margin:22px 0}
-.ok p{margin:0;max-width:64ch}
+/* ---- riquadri ---- */
+.regola{border:1px solid rgba(217,45,32,.25);background:rgba(217,45,32,.05);padding:16px 18px;margin:20px 0;border-radius:var(--raggio-s)}
+.regola p{margin:0;max-width:62ch;font-size:15px}
+.regola strong{font-weight:800}
+.ok{border:1px solid rgba(14,147,132,.25);background:rgba(14,147,132,.06);padding:16px 18px;margin:20px 0;border-radius:var(--raggio-s)}
+.ok p{margin:0;max-width:62ch;font-size:15px}
+.errore{color:var(--rosso);font-weight:600}
 
-.esercizio{border-top:1px solid var(--linea);padding:26px 0 6px;display:grid;grid-template-columns:210px 1fr;gap:26px;align-items:start}
-.esercizio:first-of-type{border-top:2px solid var(--inchiostro)}
-.fig{width:100%;height:auto;background:var(--carta-alt);border:1px solid var(--linea)}
+/* ---- schede esercizio (sezione Esercizi) ---- */
+.esercizio{border-top:1px solid var(--linea);padding:24px 0 4px;display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:start}
+.esercizio:first-of-type{border-top:0}
+.fig{width:100%;height:auto;background:var(--carta-alt);border-radius:var(--raggio-s)}
 .esercizio h3{margin:0 0 4px}
-.tag{font-family:"Barlow",sans-serif;font-size:12px;font-weight:500;color:var(--grigio);margin:0 0 10px}
-.esercizio p{font-size:16px;margin:0 0 10px}
-.esercizio ul{font-size:16px;margin:0 0 10px}
-.video{display:inline-block;font-family:"Barlow",sans-serif;font-size:14px;font-weight:500;border:1.5px solid var(--blu);color:var(--blu);padding:5px 12px;text-decoration:none;margin-top:4px}
-.video:hover{background:var(--blu);color:var(--carta)}
-.errore{color:var(--rosso)}
-.log td{height:34px}
+.tag{font-size:12px;font-weight:600;color:var(--arancio);margin:0 0 10px}
+.esercizio p{font-size:15px;margin:0 0 10px}
+.esercizio ul{font-size:15px;margin:0 0 10px}
+.video{display:inline-block;font-size:13px;font-weight:700;background:var(--arancio-tenue);color:var(--arancio-scuro);padding:8px 16px;border-radius:999px;text-decoration:none;margin-top:4px}
+.video:hover{background:var(--arancio);color:#fff}
 
-footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--linea);font-family:"Barlow",sans-serif;font-size:13px;color:var(--grigio)}
+/* ---- accordion esercizi ---- */
+.acc-legenda{display:grid;grid-template-columns:1fr repeat(3,minmax(58px,84px));gap:8px;
+  font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--grigio);
+  padding:0 14px 8px 14px}
+.acc-legenda span:not(:first-child){text-align:right}
+.acc{background:var(--carta);border:1px solid var(--linea);border-radius:var(--raggio-s);margin-bottom:8px;overflow:hidden}
+.acc[open]{border-color:var(--arancio);background:var(--carta-alt)}
+.acc:last-of-type{margin-bottom:22px}
+.acc > summary{display:grid;grid-template-columns:1fr repeat(3,minmax(58px,84px));gap:8px;align-items:center;padding:14px;cursor:pointer;list-style:none}
+.acc > summary::-webkit-details-marker{display:none}
+.acc > summary:hover{background:var(--arancio-tenue)}
+.acc > summary:focus-visible{outline:2.5px solid var(--inchiostro);outline-offset:-3px}
+.acc .nome{font-size:15px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.acc .nome::before{content:"+";display:inline-block;width:20px;height:20px;line-height:19px;text-align:center;
+  background:var(--arancio-tenue);color:var(--arancio);border-radius:6px;font-weight:800;margin-right:10px;font-size:14px}
+.acc[open] .nome::before{content:"–";background:var(--arancio);color:#fff}
+.acc-num{display:contents}
+.acc-num b{font-size:13px;font-weight:600;color:var(--grigio);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.acc-corpo{display:grid;grid-template-columns:190px 1fr;gap:20px;padding:0 14px 20px;align-items:start}
+.acc-fig{width:100%;height:auto;background:var(--carta);border:1px solid var(--linea);border-radius:var(--raggio-s)}
+.acc-testo ul{margin:0 0 8px;font-size:14px;padding-left:18px}
+.acc-testo li{margin:0 0 6px}
+.acc-testo p{font-size:14px;margin:0 0 6px}
+.personale .acc-num b{color:var(--inchiostro);font-weight:700}
+.personale > summary .nome::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--verde);margin-left:8px;vertical-align:middle}
+
+/* ---- diario ---- */
+.log td{height:38px}
+.diario td{height:40px}
+.diario .nota-cella{font-size:11px;color:var(--grigio);line-height:1.4}
+
+/* ---- test guidato ---- */
+.avvio-guida{margin:18px 0 24px}
+.guida{background:var(--carta-alt);border:1px solid var(--linea);border-radius:var(--raggio);padding:22px;margin:0 0 26px}
+.guida-top{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--grigio);margin-bottom:12px}
+.guida-giorno{color:var(--arancio)}
+.guida-passo{flex:1}
+.guida h3{margin:0 0 12px;font-size:25px;font-weight:800;letter-spacing:-.02em}
+.guida-corpo{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:start;margin-bottom:6px}
+.guida-corpo:has(.guida-fig[hidden]){grid-template-columns:1fr}
+.guida-fig{background:var(--carta);border:1px solid var(--linea);border-radius:var(--raggio-s);overflow:hidden}
+.guida-svg{width:100%;height:auto;display:block}
+.guida ol,.guida ul{font-size:15px;margin:0 0 14px}
+.guida-corpo ul,.guida-corpo ol{margin-top:0}
+.guida p{font-size:15px}
+.timer{background:var(--carta);border:1px solid var(--linea);border-radius:var(--raggio-s);padding:18px;margin:0 0 16px;text-align:center}
+.timer-display{font-weight:800;font-size:60px;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums;margin-bottom:12px}
+.timer .azioni{justify-content:center;margin:0}
+.timer .nota{margin:10px 0 0;font-size:13px}
+.guida-campo{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;margin:0 0 18px;max-width:260px}
+.guida-campo input{font:inherit;font-size:28px;font-weight:800;padding:10px 14px;border:1.5px solid var(--linea);border-radius:var(--raggio-s);background:var(--carta);color:var(--inchiostro)}
+.guida-campo input:focus{outline:none;border-color:var(--arancio)}
+.guida-nav{margin:0}
+
+/* ---- modulo dati ---- */
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:16px 0 22px}
+.form label{display:flex;flex-direction:column;font-size:13px;font-weight:700;gap:2px}
+.form .aiuto{font-weight:500;font-size:11px;color:var(--grigio);margin-bottom:5px}
+.form input,.form select{font:inherit;font-size:19px;font-weight:700;padding:10px 12px;border:1.5px solid var(--linea);border-radius:var(--raggio-s);background:var(--carta);color:var(--inchiostro)}
+.form select{font-size:15px;font-weight:600}
+.form input:focus,.form select:focus{outline:none;border-color:var(--arancio)}
+.azioni{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px}
+.azioni button{appearance:none;cursor:pointer;font:inherit;font-size:14px;font-weight:700;padding:12px 22px;border-radius:999px;background:var(--carta);border:1.5px solid var(--linea);color:var(--inchiostro)}
+.azioni button:hover{border-color:var(--arancio);color:var(--arancio)}
+.azioni .primario{background:var(--arancio);border-color:var(--arancio);color:#fff}
+.azioni .primario:hover{background:var(--arancio-scuro);border-color:var(--arancio-scuro);color:#fff}
+.azioni button:focus-visible{outline:2.5px solid var(--inchiostro);outline-offset:2px}
+.stato{font-size:13px;color:var(--grigio);margin:0 0 18px}
+.stato.viva{color:var(--verde);font-weight:600}
+.linkish{appearance:none;background:none;border:0;padding:0;cursor:pointer;color:var(--arancio);font:inherit;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+
+/* ---- stime dieta ---- */
+.stime{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:8px 0 24px}
+.stime .cella{background:var(--arancio-tenue);padding:16px;border-radius:var(--raggio-s)}
+.stime dt{font-size:11px;color:var(--arancio-scuro);margin:0 0 4px;font-weight:700}
+.stime dd{font-weight:800;font-size:26px;margin:0;line-height:1.05;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stime .unita{font-size:13px;color:var(--grigio);font-weight:600}
+.stime > .stato{grid-column:1/-1;background:var(--sfondo);padding:16px;border-radius:var(--raggio-s);margin:0}
+
+/* ---- navigazione in fondo ---- */
+.avanti{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:18px;border-top:1px solid var(--linea)}
+.avanti button{appearance:none;cursor:pointer;font:inherit;font-size:13px;font-weight:700;padding:11px 20px;border-radius:999px;background:var(--carta);border:1.5px solid var(--linea);color:var(--inchiostro)}
+.avanti button:hover{border-color:var(--arancio);color:var(--arancio)}
+.avanti button:disabled{opacity:.35;cursor:default}
+.avanti button:disabled:hover{border-color:var(--linea);color:var(--inchiostro)}
+.avanti button:focus-visible{outline:2.5px solid var(--inchiostro);outline-offset:2px}
+
+footer{margin-top:28px;padding:20px 6px 0;font-size:12px;color:var(--grigio)}
 
 @media (max-width:620px){
-  body{font-size:16px}
+  .wrap{padding:0 14px 64px}
+  .barra-int{padding:0 14px}
+  .pannello{padding:22px 16px 26px;border-radius:16px}
   .esercizio{grid-template-columns:1fr;gap:14px}
   .fig{max-width:300px}
-  table{font-size:14px}
-  .wrap{padding:0 16px 64px}
+  table{font-size:13px}
+  td,th{padding:9px 8px}
+  .acc-legenda,.acc > summary{grid-template-columns:1fr repeat(3,minmax(42px,56px));gap:5px}
+  .acc-legenda{padding:0 10px 8px 10px}
+  .acc > summary{padding:12px 10px}
+  .acc .nome{font-size:14px}
+  .acc-num b{font-size:11px}
+  .acc-corpo{grid-template-columns:1fr;gap:12px;padding:0 10px 16px}
+  .acc-fig{max-width:280px}
+  .guida-corpo{grid-template-columns:1fr;gap:14px}
+  .guida-fig{max-width:300px}
+  .timer-display{font-size:48px}
+  .azioni button{flex:1 1 auto}
 }
 @media print{
-  body{background:#fff;font-size:11.5pt}
-  .video{display:none}
+  body{background:#fff;font-size:11pt}
+  .barra,.video,.avanti,.conta,.form,.azioni,.linkish,.guida,.avvio-guida{display:none!important}
+  .pannello{display:block!important;box-shadow:none;padding:0;page-break-before:always}
+  .pannello:first-of-type{page-break-before:auto}
+  .acc-corpo{display:grid!important}
+  .acc > summary{cursor:default}
   .esercizio{break-inside:avoid}
   h2{break-after:avoid}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 
 svg .s{stroke:var(--inchiostro);stroke-width:3.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 svg .h{fill:var(--inchiostro)}
-svg .gh{stroke:var(--grigio);stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.45}
-svg .ghf{fill:var(--grigio);opacity:.45}
-svg .ground{stroke:var(--grigio);stroke-width:2;opacity:.5}
-svg .att{stroke:var(--rosso);stroke-width:2;fill:none;stroke-dasharray:5 4}
+svg .gh{stroke:var(--grigio);stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.4}
+svg .ghf{fill:var(--grigio);opacity:.4}
+svg .ground{stroke:var(--linea);stroke-width:2.5}
+svg .att{stroke:var(--arancio);stroke-width:2.4;fill:none;stroke-dasharray:5 4}
 svg .ref{stroke:var(--verde);stroke-width:1.8;stroke-dasharray:3 4;fill:none}
-svg .obj{stroke:var(--inchiostro);stroke-width:2.4;fill:none}
-svg text{font-family:"Barlow",sans-serif;font-size:11px;fill:var(--grigio)}
+svg .obj{stroke:var(--grigio);stroke-width:2.4;fill:none}
+svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:600;fill:var(--grigio)}
 </style>
 </head>
 <body>
+
 <div class="wrap">
+  <header class="testata">
+    <p class="kicker">Scheda di preparazione · 14 settembre 2026</p>
+    <h1>Dodici settimane<br>per tornare in moto</h1>
+    <p class="sottotitolo">Ricostruzione della base dopo vent'anni di stop, tutto in casa, con sedute da quindici minuti e il lavoro specifico per il kart innestato dentro. Non è un programma per fare numeri subito: serve perché i numeri arrivino, senza esserti fatto male prima.</p>
+    <dl class="scheda-dati">
+      <div><dt>Età</dt><dd>40</dd></div>
+      <div><dt>Statura</dt><dd>173 cm</dd></div>
+      <div><dt>Peso</dt><dd>77 kg</dd></div>
+      <div><dt>Fermo da</dt><dd>2006</dd></div>
+      <div><dt>Kart da</dt><dd>giugno</dd></div>
+      <div><dt>Sedute</dt><dd>15'</dd></div>
+    </dl>
+  </header>
+</div>
 
-<header class="testata">
-  <p class="kicker">Scheda di preparazione · 14 settembre 2026</p>
-  <h1>Dodici settimane<br>per tornare in moto</h1>
-  <p class="sottotitolo">Ricostruzione della base dopo vent'anni di stop, con il lavoro specifico per il kart innestato dentro. Non è un programma per fare numeri subito: è quello che serve perché tra due anni i numeri arrivino, senza esserti fatto male prima.</p>
-  <dl class="scheda-dati">
-    <div><dt>Età</dt><dd>40</dd></div>
-    <div><dt>Statura</dt><dd>173 cm</dd></div>
-    <div><dt>Peso</dt><dd>77 kg</dd></div>
-    <div><dt>Fermo da</dt><dd>2006</dd></div>
-    <div><dt>Kart da</dt><dd>giugno</dd></div>
-    <div><dt>Sedute</dt><dd>3 + 2</dd></div>
-  </dl>
-
-  <div class="timeline">
-    <svg viewBox="0 0 800 96" role="img">
-      <title>Tre blocchi: settimane 1-4 tendini, 5-8 volume, 9-12 densità</title>
-      <rect x="0" y="30" width="258" height="26" fill="#4E6F3F" opacity=".22"></rect>
-      <rect x="264" y="30" width="258" height="26" fill="#1B3A6B" opacity=".22"></rect>
-      <rect x="528" y="30" width="272" height="26" fill="#C0281B" opacity=".22"></rect>
-      <line x1="0" y1="30" x2="258" y2="30" stroke="#4E6F3F" stroke-width="4"></line>
-      <line x1="264" y1="30" x2="522" y2="30" stroke="#1B3A6B" stroke-width="4"></line>
-      <line x1="528" y1="30" x2="800" y2="30" stroke="#C0281B" stroke-width="4"></line>
-      <text x="0" y="22" style="font-size:13px;font-weight:600;fill:#4E6F3F">Settimane 1–4</text>
-      <text x="264" y="22" style="font-size:13px;font-weight:600;fill:#1B3A6B">Settimane 5–8</text>
-      <text x="528" y="22" style="font-size:13px;font-weight:600;fill:#C0281B">Settimane 9–12</text>
-      <text x="0" y="70" style="font-size:14px;fill:#16211F">Adattare tendini e articolazioni</text>
-      <text x="264" y="70" style="font-size:14px;fill:#16211F">Costruire volume</text>
-      <text x="528" y="70" style="font-size:14px;fill:#16211F">Primi test a tempo</text>
-      <text x="0" y="88">tecnica pulita, volumi bassi</text>
-      <text x="264" y="88">più serie, più ripetizioni</text>
-      <text x="528" y="88">densità e resistenza</text>
-    </svg>
+<nav class="barra" aria-label="Sezioni del programma">
+  <div class="barra-int" role="tablist">
+    <button class="tab" role="tab" data-sez="blocchi" aria-selected="true">I blocchi</button>
+    <button class="tab" role="tab" data-sez="regole" aria-selected="false">Regole</button>
+    <button class="tab" role="tab" data-sez="settimana" aria-selected="false">Settimane</button>
+    <button class="tab" role="tab" data-sez="sedute" aria-selected="false">Sedute</button>
+    <button class="tab" role="tab" data-sez="esercizi" aria-selected="false">Esercizi</button>
+    <button class="tab" role="tab" data-sez="corsa" aria-selected="false">Fiato</button>
+    <button class="tab" role="tab" data-sez="test" aria-selected="false">I tuoi dati</button>
+    <button class="tab" role="tab" data-sez="diario" aria-selected="false">Diario</button>
+    <button class="tab" role="tab" data-sez="dieta" aria-selected="false">Dieta</button>
+    <button class="tab" role="tab" data-sez="dopo" aria-selected="false">Dopo</button>
   </div>
-</header>
+</nav>
 
-<section>
-  <h2>Le sei regole che tengono in piedi tutto il resto</h2>
-  <p>Se dovessi dimenticare la scheda e ricordare solo questa pagina, andrebbe ancora bene.</p>
+<div class="wrap">
+  <p class="conta" id="conta">Sezione 1 di 9</p>
+
+<!-- ============ 1. BLOCCHI ============ -->
+<section class="pannello attivo" id="blocchi" role="tabpanel">
+  <h2>Come è diviso il programma</h2>
+  <p class="occhiello">Dodici settimane, tre blocchi da quattro. Ogni blocco ha un compito diverso e non si salta avanti: il secondo funziona solo se il primo è stato fatto piano davvero.</p>
+  <svg viewBox="0 0 800 96" role="img" style="width:100%;height:auto;display:block;margin:18px 0 26px">
+    <title>Tre blocchi da quattro settimane</title>
+    <rect x="0" y="30" width="258" height="26" fill="#F2590F" opacity=".14"></rect>
+    <rect x="264" y="30" width="258" height="26" fill="#F2590F" opacity=".30"></rect>
+    <rect x="528" y="30" width="272" height="26" fill="#F2590F" opacity=".55"></rect>
+    <line x1="0" y1="30" x2="258" y2="30" stroke="#FBB68C" stroke-width="4"></line>
+    <line x1="264" y1="30" x2="522" y2="30" stroke="#F2590F" stroke-width="4"></line>
+    <line x1="528" y1="30" x2="800" y2="30" stroke="#C13F06" stroke-width="4"></line>
+    <text x="0" y="22" style="font-size:13px;font-weight:600;fill:#C13F06">Settimane 1–4</text>
+    <text x="264" y="22" style="font-size:13px;font-weight:600;fill:#C13F06">Settimane 5–8</text>
+    <text x="528" y="22" style="font-size:13px;font-weight:600;fill:#C13F06">Settimane 9–12</text>
+    <text x="0" y="70" style="font-size:14px;fill:#171820">Adattare tendini e articolazioni</text>
+    <text x="264" y="70" style="font-size:14px;fill:#171820">Costruire volume</text>
+    <text x="528" y="70" style="font-size:14px;fill:#171820">Primi test a tempo</text>
+    <text x="0" y="88">tecnica pulita, volumi bassi</text>
+    <text x="264" y="88">più serie, più ripetizioni</text>
+    <text x="528" y="88">densità e resistenza</text>
+  </svg>
+  <table>
+    <thead><tr><th>Blocco</th><th>Cosa succede</th><th>Come deve sembrare</th></tr></thead>
+    <tbody>
+      <tr><td class="g">1–4</td><td>Volumi bassi, tecnica, nessun test</td><td>Frustrantemente facile. È voluto.</td></tr>
+      <tr><td class="g">5–8</td><td>Più serie e ripetizioni, entrano trazioni negative e tratti veloci nella corsa</td><td>Impegnativo ma gestibile, senza dolori articolari.</td></tr>
+      <tr><td class="g">9–12</td><td>Recuperi più corti, primi lavori a tempo</td><td>Fatica vera nelle ultime serie.</td></tr>
+    </tbody>
+  </table>
+  <div class="regola">
+    <p><strong>Prima della prima seduta:</strong> visita medico-sportiva con elettrocardiogramma. Dopo vent'anni di stop e a quarant'anni non è burocrazia, è la cosa più sensata di tutto il programma. Costa poco ed è comunque obbligatoria per l'agonismo.</p>
+  </div>
+</section>
+
+<!-- ============ 2. REGOLE ============ -->
+<section class="pannello" id="regole" role="tabpanel">
+  <h2>Le sei regole</h2>
+  <p class="occhiello">Se dovessi dimenticare tutto il resto e ricordare solo questa sezione, andrebbe ancora bene.</p>
   <ul>
-    <li><strong>Mai due sedute di forza di fila.</strong> Il muscolo recupera in 48 ore, il tendine in molte di più. A quarant'anni la distanza fra i due tempi si allarga.</li>
+    <li><strong>Mai due sedute di forza di fila.</strong> Il muscolo recupera in 48 ore, il tendine in molte di più. A quarant'anni la distanza tra i due tempi si allarga.</li>
     <li><strong>Il primo mese fai metà di quello che senti di poter fare.</strong> Fiato e muscoli torneranno prima dei tendini, e ti convinceranno a strafare.</li>
     <li><strong>Una ripetizione in più a settimana, non cinque.</strong> La progressione noiosa è quella che arriva in fondo.</li>
     <li><strong>Tecnica prima del numero.</strong> Meglio 5 piegamenti puliti che 12 con il bacino che affonda: quelli sbagliati, moltiplicati per migliaia, diventano una tendinite della spalla.</li>
@@ -157,81 +323,293 @@ svg text{font-family:"Barlow",sans-serif;font-size:11px;fill:var(--grigio)}
     <li><strong>Se un dolore è articolare e non muscolare, fermati.</strong> Il muscolo brucia e indolenzisce; l'articolazione punge, tira, fa male il giorno dopo a freddo. Il secondo tipo non si allena, si fa vedere.</li>
   </ul>
   <div class="regola">
-    <p><strong>Prima di iniziare:</strong> visita medico-sportiva con elettrocardiogramma. Dopo vent'anni di stop e a quarant'anni non è burocrazia, è la cosa più sensata di questa pagina. Costa poco ed è comunque obbligatoria per l'agonismo.</p>
+    <p><strong>Regola del venerdì:</strong> il giorno prima della pista non ti alleni, mai, nemmeno leggero. Un collo affaticato reagisce più lentamente sui cordoli ed è messo peggio di un collo poco allenato.</p>
   </div>
 </section>
 
-<section>
-  <h2>La settimana</h2>
-  <p>Tre sedute di forza da 30-35 minuti, due di corsa da 25-30, due giorni liberi. Il kart, quando c'è, occupa la domenica.</p>
+<!-- ============ 3. SETTIMANA ============ -->
+<section class="pannello" id="settimana" role="tabpanel">
+  <h2>Le due settimane</h2>
+  <p class="occhiello">Quattro o cinque sedute da quindici minuti, tutte in casa, su un ciclo di quattordici giorni. La pista cade di sabato una settimana sì e una no, e nella settimana in cui c'è il resto si alleggerisce.</p>
+
+
+  <h3>Settimana 1 — si parte con i test</h3>
+  <p>La prima settimana non segue lo schema: i primi due giorni servono a misurarti, perché senza quei numeri la scheda resta generica.</p>
   <table>
-    <caption>Settimana tipo — sposta i giorni se serve, ma tieni gli intervalli</caption>
+    <caption>14–20 settembre · la pista cade sabato 26, quindi il ciclo si incastra da solo</caption>
     <thead><tr><th>Giorno</th><th>Seduta</th><th>Contenuto</th><th class="num">Durata</th></tr></thead>
     <tbody>
-      <tr><td class="g">Lun</td><td>A · Generale</td><td>Spinta, gambe, core</td><td class="num">35'</td></tr>
-      <tr><td class="g">Mar</td><td>Corsa lenta</td><td>Ritmo conversazione</td><td class="num">25-30'</td></tr>
-      <tr><td class="g">Mer</td><td>K · Kart</td><td>Collo, presa, rotazione, avambracci</td><td class="num">20'</td></tr>
-      <tr><td class="g">Gio</td><td>Riposo</td><td>Camminata se ne hai voglia</td><td class="num">—</td></tr>
-      <tr><td class="g">Ven</td><td>B · Generale</td><td>Tirata, core, spinta leggera</td><td class="num">35'</td></tr>
-      <tr><td class="g">Sab</td><td>Corsa breve</td><td>Con tratti veloci — salta se domenica c'è gara</td><td class="num">25'</td></tr>
-      <tr><td class="g">Dom</td><td>Kart / riposo</td><td>—</td><td class="num">—</td></tr>
+      <tr><td class="g">Lun 14</td><td>Test forza</td><td>Piegamenti, rematore, trazioni, squat</td><td class="num">15'</td></tr>
+      <tr><td class="g">Mar 15</td><td>Test tenuta</td><td>Plank, appensione, step-up in 3'</td><td class="num">15'</td></tr>
+      <tr><td class="g">Mer 16</td><td>K · Kart</td><td>Collo, presa, rotazione</td><td class="num">15'</td></tr>
+      <tr><td class="g">Gio 17</td><td>Riposo</td><td>—</td><td class="num">—</td></tr>
+      <tr><td class="g">Ven 18</td><td>A · Spinta</td><td>Con i numeri usciti dal test</td><td class="num">15'</td></tr>
+      <tr><td class="g">Sab 19</td><td>B · Tirata</td><td>Con i numeri usciti dal test</td><td class="num">15'</td></tr>
+      <tr><td class="g">Dom 20</td><td>Riposo</td><td>—</td><td class="num">—</td></tr>
     </tbody>
   </table>
   <div class="regola">
-    <p><strong>Regola del sabato:</strong> se domenica vai in pista, il sabato non ti alleni. Un collo affaticato reagisce più lentamente sui cordoli ed è messo peggio di un collo poco allenato. Tieni la seduta pesante a inizio settimana.</p>
+    <p><strong>Nel test non andare a esaurimento.</strong> Fermati alla prima ripetizione in cui la tecnica si sporca: il bacino che cede nei piegamenti, la schiena che si arrotonda nello squat, le spalle che si alzano all'appensione. Quel numero è il tuo massimale utile ed è quello che serve al ricalcolo. Le ultime due ripetizioni brutte non aggiungono informazione, aggiungono solo rischio. Tre minuti di pausa tra una prova e l'altra: sono gli unici del programma in cui la pausa lunga è giusta.</p>
   </div>
-</section>
+  <p class="nota">Senza sbarra da porta i primi due giorni reggono lo stesso — il rematore lo fai sotto un tavolo e lasci vuoto il campo dell'appensione — ma da mercoledì la seduta K senza sbarra resta dimezzata.</p>
 
-<section>
-  <h2>Le tre sedute</h2>
-
-  <h3>Seduta A · generale, spinta e gambe</h3>
+  <h3>Settimana con pista</h3>
   <table>
-    <thead><tr><th>Esercizio</th><th class="num">Sett. 1–4</th><th class="num">Sett. 5–8</th><th class="num">Sett. 9–12</th></tr></thead>
+    <caption>La seduta kart va lontana dal sabato, il venerdì è sacro</caption>
+    <thead><tr><th>Giorno</th><th>Seduta</th><th>Contenuto</th><th class="num">Durata</th></tr></thead>
     <tbody>
-      <tr><td>Piegamenti su rialzo</td><td class="num">3 × 5-8</td><td class="num">4 × 8-12</td><td class="num">4 × 12-18 (a terra)</td></tr>
-      <tr><td>Squat a corpo libero</td><td class="num">3 × 12</td><td class="num">3 × 18</td><td class="num">4 × 20-25</td></tr>
-      <tr><td>Affondi alternati</td><td class="num">2 × 8 per gamba</td><td class="num">3 × 10</td><td class="num">3 × 12-15</td></tr>
-      <tr><td>Plank frontale</td><td class="num">3 × 20-30"</td><td class="num">3 × 45"</td><td class="num">3 × 60-75"</td></tr>
-      <tr><td>Appensione alla sbarra</td><td class="num">3 × 15-20"</td><td class="num">3 × 30"</td><td class="num">3 × 45"</td></tr>
+      <tr><td class="g">Lun</td><td>A · Spinta</td><td>Piegamenti, plank, affondi</td><td class="num">15'</td></tr>
+      <tr><td class="g">Mar</td><td>K · Kart</td><td>Collo, presa, rotazione — quattro giorni prima della pista</td><td class="num">15'</td></tr>
+      <tr><td class="g">Mer</td><td>C · Gambe e fiato</td><td>Squat, step-up, lavoro a tempo</td><td class="num">15'</td></tr>
+      <tr><td class="g">Gio</td><td>B · Tirata</td><td>Rematore, core posteriore</td><td class="num">15'</td></tr>
+      <tr><td class="g">Ven</td><td>Riposo</td><td>Niente, nemmeno leggero</td><td class="num">—</td></tr>
+      <tr><td class="g">Sab</td><td>Pista</td><td>—</td><td class="num">—</td></tr>
+      <tr><td class="g">Dom</td><td>Riposo</td><td>Camminata se ne hai voglia</td><td class="num">—</td></tr>
     </tbody>
   </table>
-  <p class="nota">Recupero 90 secondi tra le serie nel primo blocco, 60 nel secondo, 45 nel terzo. Ridurre il recupero è di per sé una progressione.</p>
 
-  <h3>Seduta B · generale, tirata e core</h3>
+  <h3>Settimana senza pista</h3>
   <table>
-    <thead><tr><th>Esercizio</th><th class="num">Sett. 1–4</th><th class="num">Sett. 5–8</th><th class="num">Sett. 9–12</th></tr></thead>
+    <caption>La settimana piena: qui si costruisce</caption>
+    <thead><tr><th>Giorno</th><th>Seduta</th><th>Contenuto</th><th class="num">Durata</th></tr></thead>
     <tbody>
-      <tr><td>Rematore su barra bassa</td><td class="num">3 × 6</td><td class="num">4 × 10</td><td class="num">4 × 12-15</td></tr>
-      <tr><td>Trazioni negative</td><td class="num">—</td><td class="num">3 × 3 (5")</td><td class="num">3 × 4 (5")</td></tr>
-      <tr><td>Piegamenti in ginocchio</td><td class="num">2 × 8</td><td class="num">3 × 12</td><td class="num">3 × 15</td></tr>
-      <tr><td>Plank laterale</td><td class="num">3 × 20" per lato</td><td class="num">3 × 35"</td><td class="num">3 × 50"</td></tr>
-      <tr><td>Crunch controllato</td><td class="num">3 × 10</td><td class="num">3 × 18</td><td class="num">4 × 25</td></tr>
-      <tr><td>Superman</td><td class="num">3 × 20"</td><td class="num">3 × 30"</td><td class="num">3 × 40"</td></tr>
+      <tr><td class="g">Lun</td><td>A · Spinta</td><td>Piegamenti, plank, affondi</td><td class="num">15'</td></tr>
+      <tr><td class="g">Mar</td><td>C · Gambe e fiato</td><td>Squat, step-up, lavoro a tempo</td><td class="num">15'</td></tr>
+      <tr><td class="g">Mer</td><td>K · Kart</td><td>Collo, presa, rotazione, avambracci</td><td class="num">15'</td></tr>
+      <tr><td class="g">Gio</td><td>Riposo</td><td>—</td><td class="num">—</td></tr>
+      <tr><td class="g">Ven</td><td>B · Tirata</td><td>Rematore, core posteriore</td><td class="num">15'</td></tr>
+      <tr><td class="g">Sab</td><td>E · Richiamo</td><td>Ripeti A o B, quella che ti è venuta peggio</td><td class="num">15'</td></tr>
+      <tr><td class="g">Dom</td><td>Riposo</td><td>—</td><td class="num">—</td></tr>
     </tbody>
   </table>
-  <p class="nota">Le trazioni negative entrano solo dalla quinta settimana: prima le spalle non hanno ancora l'abitudine al carico in sospensione.</p>
 
-  <h3>Seduta K · specifica kart</h3>
-  <p>Venti minuti, nel giorno più lontano possibile dalla pista. Qui non conta la fatica, conta la qualità della contrazione.</p>
-  <table>
-    <thead><tr><th>Esercizio</th><th class="num">Sett. 1–4</th><th class="num">Sett. 5–8</th><th class="num">Sett. 9–12</th></tr></thead>
-    <tbody>
-      <tr><td>Isometrie collo · 4 direzioni</td><td class="num">2 × 15"</td><td class="num">2 × 20"</td><td class="num">3 × 20"</td></tr>
-      <tr><td>Appensione alla sbarra</td><td class="num">3 × 20"</td><td class="num">3 × 35"</td><td class="num">3 × 50"</td></tr>
-      <tr><td>Presa su asciugamano arrotolato</td><td class="num">3 × 20"</td><td class="num">3 × 30"</td><td class="num">3 × 40"</td></tr>
-      <tr><td>Rotazione busto contro elastico</td><td class="num">3 × 8 per lato</td><td class="num">3 × 12</td><td class="num">3 × 15</td></tr>
-      <tr><td>Mobilità spalle (bastone/asciugamano)</td><td class="num">2 × 10</td><td class="num">2 × 10</td><td class="num">2 × 10</td></tr>
-    </tbody>
-  </table>
   <div class="ok">
-    <p>Perché proprio queste: il kart non ha sospensioni, quindi il corpo assorbe torsioni e vibrazioni al posto del telaio, e in gara il cuore arriva a frequenze molto alte. Sono condizioni che si allenano con il lavoro statico — tenere, non muovere — più che con le ripetizioni veloci.</p>
+    <p><strong>La domenica dopo la pista è la tua diagnostica.</strong> Segna cosa ti fa male: se è il collo, la seduta K resta la priorità; se sono avambracci e mani, aumenta appensione e lavoro di presa; se è la zona lombare o il fianco, sono plank e rotazioni. Ogni due settimane hai una misurazione gratis di dove sei scoperto.</p>
+  </div>
+
+  <p class="nota">Andare in pista ogni due settimane significa che la condizione non la costruisce la guida: la costruiscono queste due settimane. È il motivo per cui la seduta K, la più corta e la meno faticosa, è quella che non va saltata.</p>
+  <p class="nota">Se la settimana salta, la priorità è questa: prima A e B, poi K, poi C. Il richiamo del sabato è un di più, non un debito.</p>
+</section>
+
+
+<!-- ============ 4. SEDUTE ============ -->
+<section class="pannello" id="sedute" role="tabpanel">
+  <h2>Le cinque sedute</h2>
+  <p class="occhiello">Quindici minuti cronometrati. Il timer parte alla prima serie e a fine tempo si chiude, anche a metà tabella: la costanza vale più del completamento. Le tre colonne sono i tre blocchi da quattro settimane.</p>
+
+  <p class="stato" id="statoScheda">Stai vedendo i valori generici. Inserisci i test nella sezione <button class="linkish" data-vai="test" type="button">I tuoi dati</button> e la scheda si ricalcola sui tuoi numeri.</p>
+
+  <h3>A · Spinta e core</h3>
+<div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
+<details class="acc" data-ex="piegamenti">
+  <summary><span class="nome">Piegamenti su rialzo</span><span class="acc-num"><b data-b="1">3 × 5-8</b><b data-b="2">4 × 8-12</b><b data-b="3">4 × 12-18</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Piegamento sulle braccia con le mani su un rialzo">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <rect class="obj" x="18" y="72" width="38" height="36"></rect>
+      <line class="s" x1="37" y1="72" x2="37" y2="50"></line>
+      <circle class="h" cx="29" cy="43" r="7"></circle>
+      <path class="s" d="M37 50 L92 70 L142 100 L152 106"></path>
+      <path class="gh" d="M37 72 L51 64 L37 60"></path>
+      <circle class="ghf" cx="29" cy="53" r="7"></circle>
+      <path class="gh" d="M37 60 L92 76 L142 100"></path>
+    </svg><div class="acc-testo"><ul><li>Mani poco più larghe delle spalle, all'altezza del petto.</li><li>Dalla testa ai talloni una linea sola: glutei e addome contratti.</li><li>Gomiti a 45° dal busto, non aperti a T.</li><li>Scendi in 2 secondi, spingi in 1, niente rimbalzo in fondo.</li></ul><p class="errore">Errore tipico: il bacino che cede e scarica tutto sulla zona lombare.</p><p class="nota">Più alto è l'appoggio, più leggero è l'esercizio: è la manopola della difficoltà.</p></div></div>
+</details>
+<details class="acc" data-ex="plank">
+  <summary><span class="nome">Plank frontale</span><span class="acc-num"><b data-b="1">2 × 20-30"</b><b data-b="2">3 × 45"</b><b data-b="3">3 × 60-75"</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Plank frontale sugli avambracci">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <line class="s" x1="34" y1="104" x2="62" y2="104"></line>
+      <line class="s" x1="40" y1="104" x2="40" y2="80"></line>
+      <circle class="h" cx="30" cy="74" r="7"></circle>
+      <path class="s" d="M40 80 L96 88 L150 104 L161 108"></path>
+      <path class="ref" d="M40 80 L150 104"></path>
+    </svg><div class="acc-testo"><ul><li>Gomiti sotto le spalle, spingili contro il pavimento.</li><li>Bacino leggermente retroverso, pube verso l'ombelico.</li><li>Respira normalmente: se trattieni il fiato stai tenendo troppo.</li></ul><p class="errore">Errore tipico: tenere a lungo con il bacino che affonda. Meglio meno secondi, perfetti.</p></div></div>
+</details>
+<details class="acc" data-ex="affondi">
+  <summary><span class="nome">Affondi alternati</span><span class="acc-num"><b data-b="1">2 × 8 per gamba</b><b data-b="2">2 × 10</b><b data-b="3">3 × 12</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Affondo, vista laterale">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <path class="s" d="M58 108 L58 78 L96 72"></path>
+      <path class="s" d="M96 72 L124 100 L146 108"></path>
+      <path class="s" d="M96 72 L92 48"></path>
+      <circle class="h" cx="90" cy="39" r="7.5"></circle>
+      <path class="ref" d="M92 30 L96 76"></path>
+    </svg><div class="acc-testo"><ul><li>Busto verticale, non inclinato in avanti.</li><li>Ginocchio davanti sopra la caviglia, non oltre la punta.</li><li>Risali spingendo con il tallone del piede avanti.</li></ul><p class="nota">Se perdi l'equilibrio appoggia due dita al muro, invece di accorciare il movimento.</p></div></div>
+</details>
+
+  <h3>B · Tirata e core posteriore</h3>
+<div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
+<details class="acc" data-ex="rematore">
+  <summary><span class="nome">Rematore su tavolo o sbarra bassa</span><span class="acc-num"><b data-b="1">3 × 6</b><b data-b="2">4 × 10</b><b data-b="3">4 × 12-15</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Rematore a corpo libero sotto una barra bassa">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <line class="obj" x1="30" y1="50" x2="176" y2="50"></line>
+      <line class="obj" x1="36" y1="50" x2="36" y2="108"></line>
+      <line class="obj" x1="170" y1="50" x2="170" y2="108"></line>
+      <line class="s" x1="104" y1="50" x2="104" y2="76"></line>
+      <circle class="h" cx="92" cy="80" r="7"></circle>
+      <path class="s" d="M104 76 L138 90 L172 102"></path>
+      <path class="gh" d="M104 50 L122 60 L104 64"></path>
+      <path class="gh" d="M104 64 L138 84 L172 102"></path>
+    </svg><div class="acc-testo"><ul><li>Regola la difficoltà con l'inclinazione: più orizzontale, più duro.</li><li>Parti portando indietro le scapole, poi piega i gomiti.</li><li>Corpo rigido come nel plank per tutta la serie.</li></ul><p class="errore">Errore tipico: il bacino che si alza per aiutare il tiro.</p></div></div>
+</details>
+<details class="acc" data-ex="trazioni">
+  <summary><span class="nome">Trazioni negative</span><span class="acc-num"><b data-b="1">—</b><b data-b="2">3 × 3 (5")</b><b data-b="3">3 × 4 (5")</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Trazione negativa, discesa lenta dalla sbarra">
+      <line class="obj" x1="44" y1="18" x2="156" y2="18"></line>
+      <path class="s" d="M100 18 L84 34 L100 44"></path>
+      <path class="s" d="M100 18 L116 34 L100 44"></path>
+      <circle class="h" cx="100" cy="33" r="7.5"></circle>
+      <path class="s" d="M100 44 L100 78 L94 106"></path>
+      <path class="s" d="M100 78 L110 104"></path>
+      <path class="att" d="M150 40 L150 92"></path>
+      <path class="att" d="M144 84 L150 94 L156 84"></path>
+      <text x="152" y="70">3-5 s</text>
+    </svg><div class="acc-testo"><ul><li>Sali su una sedia col mento sopra la sbarra, togli i piedi, scendi in 3-5 secondi.</li><li>Presa poco più larga delle spalle, palmi in avanti.</li><li>Non lasciarti cadere negli ultimi centimetri: è lì che si irritano i gomiti.</li></ul><p class="nota">Entrano dalla quinta settimana: prima le spalle non hanno l'abitudine al carico in sospensione.</p></div></div>
+</details>
+<details class="acc" data-ex="plankLat">
+  <summary><span class="nome">Plank laterale</span><span class="acc-num"><b data-b="1">2 × 20" per lato</b><b data-b="2">2 × 35"</b><b data-b="3">3 × 50"</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Plank laterale">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <line class="s" x1="44" y1="106" x2="44" y2="80"></line>
+      <circle class="h" cx="36" cy="73" r="7"></circle>
+      <path class="s" d="M44 80 L98 92 L152 106"></path>
+      <line class="s" x1="44" y1="80" x2="44" y2="48"></line>
+      <path class="ref" d="M44 80 L152 106"></path>
+    </svg><div class="acc-testo"><ul><li>Spalla, anca e caviglia su una linea sola vista da sopra.</li><li>Non lasciare che la spalla d'appoggio si schiacci verso l'orecchio.</li><li>Se è troppo, piega le ginocchia e appoggiale: conta lo stesso.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="superman">
+  <summary><span class="nome">Superman</span><span class="acc-num"><b data-b="1">2 × 20"</b><b data-b="2">3 × 30"</b><b data-b="3">3 × 40"</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Superman a pancia in giù">
+      <line class="ground" x1="8" y1="104" x2="192" y2="104"></line>
+      <path class="s" d="M34 66 Q70 96 110 94 Q148 92 166 68"></path>
+      <circle class="h" cx="62" cy="80" r="7"></circle>
+      <path class="att" d="M34 78 L34 60"></path>
+      <path class="att" d="M28 66 L34 56 L40 66"></path>
+      <path class="att" d="M166 80 L166 62"></path>
+      <path class="att" d="M160 68 L166 58 L172 68"></path>
+    </svg><div class="acc-testo"><ul><li>Pochi centimetri bastano: non è una prova di quanto inarchi.</li><li>Collo neutro, sguardo a terra.</li><li>Se pizzica la zona lombare, alterna braccio destro e gamba sinistra.</li></ul></div></div>
+</details>
+
+  <h3>C · Gambe e fiato</h3>
+<div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
+<details class="acc" data-ex="squat">
+  <summary><span class="nome">Squat a corpo libero</span><span class="acc-num"><b data-b="1">3 × 12</b><b data-b="2">3 × 18</b><b data-b="3">4 × 20-25</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Squat a corpo libero, vista laterale">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <path class="gh" d="M78 108 L78 66 L78 42"></path>
+      <circle class="ghf" cx="78" cy="34" r="7"></circle>
+      <path class="s" d="M64 108 L96 82 L70 74"></path>
+      <path class="s" d="M70 74 L66 50"></path>
+      <circle class="h" cx="60" cy="42" r="7.5"></circle>
+      <path class="s" d="M66 50 L104 54"></path>
+      <path class="ref" d="M64 108 L64 36"></path>
+    </svg><div class="acc-testo"><ul><li>Peso su tutto il piede, non sulle punte.</li><li>Ginocchia nella direzione delle punte, non cedono verso l'interno.</li><li>Scendi finché la schiena resta dritta: quello è il tuo fondo.</li></ul><p class="nota">Se la caviglia non ti lascia scendere, un libro sottile sotto i talloni per i primi due mesi.</p></div></div>
+</details>
+<details class="acc" data-ex="stepup">
+  <summary><span class="nome">Step-up su sedia o gradino</span><span class="acc-num"><b data-b="1">2 × 10 per gamba</b><b data-b="2">3 × 12</b><b data-b="3">3 × 15</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Step-up su una sedia o un gradino">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <rect class="obj" x="112" y="70" width="64" height="38"></rect>
+      <path class="s" d="M74 108 L84 86 L100 60"></path>
+      <path class="s" d="M100 60 L126 54 L130 70"></path>
+      <path class="s" d="M100 60 L96 34"></path>
+      <circle class="h" cx="94" cy="25" r="7.5"></circle>
+    </svg><div class="acc-testo"><ul><li>Spingi con il tallone del piede sopra, non con la punta di quello a terra.</li><li>Il ginocchio non deve salire sopra l'anca: se succede, serve un appoggio più basso.</li><li>Scendi appoggiando piano, non lasciandoti cadere.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="ponte">
+  <summary><span class="nome">Ponte dei glutei</span><span class="acc-num"><b data-b="1">2 × 12</b><b data-b="2">3 × 15</b><b data-b="3">3 × 20</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Ponte dei glutei a terra">
+      <line class="ground" x1="8" y1="106" x2="192" y2="106"></line>
+      <path class="s" d="M42 102 L92 74 L130 72 L142 104"></path>
+      <circle class="h" cx="32" cy="98" r="7"></circle>
+      <path class="gh" d="M42 102 L92 100 L130 84"></path>
+    </svg><div class="acc-testo"><ul><li>La spinta parte da talloni e glutei, non dalla schiena.</li><li>In alto stringi i glutei un secondo prima di scendere.</li><li>Se lavorano più i posteriori della coscia, avvicina i piedi.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="fiato">
+  <summary><span class="nome">Corsa sul posto / jumping jack</span><span class="acc-num"><b data-b="1">—</b><b data-b="2">3 × 30"</b><b data-b="3">4 × 45"</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Corsa sul posto con ginocchia alte">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <path class="s" d="M80 108 L84 84 L88 62"></path>
+      <path class="s" d="M88 62 L114 58 L110 82"></path>
+      <path class="s" d="M88 62 L86 36"></path>
+      <circle class="h" cx="84" cy="27" r="7.5"></circle>
+      <path class="s" d="M86 42 L68 54 L74 66"></path>
+      <path class="s" d="M86 42 L104 46 L98 32"></path>
+      <path class="att" d="M138 52 L150 52"></path>
+      <path class="att" d="M138 64 L152 64"></path>
+      <path class="att" d="M138 76 L148 76"></path>
+    </svg><div class="acc-testo"><ul><li>Appoggia sull'avampiede: meno rumore e meno impatto.</li><li>Braccia che lavorano come nella corsa vera.</li><li>Piano alto? Sostituisci con step-up veloci: stesso effetto, nessun saltello.</li></ul></div></div>
+</details>
+
+  <h3>K · Specifica kart</h3>
+<div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
+<details class="acc">
+  <summary><span class="nome">Isometrie collo · 4 direzioni</span><span class="acc-num"><b>2 × 15"</b><b>2 × 20"</b><b>3 × 20"</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Isometria del collo con resistenza della mano">
+      <circle class="s" cx="94" cy="44" r="19"></circle>
+      <line class="s" x1="94" y1="63" x2="94" y2="76"></line>
+      <line class="s" x1="64" y1="78" x2="124" y2="78"></line>
+      <path class="obj" d="M62 34 q8 -6 12 4 q2 8 -6 10 q-8 2 -6 -14 z"></path>
+      <path class="att" d="M134 44 L106 44"></path>
+      <path class="att" d="M112 39 L104 44 L112 49"></path>
+      <path class="att" d="M44 44 L72 44"></path>
+      <path class="att" d="M66 39 L74 44 L66 49"></path>
+      <text x="128" y="64">testa spinge</text>
+      <text x="22" y="64">mano resiste</text>
+    </svg><div class="acc-testo"><ul><li>Mano alla fronte, alla nuca o alla tempia: spingi la testa contro la mano senza muoverla.</li><li>Spinta al 30-40% della forza massima, mai al massimo.</li><li>Nessun movimento visibile. Non andare in apnea, rilascia lentamente.</li></ul><p class="nota">Per i primi tre-quattro mesi solo isometrie a mano: niente ponti, caschi zavorrati o elastici.</p></div></div>
+</details>
+<details class="acc" data-ex="appensione">
+  <summary><span class="nome">Appensione alla sbarra</span><span class="acc-num"><b data-b="1">3 × 20"</b><b data-b="2">3 × 35"</b><b data-b="3">3 × 50"</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Appensione alla sbarra a braccia tese">
+      <line class="obj" x1="44" y1="18" x2="156" y2="18"></line>
+      <line class="s" x1="88" y1="18" x2="88" y2="46"></line>
+      <line class="s" x1="112" y1="18" x2="112" y2="46"></line>
+      <circle class="h" cx="100" cy="36" r="7.5"></circle>
+      <path class="s" d="M88 46 L112 46"></path>
+      <path class="s" d="M100 46 L100 78 L94 108"></path>
+      <path class="s" d="M100 78 L110 106"></path>
+    </svg><div class="acc-testo"><ul><li>Braccia tese ma spalle attive: tira leggermente le scapole in basso.</li><li>Se la presa cede prima del tempo va bene, è il punto dell'esercizio.</li><li>Scendi appoggiando i piedi, non saltando giù.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="presa">
+  <summary><span class="nome">Presa su asciugamano arrotolato</span><span class="acc-num"><b data-b="1">3 × 20"</b><b data-b="2">3 × 30"</b><b data-b="3">3 × 40"</b></span></summary>
+  <div class="acc-corpo"><div class="acc-testo"><ul><li>Asciugamano arrotolato stretto, una mano per capo, strizza e tieni.</li><li>Avambraccio in linea con il polso, non piegato.</li><li>Alterna la mano sopra a metà serie.</li></ul></div></div>
+</details>
+<details class="acc">
+  <summary><span class="nome">Rotazione busto contro elastico</span><span class="acc-num"><b>3 × 8 per lato</b><b>3 × 12</b><b>3 × 15</b></span></summary>
+  <div class="acc-corpo"><div class="acc-testo"><ul><li>Elastico fissato a mezza altezza, braccia tese davanti allo sterno.</li><li>Ruota dal busto, non dalle braccia: i gomiti restano fermi rispetto al petto.</li><li>Movimento lento in entrambe le direzioni.</li></ul></div></div>
+</details>
+<details class="acc">
+  <summary><span class="nome">Mobilità spalle (bastone o asciugamano)</span><span class="acc-num"><b>2 × 10</b><b>2 × 10</b><b>2 × 10</b></span></summary>
+  <div class="acc-corpo"><div class="acc-testo"><ul><li>Presa larga sul bastone, porta le braccia tese sopra la testa e dietro.</li><li>Se non passa, allarga la presa invece di forzare.</li><li>Da fare a inizio seduta, mai forzando in fondo.</li></ul></div></div>
+</details>
+
+  <p class="nota">Collo, rotazioni e mobilità non si ricalcolano: sono lavori di qualità, non di quantità, e il carico giusto è sempre quello basso.</p>
+  <div class="ok">
+    <p>Perché proprio queste: il kart non ha sospensioni, quindi il corpo assorbe torsioni e vibrazioni al posto del telaio, e in gara il cuore arriva a frequenze molto alte. Sono condizioni che si allenano col lavoro statico — tenere, non muovere — più che con le ripetizioni veloci.</p>
+  </div>
+
+  <h3>E · Richiamo</h3>
+  <p>Non ha una tabella sua. Il sabato della settimana libera ripeti A o B, scegliendo quella che durante la settimana ti è venuta peggio. Se sono venute bene entrambe, fai B: la tirata è la parte che parte più indietro dopo vent'anni di stop ed è quella che serve di più allo sterzo.</p>
+
+  <h3>Cosa serve in casa</h3>
+  <ul>
+    <li><strong>Una sbarra da porta.</strong> È l'unico acquisto che conta davvero: senza, saltano appensione, presa e trazioni, cioè metà del lavoro utile al kart. Costano poco e si tolgono.</li>
+    <li><strong>Un elastico</strong> di media resistenza, per le rotazioni del busto.</li>
+    <li><strong>Un tavolo robusto o una sedia solida</strong> per rematore, piegamenti su rialzo e step-up.</li>
+    <li><strong>Un tappetino</strong>, o un asciugamano grande, per plank e lavoro a terra.</li>
+  </ul>
+
+  <div class="regola">
+    <p><strong>Cosa cambia con quindici minuti.</strong> Il volume settimanale scende di circa un terzo rispetto a sedute da mezz'ora, quindi i numeri dei test arrivano più tardi: la colonna a 24 mesi diventa realisticamente a 30-36. Il guadagno in pista invece non cambia quasi, perché la seduta K è breve per sua natura e il collo si allena con pochi minuti fatti bene.</p>
   </div>
 </section>
 
-<section>
+
+<!-- ============ 5. ESERCIZI ============ -->
+<section class="pannello" id="esercizi" role="tabpanel">
   <h2>Gli esercizi</h2>
-  <p class="nota">I disegni mostrano la posizione di lavoro; in grigio, dove esiste, la seconda posizione del movimento. I pulsanti aprono una ricerca video filtrata: guarda due o tre esecuzioni diverse prima di fidarti di una sola.</p>
+  <p class="occhiello">I disegni mostrano la posizione di lavoro; in grigio, dove esiste, la seconda posizione del movimento. I pulsanti aprono una ricerca video filtrata: guarda due o tre esecuzioni diverse prima di fidarti di una sola.</p>
 
   <article class="esercizio">
     <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Piegamento sulle braccia con le mani su un rialzo">
@@ -247,11 +625,11 @@ svg text{font-family:"Barlow",sans-serif;font-size:11px;fill:var(--grigio)}
     <div>
       <h3>Piegamenti su rialzo</h3>
       <p class="tag">Seduta A · petto, spalle, tricipiti, core</p>
-      <p>Mani su un tavolo, un davanzale o il bordo del divano. Più alto è l'appoggio, più leggero è l'esercizio: è la manopola con cui regoli la difficoltà senza mai dover fare ripetizioni sporche. Nel terzo blocco scendi progressivamente verso terra.</p>
+      <p>Mani su un tavolo, un davanzale o il bordo del divano. Più alto è l'appoggio, più leggero è l'esercizio: è la manopola con cui regoli la difficoltà senza mai fare ripetizioni sporche. Nel terzo blocco scendi progressivamente verso terra.</p>
       <h4>Esecuzione</h4>
       <ul>
         <li>Mani poco più larghe delle spalle, all'altezza del petto, non delle clavicole.</li>
-        <li>Glutei e addome contratti: dalla testa ai talloni deve esserci una linea sola.</li>
+        <li>Glutei e addome contratti: dalla testa ai talloni una linea sola.</li>
         <li>Gomiti a circa 45° dal busto, non aperti a T.</li>
         <li>Scendi in 2 secondi, spingi in 1, senza rimbalzare in fondo.</li>
       </ul>
@@ -534,60 +912,269 @@ svg text{font-family:"Barlow",sans-serif;font-size:11px;fill:var(--grigio)}
       <a class="video" href="https://www.youtube.com/results?search_query=crunch+addominali+esecuzione+corretta+errori" target="_blank" rel="noopener">Video tecnica</a>
     </div>
   </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Step-up su una sedia o un gradino">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <rect class="obj" x="112" y="70" width="64" height="38"></rect>
+      <path class="s" d="M74 108 L84 86 L100 60"></path>
+      <path class="s" d="M100 60 L126 54 L130 70"></path>
+      <path class="s" d="M100 60 L96 34"></path>
+      <circle class="h" cx="94" cy="25" r="7.5"></circle>
+    </svg>
+    <div>
+      <h3>Step-up su sedia o gradino</h3>
+      <p class="tag">Seduta C · gambe e fiato, senza saltelli</p>
+      <p>Sali con un piede su una sedia solida o su un gradino, porti su tutto il corpo, scendi con controllo. È l'esercizio che in casa sostituisce meglio la corsa: alza la frequenza cardiaca senza impatto sulle articolazioni e non fa rumore ai vicini.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Spingi con il tallone del piede sopra, non con la punta di quello a terra.</li>
+        <li>Altezza del gradino: il ginocchio non deve salire sopra l'anca. Se succede, serve un appoggio più basso.</li>
+        <li>Scendi appoggiando piano, non lasciandoti cadere.</li>
+      </ul>
+      <a class="video" href="https://www.youtube.com/results?search_query=step+up+esercizio+esecuzione+corretta" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Ponte dei glutei a terra">
+      <line class="ground" x1="8" y1="106" x2="192" y2="106"></line>
+      <path class="s" d="M42 102 L92 74 L130 72 L142 104"></path>
+      <circle class="h" cx="32" cy="98" r="7"></circle>
+      <path class="gh" d="M42 102 L92 100 L130 84"></path>
+    </svg>
+    <div>
+      <h3>Ponte dei glutei</h3>
+      <p class="tag">Seduta C · glutei e catena posteriore</p>
+      <p>Disteso a pancia in su, ginocchia piegate, piedi a terra. Sollevi il bacino finché ginocchia, anche e spalle sono allineate, poi scendi senza appoggiare del tutto. Compensa le ore seduto e protegge la zona lombare.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>La spinta parte dai talloni e dai glutei, non dalla schiena.</li>
+        <li>In alto stringi i glutei per un secondo prima di scendere.</li>
+        <li>Se senti lavorare i posteriori della coscia più dei glutei, avvicina i piedi.</li>
+      </ul>
+      <a class="video" href="https://www.youtube.com/results?search_query=ponte+glutei+esecuzione+corretta" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
+
+  <article class="esercizio">
+    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Corsa sul posto con ginocchia alte">
+      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
+      <path class="s" d="M80 108 L84 84 L88 62"></path>
+      <path class="s" d="M88 62 L114 58 L110 82"></path>
+      <path class="s" d="M88 62 L86 36"></path>
+      <circle class="h" cx="84" cy="27" r="7.5"></circle>
+      <path class="s" d="M86 42 L68 54 L74 66"></path>
+      <path class="s" d="M86 42 L104 46 L98 32"></path>
+      <path class="att" d="M138 52 L150 52"></path>
+      <path class="att" d="M138 64 L152 64"></path>
+      <path class="att" d="M138 76 L148 76"></path>
+    </svg>
+    <div>
+      <h3>Corsa sul posto</h3>
+      <p class="tag">Seduta C, dal secondo blocco · fiato</p>
+      <p>Corsa sul posto con le ginocchia che salgono all'altezza dell'anca, per il tempo indicato. Serve ad alzare la frequenza cardiaca nella parte finale della seduta, quando la forza è già stata fatta.</p>
+      <h4>Esecuzione</h4>
+      <ul>
+        <li>Appoggia sull'avampiede, non sul tallone: meno rumore e meno impatto.</li>
+        <li>Braccia che lavorano come nella corsa vera, non ferme lungo i fianchi.</li>
+        <li>Se abiti a un piano alto, sostituisci con step-up veloci: stesso effetto, nessun saltello.</li>
+      </ul>
+      <a class="video" href="https://www.youtube.com/results?search_query=corsa+sul+posto+ginocchia+alte+tecnica" target="_blank" rel="noopener">Video tecnica</a>
+    </div>
+  </article>
 </section>
 
-<section>
-  <h2>La corsa</h2>
-  <p>Due sedute a settimana, ognuna con un compito diverso. La lenta costruisce il motore, la breve lavora sul fiato che serve negli ultimi giri di una manche, quando la lucidità cala.</p>
-  <table>
-    <thead><tr><th>Seduta</th><th>Struttura</th><th>Come deve sembrare</th></tr></thead>
-    <tbody>
-      <tr>
-        <td class="g">Lenta</td>
-        <td>25-30' continui, 35' dall'ottava settimana</td>
-        <td>Riesci a parlare a frasi intere. Se non ci riesci, rallenta o alterna corsa e camminata.</td>
-      </tr>
-      <tr>
-        <td class="g">Breve</td>
-        <td>10' lenti, poi 6-8 × (1' veloce + 2' lenti), poi 5' lenti</td>
-        <td>Il minuto veloce è impegnativo ma non massimale: devi poterlo ripetere tutte le volte uguale.</td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="nota">Nelle prime quattro settimane la seduta breve non esiste: fai due corse lente. I tratti veloci entrano dalla quinta, quando tendini e caviglie hanno già un mese di lavoro alle spalle.</p>
+<!-- ============ 6. CORSA ============ -->
+<section class="pannello" id="corsa" role="tabpanel">
+  <h2>Il fiato</h2>
+  <p class="occhiello">È la parte che risente di più della scelta di allenarsi solo in casa. Vale la pena essere chiari su cosa si guadagna e cosa no.</p>
+  <p>Dentro il programma il lavoro cardiovascolare sta in due posti: l'ultima riga della seduta C, e la progressiva riduzione dei recuperi fra le serie, che è un modo serio per alzare la frequenza cardiaca senza cambiare esercizio. Per il kart è già abbastanza: in gara serve una resistenza di tipo statico e intermittente, e questa si costruisce così.</p>
+  <p>Per il test dei 3 km no. Correre si allena correndo, e nessun circuito a corpo libero in salotto porta a tredici minuti sui tre chilometri. Le strade sono due: togliere quel numero dagli obiettivi, oppure aggiungere una cyclette o un tapis roulant, che restano dentro casa e dove quindici minuti valgono la seduta C.</p>
+  <div class="regola">
+    <p><strong>Se prendi una cyclette:</strong> nel primo blocco pedala piano per tutti i quindici minuti, senza intervalli. I tratti veloci entrano dalla quinta settimana, con la stessa logica del resto del programma.</p>
+  </div>
 </section>
 
-<section>
-  <h2>Test e verifiche</h2>
-  <p>Fai il test all'inizio, poi alla fine di ogni blocco. Non più spesso: testarsi è faticoso e non allena.</p>
+
+<!-- ============ 7. TEST ============ -->
+<section class="pannello" id="test" role="tabpanel">
+  <h2>I tuoi dati</h2>
+  <p class="occhiello">Fai il test all'inizio e alla fine di ogni blocco di quattro settimane. Non più spesso: testarsi è faticoso e non allena. Ogni volta che aggiorni i numeri, la scheda e le stime della dieta si ricalcolano da sole.</p>
+
+
+  <div class="azioni avvio-guida">
+    <button class="primario" id="avviaGuida" type="button">Avvia il test guidato</button>
+  </div>
+
+  <div class="guida" id="guida" hidden>
+    <div class="guida-top">
+      <span class="guida-giorno" id="gGiorno"></span>
+      <span class="guida-passo" id="gPasso"></span>
+      <button class="linkish" id="gEsci" type="button">Esci</button>
+    </div>
+    <h3 id="gTitolo"></h3>
+    <div class="guida-corpo">
+      <div class="guida-fig" id="gFig" hidden></div>
+      <div id="gTesto"></div>
+    </div>
+    <div class="timer" id="gTimer" hidden>
+      <div class="timer-display" id="gDisplay">0:00</div>
+      <div class="azioni">
+        <button id="gStart" type="button">Avvia</button>
+        <button id="gStop" type="button">Ferma</button>
+      </div>
+      <p class="nota" id="gTimerNota"></p>
+    </div>
+    <label class="guida-campo" id="gCampo" hidden><span id="gEtichetta"></span><input type="number" id="gInput" inputmode="numeric" min="0"></label>
+    <div class="azioni guida-nav">
+      <button id="gIndietro" type="button">Indietro</button>
+      <button class="primario" id="gAvanti" type="button">Avanti</button>
+    </div>
+  </div>
+
+  <h3>Test — massimo che riesci a fare oggi</h3>
+  <div class="form">
+    <label>Piegamenti consecutivi<span class="aiuto">sul rialzo che usi di solito</span><input type="number" id="tPiegamenti" min="0" max="200" inputmode="numeric"></label>
+    <label>Rematore consecutivi<span class="aiuto">sotto tavolo o sbarra bassa</span><input type="number" id="tRematore" min="0" max="200" inputmode="numeric"></label>
+    <label>Trazioni piene<span class="aiuto">zero è una risposta valida</span><input type="number" id="tTrazioni" min="0" max="60" inputmode="numeric"></label>
+    <label>Squat consecutivi<span class="aiuto">fermati quando la schiena cede</span><input type="number" id="tSquat" min="0" max="300" inputmode="numeric"></label>
+    <label>Plank frontale<span class="aiuto">secondi, tenuta pulita</span><input type="number" id="tPlank" min="0" max="600" inputmode="numeric"></label>
+    <label>Appensione alla sbarra<span class="aiuto">secondi, fino a che la presa cede</span><input type="number" id="tAppensione" min="0" max="600" inputmode="numeric"></label>
+    <label>Step-up in 3 minuti<span class="aiuto">numero di salite totali</span><input type="number" id="tStepup" min="0" max="600" inputmode="numeric"></label>
+    <label>Peso di oggi<span class="aiuto">chili</span><input type="number" id="tPeso" min="30" max="250" step="0.1" inputmode="decimal"></label>
+  </div>
+
+  <h3>Per le stime alimentari</h3>
+  <div class="form">
+    <label>Come passi la giornata<span class="aiuto">fuori dall'allenamento</span>
+      <select id="tAttivita">
+        <option value="1.35">Per lo più seduto</option>
+        <option value="1.55" selected>Misto, un po' in piedi</option>
+        <option value="1.7">In piedi quasi tutto il giorno</option>
+      </select>
+    </label>
+    <label>Obiettivo
+      <select id="tObiettivo">
+        <option value="0.85">Perdere peso</option>
+        <option value="1" selected>Mantenere</option>
+        <option value="1.1">Mettere muscolo</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="azioni">
+    <button class="primario" id="ricalcola" type="button">Ricalcola scheda e stime</button>
+    <button id="azzera" type="button">Azzera</button>
+  </div>
+  <p class="stato" id="statoTest">Nessun dato inserito.</p>
+
+  <h3>Storico</h3>
   <table class="log">
-    <caption>Segna i numeri qui — servono più a te che a chiunque altro</caption>
-    <thead><tr><th>Prova</th><th class="num">Oggi</th><th class="num">Sett. 4</th><th class="num">Sett. 8</th><th class="num">Sett. 12</th><th class="num">A 24 mesi</th></tr></thead>
+    <caption>Da riempire a mano, a fine di ogni blocco</caption>
+    <thead><tr><th>Prova</th><th class="num">Oggi</th><th class="num">Sett. 4</th><th class="num">Sett. 8</th><th class="num">Sett. 12</th></tr></thead>
     <tbody>
-      <tr><td>Piegamenti in 2 minuti</td><td></td><td></td><td></td><td></td><td class="num">45-55</td></tr>
-      <tr><td>Trazioni massime</td><td></td><td></td><td></td><td></td><td class="num">12-15</td></tr>
-      <tr><td>Crunch in 2 minuti</td><td></td><td></td><td></td><td></td><td class="num">55-65</td></tr>
-      <tr><td>Plank massimo</td><td></td><td></td><td></td><td></td><td class="num">2-3'</td></tr>
-      <tr><td>Corsa 3 km</td><td></td><td></td><td></td><td></td><td class="num">13-14'</td></tr>
-      <tr><td>Appensione massima</td><td></td><td></td><td></td><td></td><td class="num">90"</td></tr>
+      <tr><td>Piegamenti</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Rematore</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Trazioni</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Squat</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Plank</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Appensione</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Step-up in 3'</td><td></td><td></td><td></td><td></td></tr>
     </tbody>
   </table>
-  <p>C'è un settimo indicatore che non si misura col cronometro ed è il più importante per il kart: <strong>a che punto della manche cominci a perdere tempo sul giro</strong>. Se a giugno calavi dopo dieci minuti e a dicembre reggi fino alla fine, il programma sta funzionando, qualunque cosa dicano le altre righe.</p>
+
+  <p>C'è un ottavo indicatore che non si misura col cronometro ed è il più importante per il kart: <strong>a che punto della manche cominci a perdere tempo sul giro</strong>. Se a giugno calavi dopo dieci minuti e a dicembre reggi fino alla fine, il programma sta funzionando, qualunque cosa dicano le altre righe.</p>
+
+  <p class="nota">Come funziona il ricalcolo: le serie di lavoro non si fanno mai al massimo. Nel primo blocco stai intorno al 40% del tuo massimale a ripetizioni, nel secondo al 55%, nel terzo al 70%. Per le tenute isometriche le percentuali sono più basse ancora. È il motivo per cui i numeri che escono ti sembreranno pochi: sono pochi apposta, e sono quelli che ti permettono di allenarti anche il giorno dopo.</p>
 </section>
 
-<section>
-  <h2>Dieta</h2>
-  <p>Questa sezione resta vuota finché non mi dai qualche dato. Una dieta scritta senza sapere cosa mangi, a che ora e quanto tempo hai per cucinare è carta sprecata: sotto trovi esattamente quello che mi serve.</p>
 
-  <h3>Cosa mi serve da te</h3>
+<!-- ============ 8. DIARIO ============ -->
+<section class="pannello" id="diario" role="tabpanel">
+  <h2>Diario settimanale</h2>
+  <p class="occhiello">Il punto zero è lunedì 14 settembre: da lì partono dodici settimane e tre ritest. Questa è la pagina da stampare e tenere attaccata da qualche parte, o da compilare a mano sul telefono.</p>
+
+  <h3>Il controllo settimanale</h3>
+  <p>Non è un test. Testarsi davvero ogni settimana non serve e stanca: i massimali si rifanno solo ogni quattro settimane. Quello che segni ogni domenica sono quattro cose che non costano fatica, perché escono dall'allenamento che hai già fatto.</p>
   <ul>
-    <li><strong>L'obiettivo.</strong> Perdere qualche chilo, restare come sei mettendo un po' di muscolo, o solo mangiare meglio senza pensare al peso. In kart il peso conta, ma dipende dalla categoria e dal peso minimo previsto: dimmi se corri con un limite.</li>
-    <li><strong>Una giornata tipo di come mangi adesso.</strong> Dalla colazione all'ultima cosa prima di dormire, senza aggiustare il tiro. Se salti i pasti scrivilo: è un'informazione, non una colpa.</li>
-    <li><strong>Gli orari veri.</strong> Quando ti svegli, quando lavori, quando riesci ad allenarti, a che ora ceni. Se i tuoi orari sono quelli della ristorazione — servizio serale, cena a mezzanotte, pasto del personale a orari strani — la dieta si costruisce al contrario rispetto a una standard.</li>
-    <li><strong>Chi cucina e quanto tempo c'è.</strong> Mangi al lavoro, cucini a casa, o dipende dai giorni.</li>
-    <li><strong>Cosa non mangi.</strong> Cose che non ti piacciono o che eviti per qualunque motivo.</li>
-    <li><strong>Alcol e caffè.</strong> Quanto, e quando.</li>
-    <li><strong>Integratori e diete già provate</strong>, se ce ne sono state, e come è andata.</li>
+    <li><strong>Peso medio della settimana.</strong> Non quello di domenica: la media dei giorni che hai segnato. Il peso del singolo giorno oscilla di un chilo o due per motivi che con l'allenamento non c'entrano.</li>
+    <li><strong>Sedute completate.</strong> Quante delle quattro o cinque previste. È l'unico numero che predice davvero i risultati a sei mesi.</li>
+    <li><strong>Ripetizioni in canna.</strong> Nell'ultima serie di piegamenti della settimana, quante ne avresti ancora fatte: 0, 1, 2 o 3. Se scende verso lo zero il carico è diventato troppo alto; se resta sopra 3 è ora di aumentare senza aspettare il blocco nuovo.</li>
+    <li><strong>Dove hai sentito la fatica in pista</strong>, nelle settimane in cui c'è. Collo, avambracci, fianchi o schiena: è la diagnostica che ti dice quale esercizio spingere.</li>
+  </ul>
+
+  <h3>Le dodici settimane</h3>
+  <table class="log diario">
+    <caption>Da riempire la domenica sera, cinque minuti</caption>
+    <thead><tr><th>Sett.</th><th>Date</th><th class="num">Pista</th><th class="num">Peso medio</th><th class="num">Sedute</th><th class="num">In canna</th><th>Note e fatica</th></tr></thead>
+    <tbody>
+      <tr><td class="g">1</td><td>14 – 20 set</td><td class="num">—</td><td></td><td></td><td></td><td class="nota-cella">Punto zero: test completo lunedì 14</td></tr>
+      <tr><td class="g">2</td><td>21 – 27 set</td><td class="num">sab 26</td><td></td><td></td><td></td><td class="nota-cella"></td></tr>
+      <tr><td class="g">3</td><td>28 set – 4 ott</td><td class="num">—</td><td></td><td></td><td></td><td class="nota-cella"></td></tr>
+      <tr><td class="g">4</td><td>5 – 11 ott</td><td class="num">sab 10</td><td></td><td></td><td></td><td class="nota-cella">Chiude il primo blocco</td></tr>
+      <tr><td class="g">5</td><td>12 – 18 ott</td><td class="num">—</td><td></td><td></td><td></td><td class="nota-cella">Ritest completo lunedì 12</td></tr>
+      <tr><td class="g">6</td><td>19 – 25 ott</td><td class="num">sab 24</td><td></td><td></td><td></td><td class="nota-cella"></td></tr>
+      <tr><td class="g">7</td><td>26 ott – 1 nov</td><td class="num">—</td><td></td><td></td><td></td><td class="nota-cella"></td></tr>
+      <tr><td class="g">8</td><td>2 – 8 nov</td><td class="num">sab 7</td><td></td><td></td><td></td><td class="nota-cella">Chiude il secondo blocco</td></tr>
+      <tr><td class="g">9</td><td>9 – 15 nov</td><td class="num">—</td><td></td><td></td><td></td><td class="nota-cella">Ritest completo lunedì 9</td></tr>
+      <tr><td class="g">10</td><td>16 – 22 nov</td><td class="num">sab 21</td><td></td><td></td><td></td><td class="nota-cella"></td></tr>
+      <tr><td class="g">11</td><td>23 – 29 nov</td><td class="num">—</td><td></td><td></td><td></td><td class="nota-cella"></td></tr>
+      <tr><td class="g">12</td><td>30 nov – 6 dic</td><td class="num">sab 5</td><td></td><td></td><td></td><td class="nota-cella">Ritest finale lunedì 7 dicembre</td></tr>
+    </tbody>
+  </table>
+
+  <h3>I quattro test completi</h3>
+  <p>Solo in questi quattro lunedì si va a cercare il massimale, e i numeri vanno inseriti nella sezione dati perché la scheda si ricalcoli.</p>
+  <table>
+    <thead><tr><th>Quando</th><th>Cosa</th></tr></thead>
+    <tbody>
+      <tr><td class="g">Lun 14 set</td><td>Punto zero — da qui nasce tutta la scheda</td></tr>
+      <tr><td class="g">Lun 12 ott</td><td>Fine del primo blocco</td></tr>
+      <tr><td class="g">Lun 9 nov</td><td>Fine del secondo blocco</td></tr>
+      <tr><td class="g">Lun 7 dic</td><td>Chiusura delle dodici settimane</td></tr>
+    </tbody>
+  </table>
+  <p class="nota">I ritest cadono di lunedì apposta: chiudono il blocco appena passato partendo riposati, e stanno lontani dal sabato di pista, che in queste settimane cade sempre due giorni prima.</p>
+
+  <div class="regola">
+    <p><strong>Se una settimana va male, segnala e basta.</strong> Due sedute su cinque restano due sedute fatte, non un fallimento da recuperare la settimana dopo raddoppiando. Il recupero del debito è il modo più comune di farsi male a quarant'anni dopo una lunga pausa.</p>
+  </div>
+</section>
+
+<!-- ============ 9. DIETA ============ -->
+<section class="pannello" id="dieta" role="tabpanel">
+  <h2>Dieta</h2>
+  <p class="occhiello">Le stime qui sotto si calcolano dal tuo peso e dall'obiettivo che hai scelto nella sezione dati. Sono un punto di partenza aritmetico, non una dieta: quella ha bisogno di sapere cosa mangi davvero e a che ora.</p>
+
+  <div class="stime" id="stimeDieta">
+    <p class="stato">Inserisci peso e obiettivo nella sezione <button class="linkish" data-vai="test" type="button">I tuoi dati</button> per vedere le stime.</p>
+  </div>
+
+  <h3>Impostazione di partenza</h3>
+  <p>Costruita su tre supposizioni, che correggerai appena mi dai i dati veri: giornata in piedi per buona parte del tempo, servizio serale, obiettivo restare sui 77 kg cambiando un po' la composizione. Siamo intorno alle 2.400-2.500 kcal e 130 g di proteine.</p>
+  <table>
+    <caption>Struttura della giornata, non ricette</caption>
+    <thead><tr><th>Quando</th><th>Cosa</th><th class="num">Proteine</th></tr></thead>
+    <tbody>
+      <tr><td class="g">Al risveglio</td><td>Colazione vera anche se è tardi: 200 g di yogurt greco o 3 uova, 60-70 g di avena o pane, frutta. Caffè quanto vuoi.</td><td class="num">~30 g</td></tr>
+      <tr><td class="g">Primo pomeriggio</td><td>Pasto leggero: pane integrale o legumi, una proteina (tonno, uova, formaggio fresco), verdura cruda in quantità.</td><td class="num">~30 g</td></tr>
+      <tr><td class="g">Pasto del personale</td><td>Il pasto grosso della giornata, e va messo qui: 180-200 g di proteina, verdura abbondante, una porzione piena di carboidrati.</td><td class="num">~45 g</td></tr>
+      <tr><td class="g">Durante il servizio</td><td>Acqua. Gli assaggi contano: cinque o sei sono fisiologici, venti sono un secondo pasto.</td><td class="num">—</td></tr>
+      <tr><td class="g">Dopo il servizio</td><td>Leggero e proteico, non il piatto avanzato: 150 g di pesce o legumi con verdura, oppure yogurt e frutta. Niente fritto a mezzanotte e mezza.</td><td class="num">~25 g</td></tr>
+    </tbody>
+  </table>
+  <p class="nota">Il principio che regge tutto: il grosso delle calorie va <em>prima</em> del servizio, non dopo. Chi lavora in sala tende a fare il contrario — poco o niente fino alle sei, poi tutto a fine serata — ed è quello che rende difficile sia dimagrire sia dormire.</p>
+  <p class="nota">Se l'obiettivo diventa perdere peso: togli il pasto del primo pomeriggio riducendolo a yogurt e frutta, e dimezza i carboidrati del pasto del personale. Si scende intorno alle 2.000 kcal senza toccare le proteine, che sono la cosa da non toccare mai.</p>
+  <p class="nota">Il vino fa parte del mestiere: un bicchiere sta in circa 120 kcal e non sposta nulla, quattro sono mezzo pasto. Nei giorni di pista, la sera prima, meglio zero — l'alcol peggiora il sonno e la lucidità del giorno dopo si sente sui tempi.</p>
+
+  <h3>Cosa manca per farne una dieta vera</h3>
+  <ul>
+    <li><strong>Una giornata tipo di come mangi adesso.</strong> Dalla colazione all'ultima cosa prima di dormire, senza aggiustare il tiro.</li>
+    <li><strong>Gli orari veri.</strong> Sveglia, servizio, quando ti alleni, a che ora ceni. Con gli orari della ristorazione il piano si costruisce al contrario rispetto a uno standard, e il pasto del personale è la variabile che di solito manda tutto all'aria.</li>
+    <li><strong>Chi cucina e quanto tempo c'è.</strong></li>
+    <li><strong>Cosa non mangi</strong>, per gusto o per qualunque altro motivo.</li>
+    <li><strong>Alcol e caffè</strong>, quanto e quando.</li>
   </ul>
 
   <h3>Le tre cose che valgono già da ora</h3>
@@ -596,20 +1183,417 @@ svg text{font-family:"Barlow",sans-serif;font-size:11px;fill:var(--grigio)}
     <li><strong>Proteine distribuite, non concentrate.</strong> Se stanno tutte nella cena il recupero ne risente: meglio una quota in ogni pasto.</li>
     <li><strong>Non allenarti a stomaco pieno né del tutto vuoto.</strong> Un'ora e mezza-due dopo un pasto normale è la finestra comoda.</li>
   </ul>
-  <p class="nota">Con le risposte questa sezione diventa un piano settimanale vero, con i pasti costruiti attorno alle sedute e una versione alternativa per i giorni di gara.</p>
+
+  <p class="nota">Quanto vale il numero delle calorie: è una formula di popolazione, non una misura. Sul singolo sbaglia facilmente del 10-15%. L'unico riscontro vero è il peso medio su due o tre settimane: se non si muove nella direzione che vuoi, il numero va corretto, non la formula.</p>
 </section>
 
-<section>
+
+<!-- ============ 10. DOPO ============ -->
+<section class="pannello" id="dopo" role="tabpanel">
   <h2>Dopo la dodicesima settimana</h2>
+  <p class="occhiello">Cosa cambia quando la base c'è.</p>
   <p>Alla fine di questo ciclo non sarai ai numeri della tabella: sarai una persona che può cominciare ad allenarsi sul serio senza rompersi. È esattamente l'obiettivo.</p>
   <p>Da lì i due percorsi divergono. La parte generale passa al lavoro a tempo: serie da eseguire in due minuti, densità crescente, trazioni piene stabilmente in programma. La parte kart aggiunge carico progressivo al collo — elastici prima, casco zavorrato molto più avanti — e resistenza alla presa più lunga.</p>
   <p>I valori della colonna a 24 mesi sono realistici. I punteggi pieni dei test di idoneità per la fascia 35-45 anni sono un obiettivo da terzo anno. Ci si arriva. Serve solo arrivarci interi.</p>
 </section>
 
-<footer>
-  <p>Scheda compilata il 14 settembre 2026 su dati personali. Non sostituisce il parere di un medico o di un preparatore: la visita medico-sportiva viene prima della prima seduta, e sul lavoro del collo vale un controllo di persona.</p>
-</footer>
+  <div class="avanti">
+    <button id="prec" type="button">← Sezione precedente</button>
+    <button id="succ" type="button">Sezione successiva →</button>
+  </div>
 
+  <footer>
+    <p>Scheda compilata il 14 settembre 2026 su dati personali. Non sostituisce il parere di un medico o di un preparatore: la visita medico-sportiva viene prima della prima seduta, e sul lavoro del collo vale un controllo di persona.</p>
+  </footer>
 </div>
+
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var pannelli = Array.prototype.slice.call(document.querySelectorAll('.pannello'));
+  var conta = document.getElementById('conta');
+  var prec = document.getElementById('prec');
+  var succ = document.getElementById('succ');
+  var tot = tabs.length;
+
+  function indiceDa(nome){
+    for(var i=0;i<tabs.length;i++){ if(tabs[i].getAttribute('data-sez') === nome) return i; }
+    return -1;
+  }
+
+  function mostra(i, scorri){
+    if(i < 0 || i >= tot) return;
+    tabs.forEach(function(t, k){ t.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+    pannelli.forEach(function(p, k){ p.classList.toggle('attivo', k === i); });
+    conta.textContent = 'Sezione ' + (i+1) + ' di ' + tot;
+    prec.disabled = (i === 0);
+    succ.disabled = (i === tot - 1);
+    tabs[i].scrollIntoView({block:'nearest', inline:'center'});
+    if(scorri){ window.scrollTo({top: document.querySelector('.barra').offsetTop - 1}); }
+    if(history.replaceState){ history.replaceState(null, '', '#' + tabs[i].getAttribute('data-sez')); }
+  }
+
+  tabs.forEach(function(t, i){ t.addEventListener('click', function(){ mostra(i, true); }); });
+  prec.addEventListener('click', function(){ mostra(attuale() - 1, true); });
+  succ.addEventListener('click', function(){ mostra(attuale() + 1, true); });
+
+  function attuale(){
+    for(var i=0;i<tabs.length;i++){ if(tabs[i].getAttribute('aria-selected') === 'true') return i; }
+    return 0;
+  }
+
+  var iniziale = indiceDa((location.hash || '').replace('#',''));
+  mostra(iniziale >= 0 ? iniziale : 0, false);
+})();
+</script>
+<script>
+(function(){
+  var CHIAVE='calistenia_dati_v1';
+  var campi=['tPiegamenti','tRematore','tTrazioni','tSquat','tPlank','tAppensione','tStepup','tPeso','tAttivita','tObiettivo'];
+  var ETA=40, ALTEZZA=173;
+
+  function leggi(){
+    try{ var g=localStorage.getItem(CHIAVE); return g?JSON.parse(g):null; }catch(e){ return null; }
+  }
+  function scrivi(d){
+    try{ localStorage.setItem(CHIAVE, JSON.stringify(d)); return true; }catch(e){ return false; }
+  }
+  function num(id){ var e=document.getElementById(id); if(!e) return null; var v=parseFloat(e.value); return isNaN(v)?null:v; }
+
+  function rip(max, blocco){
+    if(max===null||max<=0) return null;
+    var q=[0.40,0.55,0.70][blocco-1];
+    var serie=[3,4,4][blocco-1];
+    var n=Math.max(3, Math.round(max*q));
+    return serie+' × '+n;
+  }
+  function iso(max, blocco, suffisso){
+    if(max===null||max<=0) return null;
+    var q=[0.35,0.50,0.65][blocco-1];
+    var serie=[2,3,3][blocco-1];
+    var n=Math.max(15, Math.round(max*q/5)*5);
+    return serie+' × '+n+'"'+(suffisso||'');
+  }
+
+  function calcola(d){
+    var out={};
+    out.piegamenti=[1,2,3].map(function(b){ return rip(d.tPiegamenti,b); });
+    out.plank=[1,2,3].map(function(b){ return iso(d.tPlank,b); });
+    out.affondi=[1,2,3].map(function(b){
+      if(d.tSquat===null) return null;
+      var serie=[2,2,3][b-1];
+      var n=Math.max(5, Math.round(d.tSquat*[0.30,0.40,0.50][b-1]));
+      return serie+' × '+n+' per gamba';
+    });
+    out.rematore=[1,2,3].map(function(b){ return rip(d.tRematore,b); });
+    out.trazioni=[1,2,3].map(function(b){
+      if(d.tTrazioni===null) return null;
+      if(b===1) return '—';
+      if(d.tTrazioni<1) return b===2?'3 × 3 negative (5")':'3 × 4 negative (5")';
+      if(d.tTrazioni<5) return b===2?'3 × 2 + negative':'4 × 3';
+      var n=Math.max(2, Math.round(d.tTrazioni*[0,0.45,0.60][b-1]));
+      return (b===2?3:4)+' × '+n;
+    });
+    out.plankLat=[1,2,3].map(function(b){ return iso(d.tPlank!==null?d.tPlank*0.6:null,b,' per lato'); });
+    out.superman=[1,2,3].map(function(b){ return iso(d.tPlank!==null?d.tPlank*0.5:null,b); });
+    out.squat=[1,2,3].map(function(b){ return rip(d.tSquat,b); });
+    out.stepup=[1,2,3].map(function(b){
+      if(d.tStepup===null) return null;
+      var serie=[2,3,3][b-1];
+      var n=Math.max(6, Math.round(d.tStepup*[0.12,0.16,0.20][b-1]));
+      return serie+' × '+n+' per gamba';
+    });
+    out.ponte=[1,2,3].map(function(b){ return rip(d.tSquat!==null?d.tSquat*0.8:null,b); });
+    out.fiato=[1,2,3].map(function(b){ return b===1?'—':(b===2?'3 × 30"':'4 × 45"'); });
+    out.appensione=[1,2,3].map(function(b){ return iso(d.tAppensione,b); });
+    out.presa=[1,2,3].map(function(b){ return iso(d.tAppensione!==null?d.tAppensione*0.8:null,b); });
+    return out;
+  }
+
+  function etichettaPiegamenti(max){
+    if(max===null) return null;
+    if(max<8) return 'Piegamenti su rialzo alto (tavolo)';
+    if(max<15) return 'Piegamenti su rialzo basso (sedia)';
+    return 'Piegamenti a terra';
+  }
+
+  function applicaScheda(d){
+    var out=calcola(d);
+    var righe=document.querySelectorAll('[data-ex]');
+    var toccate=0;
+    Array.prototype.forEach.call(righe,function(tr){
+      var k=tr.getAttribute('data-ex');
+      var v=out[k];
+      if(!v) return;
+      var qualcosa=false;
+      [1,2,3].forEach(function(b){
+        var cella=tr.querySelector('[data-b="'+b+'"]');
+        if(cella && v[b-1]){ cella.textContent=v[b-1]; qualcosa=true; }
+      });
+      if(qualcosa){ tr.classList.add('personale'); toccate++; }
+    });
+    var et=etichettaPiegamenti(d.tPiegamenti);
+    if(et){
+      var r=document.querySelector('[data-ex="piegamenti"] .nome');
+      if(r) r.textContent=et;
+    }
+    var stato=document.getElementById('statoScheda');
+    if(stato && toccate>0){
+      stato.textContent='Scheda ricalcolata sui tuoi test. Le righe con il punto verde sono personalizzate.';
+      stato.classList.add('viva');
+    }
+  }
+
+  function applicaDieta(d){
+    var box=document.getElementById('stimeDieta');
+    if(!box) return;
+    if(d.tPeso===null) return;
+    var bmr=10*d.tPeso + 6.25*ALTEZZA - 5*ETA + 5;
+    var tdee=bmr*(d.tAttivita||1.55);
+    var kcal=Math.round(tdee*(d.tObiettivo||1)/10)*10;
+    var mant=Math.round(tdee/10)*10;
+    var protMin=Math.round(d.tPeso*1.4);
+    var protMax=Math.round(d.tPeso*1.8);
+    var acqua=(d.tPeso*0.035).toFixed(1);
+    box.innerHTML=
+      '<div class="cella"><dt>Mantenimento stimato</dt><dd>'+mant+' <span class="unita">kcal</span></dd></div>'+
+      '<div class="cella"><dt>Per il tuo obiettivo</dt><dd>'+kcal+' <span class="unita">kcal</span></dd></div>'+
+      '<div class="cella"><dt>Proteine al giorno</dt><dd>'+protMin+'-'+protMax+' <span class="unita">g</span></dd></div>'+
+      '<div class="cella"><dt>Acqua, giorno normale</dt><dd>'+acqua+' <span class="unita">L</span></dd></div>';
+  }
+
+  function raccogli(){
+    var d={};
+    campi.forEach(function(id){
+      var e=document.getElementById(id);
+      if(!e) return;
+      d[id]= (e.tagName==='SELECT') ? parseFloat(e.value) : num(id);
+    });
+    return d;
+  }
+
+  function popola(d){
+    campi.forEach(function(id){
+      var e=document.getElementById(id);
+      if(e && d[id]!==null && d[id]!==undefined) e.value=d[id];
+    });
+  }
+
+  var btn=document.getElementById('ricalcola');
+  var azz=document.getElementById('azzera');
+  var statoTest=document.getElementById('statoTest');
+
+  function esegui(d, salvando){
+    applicaScheda(d);
+    applicaDieta(d);
+    if(statoTest){
+      if(salvando){
+        var ok=scrivi(d);
+        statoTest.textContent = ok
+          ? 'Dati salvati su questo dispositivo. Scheda e stime aggiornate.'
+          : 'Scheda e stime aggiornate. Su questa anteprima i dati non restano salvati: sul sito o sul file scaricato sì.';
+      } else {
+        statoTest.textContent='Ultimi dati inseriti su questo dispositivo.';
+      }
+      statoTest.classList.add('viva');
+    }
+  }
+
+  if(btn) btn.addEventListener('click', function(){ esegui(raccogli(), true); });
+  if(azz) azz.addEventListener('click', function(){
+    try{ localStorage.removeItem(CHIAVE); }catch(e){}
+    campi.forEach(function(id){ var e=document.getElementById(id); if(e && e.tagName!=='SELECT') e.value=''; });
+    location.reload();
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-vai]'),function(b){
+    b.addEventListener('click',function(){
+      var t=document.querySelector('.tab[data-sez="'+b.getAttribute('data-vai')+'"]');
+      if(t) t.click();
+    });
+  });
+
+  var salvati=leggi();
+  if(salvati){ popola(salvati); esegui(salvati, false); }
+})();
+</script>
+<script>
+(function(){
+  var PASSI = [
+    {g:'Giorno 1 · forza', t:'Riscaldamento', dis:'Squat a corpo libero', testo:
+      '<ul><li>Due minuti: spalle in circonduzione, squat lenti a mezza altezza, qualche piegamento facile contro il muro.</li>'+
+      '<li>Non è un riscaldamento per la prestazione, è per non partire a freddo dopo vent\'anni.</li></ul>',
+      timer:{tipo:'giu', sec:120, nota:'Puoi passare avanti anche prima.'}},
+
+    {g:'Giorno 1 · forza', t:'Piegamenti', dis:'Piegamenti su rialzo', campo:'tPiegamenti', etichetta:'Ripetizioni pulite', testo:
+      '<ul><li>Usa il rialzo che pensi di usare nelle sedute: tavolo, davanzale o sedia.</li>'+
+      '<li>Fermati alla <strong>prima</strong> ripetizione in cui il bacino cede o i gomiti si aprono a T. Quello è il numero.</li>'+
+      '<li>Non cercare le ultime due brutte: non aggiungono informazione, aggiungono rischio.</li></ul>'},
+
+    {g:'Giorno 1 · forza', t:'Riposo', riposo:true, testo:'<p>Tre minuti pieni. Cammina, non startene seduto immobile.</p>',
+      timer:{tipo:'giu', sec:180}},
+
+    {g:'Giorno 1 · forza', t:'Rematore', dis:'Rematore su barra bassa', campo:'tRematore', etichetta:'Ripetizioni pulite', testo:
+      '<ul><li>Sotto un tavolo robusto o una sbarra bassa, talloni a terra, corpo disteso.</li>'+
+      '<li>Fermati quando il bacino comincia ad alzarsi per aiutare il tiro.</li>'+
+      '<li>Regola l\'inclinazione prima di partire: se al terzo sei già finito, alzati di più.</li></ul>'},
+
+    {g:'Giorno 1 · forza', t:'Riposo', riposo:true, testo:'<p>Altri tre minuti.</p>', timer:{tipo:'giu', sec:180}},
+
+    {g:'Giorno 1 · forza', t:'Trazioni piene', dis:'Trazioni negative', campo:'tTrazioni', etichetta:'Ripetizioni (zero va bene)', testo:
+      '<ul><li>Presa poco più larga delle spalle, palmi in avanti, mento sopra la sbarra.</li>'+
+      '<li>Zero è una risposta perfettamente valida e la più comune dopo una lunga pausa: scrivi 0 e vai avanti.</li>'+
+      '<li>Se non hai ancora la sbarra, lascia il campo vuoto.</li></ul>'},
+
+    {g:'Giorno 1 · forza', t:'Riposo', riposo:true, testo:'<p>Tre minuti. Ultimo sforzo della giornata dopo questo.</p>', timer:{tipo:'giu', sec:180}},
+
+    {g:'Giorno 1 · forza', t:'Squat', dis:'Squat a corpo libero', campo:'tSquat', etichetta:'Ripetizioni pulite', testo:
+      '<ul><li>Piedi alla larghezza delle spalle, scendi finché la schiena resta dritta.</li>'+
+      '<li>Fermati quando la schiena si arrotonda o le ginocchia cedono verso l\'interno.</li>'+
+      '<li>Qui è facile esagerare perché le gambe reggono: taglia prima di quanto ti verrebbe.</li></ul>'},
+
+    {g:'Giorno 1 · forza', t:'Finito per oggi', testo:
+      '<p>Il giorno 1 è chiuso. Il resto del test si fa domani: sono prove di tenuta e vanno fatte a muscoli freschi, non dopo quelle di forza.</p>'+
+      '<p>Puoi uscire adesso e riprendere da qui domani, oppure continuare se stai già leggendo questa pagina il giorno dopo.</p>'},
+
+    {g:'Giorno 2 · tenuta', t:'Riscaldamento', testo:
+      '<ul><li>Due minuti leggeri, come ieri.</li><li>Aggiungi qualche rotazione del busto e apertura delle spalle.</li></ul>',
+      timer:{tipo:'giu', sec:120, nota:'Puoi passare avanti anche prima.'}},
+
+    {g:'Giorno 2 · tenuta', t:'Plank frontale', dis:'Plank frontale', campo:'tPlank', etichetta:'Secondi', testo:
+      '<ul><li>Avvia il cronometro e mettiti in posizione: gomiti sotto le spalle, corpo in linea.</li>'+
+      '<li>Ferma il cronometro alla <strong>prima</strong> volta che il bacino affonda, non quando cadi.</li>'+
+      '<li>I secondi finiscono da soli nel campo qui sotto.</li></ul>',
+      timer:{tipo:'su', campo:true, nota:'Ferma quando la posizione si rompe.'}},
+
+    {g:'Giorno 2 · tenuta', t:'Riposo', riposo:true, testo:'<p>Tre minuti.</p>', timer:{tipo:'giu', sec:180}},
+
+    {g:'Giorno 2 · tenuta', t:'Appensione alla sbarra', dis:'Appensione alla sbarra', campo:'tAppensione', etichetta:'Secondi', testo:
+      '<ul><li>Braccia tese, spalle attive: scapole tirate leggermente in basso, non passivo.</li>'+
+      '<li>Ferma quando la presa cede. Scendi appoggiando i piedi, non saltando.</li>'+
+      '<li>Senza sbarra, salta questa prova e lascia vuoto.</li></ul>',
+      timer:{tipo:'su', campo:true, nota:'Ferma quando molli la presa.'}},
+
+    {g:'Giorno 2 · tenuta', t:'Riposo', riposo:true, testo:'<p>Tre minuti pieni: la prossima è la più impegnativa per il fiato.</p>', timer:{tipo:'giu', sec:180}},
+
+    {g:'Giorno 2 · tenuta', t:'Step-up, tre minuti', dis:'Step-up su sedia o gradino', campo:'tStepup', etichetta:'Salite totali', testo:
+      '<ul><li>Un gradino o una sedia solida. Sali e scendi alternando la gamba, per tre minuti continui.</li>'+
+      '<li>Ritmo che pensi di poter reggere fino alla fine, non partenza lanciata.</li>'+
+      '<li>Conta le salite, o contale a blocchi di dieci. Se devi fermarti prima, scrivi quante ne hai fatte.</li></ul>',
+      timer:{tipo:'giu', sec:180, nota:'Il cronometro va da solo: tu conta.'}},
+
+    {g:'Giorno 2 · tenuta', t:'Peso', campo:'tPeso', etichetta:'Chili', decimale:true, testo:
+      '<ul><li>Al mattino, prima di mangiare, dopo il bagno. È il momento meno influenzato dal resto.</li>'+
+      '<li>Se non ti sei pesato stamattina, scrivi l\'ultimo peso che conosci e correggilo domani.</li></ul>'},
+
+    {g:'Fine', t:'Test completato', fine:true, testo:
+      '<p>Premi Chiudi e salva: i numeri finiscono nei campi qui sotto, la scheda si ricalcola sui tuoi valori e le stime alimentari si aggiornano.</p>'+
+      '<p>Da qui in poi i massimali si rifanno solo il 12 ottobre, il 9 novembre e il 7 dicembre. Nel frattempo conta il diario settimanale.</p>'}
+  ];
+
+  var DIS={};
+  Array.prototype.forEach.call(document.querySelectorAll('#esercizi article.esercizio'),function(a){
+    var h=a.querySelector('h3'), sv=a.querySelector('svg');
+    if(h && sv) DIS[h.textContent.trim()]=sv;
+  });
+
+  var i=0, tick=null, secondi=0, modo='giu';
+  var box=document.getElementById('guida');
+  if(!box) return;
+  var el={
+    giorno:document.getElementById('gGiorno'), passo:document.getElementById('gPasso'),
+    titolo:document.getElementById('gTitolo'), testo:document.getElementById('gTesto'),
+    timer:document.getElementById('gTimer'), display:document.getElementById('gDisplay'),
+    start:document.getElementById('gStart'), stop:document.getElementById('gStop'),
+    tnota:document.getElementById('gTimerNota'), fig:document.getElementById('gFig'),
+    campo:document.getElementById('gCampo'),
+    etichetta:document.getElementById('gEtichetta'), input:document.getElementById('gInput'),
+    indietro:document.getElementById('gIndietro'), avanti:document.getElementById('gAvanti')
+  };
+
+  function fmt(s){ var m=Math.floor(s/60), r=s%60; return m+':'+(r<10?'0':'')+r; }
+  function ferma(){ if(tick){ clearInterval(tick); tick=null; } }
+
+  function rendi(){
+    var p=PASSI[i];
+    ferma();
+    el.giorno.textContent=p.g;
+    el.passo.textContent='Passo '+(i+1)+' di '+PASSI.length;
+    el.titolo.textContent=p.t;
+    el.testo.innerHTML=p.testo||'';
+
+    if(p.dis && DIS[p.dis]){
+      var c=DIS[p.dis].cloneNode(true);
+      c.setAttribute('class','guida-svg');
+      el.fig.innerHTML=''; el.fig.appendChild(c); el.fig.hidden=false;
+    } else { el.fig.hidden=true; }
+    el.indietro.disabled=(i===0);
+    el.avanti.textContent = p.fine ? 'Chiudi e salva' : 'Avanti';
+
+    if(p.timer){
+      el.timer.hidden=false;
+      modo=p.timer.tipo;
+      secondi = modo==='giu' ? p.timer.sec : 0;
+      el.display.textContent=fmt(secondi);
+      el.tnota.textContent=p.timer.nota||'';
+      el.stop.hidden = (modo!=='su');
+      if(p.riposo) avvia();
+    } else { el.timer.hidden=true; }
+
+    if(p.campo){
+      el.campo.hidden=false;
+      el.etichetta.textContent=p.etichetta;
+      el.input.step = p.decimale ? '0.1' : '1';
+      var esistente=document.getElementById(p.campo);
+      el.input.value = (esistente && esistente.value) ? esistente.value : '';
+    } else { el.campo.hidden=true; }
+  }
+
+  function avvia(){
+    ferma();
+    tick=setInterval(function(){
+      if(modo==='giu'){
+        secondi--; 
+        if(secondi<=0){ secondi=0; ferma(); el.display.textContent='0:00'; el.tnota.textContent='Tempo.'; return; }
+      } else { secondi++; }
+      el.display.textContent=fmt(secondi);
+    },1000);
+  }
+
+  el.start.addEventListener('click',function(){ if(modo==='su'){ secondi=0; el.display.textContent='0:00'; } avvia(); });
+  el.stop.addEventListener('click',function(){
+    ferma();
+    var p=PASSI[i];
+    if(p.timer && p.timer.campo){ el.input.value=secondi; }
+  });
+
+  function salvaCampo(){
+    var p=PASSI[i];
+    if(p.campo && el.input.value!==''){
+      var t=document.getElementById(p.campo);
+      if(t) t.value=el.input.value;
+    }
+  }
+
+  el.avanti.addEventListener('click',function(){
+    salvaCampo();
+    if(PASSI[i].fine){ chiudi(true); return; }
+    if(i<PASSI.length-1){ i++; rendi(); box.scrollIntoView({block:'start'}); }
+  });
+  el.indietro.addEventListener('click',function(){ salvaCampo(); if(i>0){ i--; rendi(); } });
+
+  function chiudi(salvando){
+    ferma(); box.hidden=true;
+    document.querySelector('.avvio-guida').hidden=false;
+    if(salvando){ var r=document.getElementById('ricalcola'); if(r) r.click(); }
+  }
+  document.getElementById('gEsci').addEventListener('click',function(){ salvaCampo(); chiudi(false); });
+
+  document.getElementById('avviaGuida').addEventListener('click',function(){
+    i=0; box.hidden=false; document.querySelector('.avvio-guida').hidden=true; rendi();
+    box.scrollIntoView({block:'start'});
+  });
+})();
+</script>
 </body>
 </html>
