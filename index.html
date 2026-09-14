@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Programma 12 settimane — ripresa e preparazione kart</title>
+<title>Calisthenics — Salvo e Maura</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -97,9 +97,9 @@ td.g{font-weight:800;font-size:15px;white-space:nowrap;letter-spacing:-.01em}
 .errore{color:var(--rosso);font-weight:600}
 
 /* ---- schede esercizio (sezione Esercizi) ---- */
-.esercizio{border-top:1px solid var(--linea);padding:24px 0 4px;display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:start}
+.esercizio{border-top:1px solid var(--linea);padding:24px 0 4px;display:block}
 .esercizio:first-of-type{border-top:0}
-.fig{width:100%;height:auto;background:var(--carta-alt);border-radius:var(--raggio-s)}
+.fig{width:100%;height:auto;background:var(--carta-alt);border-radius:var(--raggio-s);margin:0 0 14px;padding:6px 4px}
 .esercizio h3{margin:0 0 4px}
 .tag{font-size:12px;font-weight:600;color:var(--arancio);margin:0 0 10px}
 .esercizio p{font-size:15px;margin:0 0 10px}
@@ -125,8 +125,8 @@ td.g{font-weight:800;font-size:15px;white-space:nowrap;letter-spacing:-.01em}
 .acc[open] .nome::before{content:"–";background:var(--arancio);color:#fff}
 .acc-num{display:contents}
 .acc-num b{font-size:13px;font-weight:600;color:var(--grigio);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.acc-corpo{display:grid;grid-template-columns:190px 1fr;gap:20px;padding:0 14px 20px;align-items:start}
-.acc-fig{width:100%;height:auto;background:var(--carta);border:1px solid var(--linea);border-radius:var(--raggio-s)}
+.acc-corpo{display:block;padding:0 14px 20px}
+.acc-fig{width:100%;height:auto;background:var(--carta);border:1px solid var(--linea);border-radius:var(--raggio-s);margin:0 0 14px;padding:6px 4px}
 .acc-testo ul{margin:0 0 8px;font-size:14px;padding-left:18px}
 .acc-testo li{margin:0 0 6px}
 .acc-testo p{font-size:14px;margin:0 0 6px}
@@ -145,9 +145,9 @@ td.g{font-weight:800;font-size:15px;white-space:nowrap;letter-spacing:-.01em}
 .guida-giorno{color:var(--arancio)}
 .guida-passo{flex:1}
 .guida h3{margin:0 0 12px;font-size:25px;font-weight:800;letter-spacing:-.02em}
-.guida-corpo{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:start;margin-bottom:6px}
+.guida-corpo{display:block;margin-bottom:6px}
 .guida-corpo:has(.guida-fig[hidden]){grid-template-columns:1fr}
-.guida-fig{background:var(--carta);border:1px solid var(--linea);border-radius:var(--raggio-s);overflow:hidden}
+.guida-fig{background:var(--carta);border:1px solid var(--linea);border-radius:var(--raggio-s);overflow:hidden;margin:0 0 16px;padding:6px 4px}
 .guida-svg{width:100%;height:auto;display:block}
 .guida ol,.guida ul{font-size:15px;margin:0 0 14px}
 .guida-corpo ul,.guida-corpo ol{margin-top:0}
@@ -200,8 +200,8 @@ footer{margin-top:28px;padding:20px 6px 0;font-size:12px;color:var(--grigio)}
   .wrap{padding:0 14px 64px}
   .barra-int{padding:0 14px}
   .pannello{padding:22px 16px 26px;border-radius:16px}
-  .esercizio{grid-template-columns:1fr;gap:14px}
-  .fig{max-width:300px}
+  .esercizio{padding:20px 0 4px}
+  
   table{font-size:13px}
   td,th{padding:9px 8px}
   .acc-legenda,.acc > summary{grid-template-columns:1fr repeat(3,minmax(42px,56px));gap:5px}
@@ -209,10 +209,10 @@ footer{margin-top:28px;padding:20px 6px 0;font-size:12px;color:var(--grigio)}
   .acc > summary{padding:12px 10px}
   .acc .nome{font-size:14px}
   .acc-num b{font-size:11px}
-  .acc-corpo{grid-template-columns:1fr;gap:12px;padding:0 10px 16px}
-  .acc-fig{max-width:280px}
-  .guida-corpo{grid-template-columns:1fr;gap:14px}
-  .guida-fig{max-width:300px}
+  .acc-corpo{padding:0 10px 16px}
+  
+  
+  
   .timer-display{font-size:48px}
   .azioni button{flex:1 1 auto}
 }
@@ -236,10 +236,48 @@ svg .ground{stroke:var(--linea);stroke-width:2.5}
 svg .att{stroke:var(--arancio);stroke-width:2.4;fill:none;stroke-dasharray:5 4}
 svg .ref{stroke:var(--verde);stroke-width:1.8;stroke-dasharray:3 4;fill:none}
 svg .obj{stroke:var(--grigio);stroke-width:2.4;fill:none}
+
+svg .pan .s{stroke:var(--inchiostro)}
+svg .pan.err .s{stroke:var(--rosso)}
+svg .pan.err .h{fill:var(--rosso)}
+svg .pan.err .att{stroke:var(--rosso)}
+svg .etichetta{font-size:11px;font-weight:700;fill:var(--grigio);text-anchor:middle}
+svg .etichetta-err{fill:var(--rosso)}
 svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:600;fill:var(--grigio)}
+
+/* ---- profili ---- */
+#app-maura{
+  --arancio:#DE3A79; --arancio-scuro:#A81F55; --arancio-tenue:#FFF0F5;
+  --blu:#DE3A79; --rosso:#C2410C; --carta-alt:#FDF7FA;
+  --ombra:0 1px 2px rgba(38,18,28,.05), 0 12px 28px -16px rgba(38,18,28,.22);
+}
+.switch-wrap{max-width:840px;margin:0 auto;padding:26px 18px 0}
+.switch-profilo{display:inline-flex;gap:4px;background:var(--carta);border:1px solid var(--linea);border-radius:999px;padding:4px;box-shadow:0 1px 2px rgba(23,24,32,.05), 0 12px 28px -16px rgba(23,24,32,.22)}
+.switch-profilo button{appearance:none;cursor:pointer;font:inherit;font-size:14px;font-weight:700;padding:9px 22px;border-radius:999px;border:0;background:none;color:var(--grigio)}
+.switch-profilo button:hover{color:var(--inchiostro)}
+.switch-profilo button[data-app="salvo"][aria-pressed="true"]{background:#F2590F;color:#fff}
+.switch-profilo button[data-app="maura"][aria-pressed="true"]{background:#DE3A79;color:#fff}
+.switch-profilo button:focus-visible{outline:2.5px solid var(--inchiostro);outline-offset:2px}
+#app-salvo .testata,#app-maura .testata{padding-top:24px}
+@media (max-width:620px){
+  .switch-wrap{padding:18px 14px 0}
+  .switch-profilo button{padding:9px 18px;font-size:13px}
+}
+@media print{.switch-wrap{display:none}}
+
 </style>
 </head>
 <body>
+
+<div class="switch-wrap">
+  <div class="switch-profilo" role="group" aria-label="Scegli il programma">
+    <button type="button" data-app="salvo" aria-pressed="true">Salvo</button>
+    <button type="button" data-app="maura" aria-pressed="false">Maura</button>
+  </div>
+</div>
+
+<div id="app-salvo">
+
 
 <div class="wrap">
   <header class="testata">
@@ -403,55 +441,54 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
 <div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
 <details class="acc" data-ex="piegamenti">
   <summary><span class="nome">Piegamenti su rialzo</span><span class="acc-num"><b data-b="1">3 × 5-8</b><b data-b="2">4 × 8-12</b><b data-b="3">4 × 12-18</b></span></summary>
-  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Piegamento sulle braccia con le mani su un rialzo">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <rect class="obj" x="18" y="72" width="38" height="36"></rect>
-      <line class="s" x1="37" y1="72" x2="37" y2="50"></line>
-      <circle class="h" cx="29" cy="43" r="7"></circle>
-      <path class="s" d="M37 50 L92 70 L142 100 L152 106"></path>
-      <path class="gh" d="M37 72 L51 64 L37 60"></path>
-      <circle class="ghf" cx="29" cy="53" r="7"></circle>
-      <path class="gh" d="M37 60 L92 76 L142 100"></path>
-    </svg><div class="acc-testo"><ul><li>Mani poco più larghe delle spalle, all'altezza del petto.</li><li>Dalla testa ai talloni una linea sola: glutei e addome contratti.</li><li>Gomiti a 45° dal busto, non aperti a T.</li><li>Scendi in 2 secondi, spingi in 1, niente rimbalzo in fondo.</li></ul><p class="errore">Errore tipico: il bacino che cede e scarica tutto sulla zona lombare.</p><p class="nota">Più alto è l'appoggio, più leggero è l'esercizio: è la manopola della difficoltà.</p></div></div>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Piegamenti su rialzo: partenza, discesa e l'errore del bacino che cede">
+  <title>Piegamenti su rialzo: partenza, discesa e l'errore del bacino che cede</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L43 68"></path><circle class="h" cx="35" cy="60" r="7"></circle><path class="s" d="M43 68 L100 88 L150 124 L160 130"></path><path class="ref" d="M43 68 L150 124"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L58 86 L43 80"></path><circle class="h" cx="35" cy="72" r="7"></circle><path class="s" d="M43 80 L100 96 L150 124 L160 130"></path><path class="ref" d="M43 80 L150 124"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L58 86 L43 80"></path><circle class="h" cx="35" cy="72" r="7"></circle><path class="s" d="M43 80 L100 116 L150 124 L160 130"></path><path class="att" d="M96 82 L100 108"></path><path class="att" d="M92 100 L100 112 L106 100"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Mani poco più larghe delle spalle, all'altezza del petto.</li><li><strong>Altezza dell'appoggio, da terra:</strong> piano cucina 90 cm · tavolo da pranzo 75 · bracciolo del divano 60 · sedia 45 · panchetto o cassetta 30 · un gradino 17 · poi terra. Scendi di un gradino quando ne fai 15 puliti.</li><li>Dalla testa ai talloni una linea sola: glutei e addome contratti.</li><li>Gomiti a 45° dal busto, non aperti a T.</li><li>Scendi in 2 secondi, spingi in 1, niente rimbalzo in fondo.</li></ul><p class="errore">Errore tipico: il bacino che cede e scarica tutto sulla zona lombare.</p><p class="nota">Più alto è l'appoggio, più leggero è l'esercizio: è la manopola della difficoltà.</p></div></div>
 </details>
 <details class="acc" data-ex="plank">
   <summary><span class="nome">Plank frontale</span><span class="acc-num"><b data-b="1">2 × 20-30"</b><b data-b="2">3 × 45"</b><b data-b="3">3 × 60-75"</b></span></summary>
-  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Plank frontale sugli avambracci">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <line class="s" x1="34" y1="104" x2="62" y2="104"></line>
-      <line class="s" x1="40" y1="104" x2="40" y2="80"></line>
-      <circle class="h" cx="30" cy="74" r="7"></circle>
-      <path class="s" d="M40 80 L96 88 L150 104 L161 108"></path>
-      <path class="ref" d="M40 80 L150 104"></path>
-    </svg><div class="acc-testo"><ul><li>Gomiti sotto le spalle, spingili contro il pavimento.</li><li>Bacino leggermente retroverso, pube verso l'ombelico.</li><li>Respira normalmente: se trattieni il fiato stai tenendo troppo.</li></ul><p class="errore">Errore tipico: tenere a lungo con il bacino che affonda. Meglio meno secondi, perfetti.</p></div></div>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Plank: posizione corretta, tenuta e l'errore del bacino che affonda">
+  <title>Plank: posizione corretta, tenuta e l'errore del bacino che affonda</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 110 L158 128"></path><path class="ref" d="M46 100 L158 128"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 110 L158 128"></path><path class="att" d="M100 92 L104 104"></path><path class="att" d="M96 96 L104 106 L110 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 126 L158 128"></path><path class="att" d="M96 138 L112 138"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Gomiti sotto le spalle, spingili contro il pavimento.</li><li>Bacino leggermente retroverso, pube verso l'ombelico.</li><li>Respira normalmente: se trattieni il fiato stai tenendo troppo.</li></ul><p class="errore">Errore tipico: tenere a lungo con il bacino che affonda. Meglio meno secondi, perfetti.</p></div></div>
 </details>
 <details class="acc" data-ex="affondi">
   <summary><span class="nome">Affondi alternati</span><span class="acc-num"><b data-b="1">2 × 8 per gamba</b><b data-b="2">2 × 10</b><b data-b="3">3 × 12</b></span></summary>
-  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Affondo, vista laterale">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <path class="s" d="M58 108 L58 78 L96 72"></path>
-      <path class="s" d="M96 72 L124 100 L146 108"></path>
-      <path class="s" d="M96 72 L92 48"></path>
-      <circle class="h" cx="90" cy="39" r="7.5"></circle>
-      <path class="ref" d="M92 30 L96 76"></path>
-    </svg><div class="acc-testo"><ul><li>Busto verticale, non inclinato in avanti.</li><li>Ginocchio davanti sopra la caviglia, non oltre la punta.</li><li>Risali spingendo con il tallone del piede avanti.</li></ul><p class="nota">Se perdi l'equilibrio appoggia due dita al muro, invece di accorciare il movimento.</p></div></div>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Affondo: partenza in piedi, discesa e l'errore del ginocchio oltre la punta">
+  <title>Affondo: partenza in piedi, discesa e l'errore del ginocchio oltre la punta</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M80 132 L80 90 L80 62"></path><circle class="h" cx="80" cy="52" r="7.5"></circle></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M58 132 L58 100 L98 92"></path><path class="s" d="M98 92 L126 124 L146 132"></path><path class="s" d="M98 92 L94 64"></path><circle class="h" cx="92" cy="54" r="7.5"></circle><path class="ref" d="M94 46 L98 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M58 132 L74 100 L98 92"></path><path class="s" d="M98 92 L126 124 L146 132"></path><path class="s" d="M98 92 L108 66"></path><circle class="h" cx="108" cy="56" r="7.5"></circle><path class="att" d="M70 108 L54 122"></path><path class="att" d="M58 112 L52 124 L64 124"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Busto verticale, non inclinato in avanti.</li><li>Ginocchio davanti sopra la caviglia, non oltre la punta.</li><li>Risali spingendo con il tallone del piede avanti.</li></ul><p class="nota">Se perdi l'equilibrio appoggia due dita al muro, invece di accorciare il movimento.</p></div></div>
 </details>
 
   <h3>B · Tirata e core posteriore</h3>
 <div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
 <details class="acc" data-ex="rematore">
   <summary><span class="nome">Rematore su tavolo o sbarra bassa</span><span class="acc-num"><b data-b="1">3 × 6</b><b data-b="2">4 × 10</b><b data-b="3">4 × 12-15</b></span></summary>
-  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Rematore a corpo libero sotto una barra bassa">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <line class="obj" x1="30" y1="50" x2="176" y2="50"></line>
-      <line class="obj" x1="36" y1="50" x2="36" y2="108"></line>
-      <line class="obj" x1="170" y1="50" x2="170" y2="108"></line>
-      <line class="s" x1="104" y1="50" x2="104" y2="76"></line>
-      <circle class="h" cx="92" cy="80" r="7"></circle>
-      <path class="s" d="M104 76 L138 90 L172 102"></path>
-      <path class="gh" d="M104 50 L122 60 L104 64"></path>
-      <path class="gh" d="M104 64 L138 84 L172 102"></path>
-    </svg><div class="acc-testo"><ul><li>Regola la difficoltà con l'inclinazione: più orizzontale, più duro.</li><li>Parti portando indietro le scapole, poi piega i gomiti.</li><li>Corpo rigido come nel plank per tutta la serie.</li></ul><p class="errore">Errore tipico: il bacino che si alza per aiutare il tiro.</p></div></div>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Rematore: braccia tese, tirata al petto e l'errore del bacino che si alza">
+  <title>Rematore: braccia tese, tirata al petto e l'errore del bacino che si alza</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L100 92"></path><circle class="h" cx="88" cy="96" r="7"></circle><path class="s" d="M100 92 L132 106 L164 120"></path><path class="ref" d="M100 92 L164 120"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L120 72 L100 78"></path><circle class="h" cx="88" cy="84" r="7"></circle><path class="s" d="M100 78 L132 98 L164 120"></path><path class="ref" d="M100 78 L164 120"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L120 72 L100 78"></path><circle class="h" cx="88" cy="84" r="7"></circle><path class="s" d="M100 78 L128 84 L164 120"></path><path class="att" d="M124 66 L128 78"></path><path class="att" d="M120 70 L128 62 L134 70"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Regola la difficoltà con l'inclinazione: più orizzontale, più duro.</li><li><strong>Altezza del piano, da terra:</strong> 90 cm per partire facile · 75 cm, il tavolo da pranzo, è la misura normale · 60 cm è già impegnativo. Con manico di scopa su due sedie sei a 45: troppo basso per il primo blocco.</li><li>Parti portando indietro le scapole, poi piega i gomiti.</li><li>Corpo rigido come nel plank per tutta la serie.</li></ul><p class="errore">Errore tipico: il bacino che si alza per aiutare il tiro.</p></div></div>
 </details>
 <details class="acc" data-ex="trazioni">
   <summary><span class="nome">Trazioni negative</span><span class="acc-num"><b data-b="1">—</b><b data-b="2">3 × 3 (5")</b><b data-b="3">3 × 4 (5")</b></span></summary>
@@ -469,14 +506,15 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
 </details>
 <details class="acc" data-ex="plankLat">
   <summary><span class="nome">Plank laterale</span><span class="acc-num"><b data-b="1">2 × 20" per lato</b><b data-b="2">2 × 35"</b><b data-b="3">3 × 50"</b></span></summary>
-  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Plank laterale">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <line class="s" x1="44" y1="106" x2="44" y2="80"></line>
-      <circle class="h" cx="36" cy="73" r="7"></circle>
-      <path class="s" d="M44 80 L98 92 L152 106"></path>
-      <line class="s" x1="44" y1="80" x2="44" y2="48"></line>
-      <path class="ref" d="M44 80 L152 106"></path>
-    </svg><div class="acc-testo"><ul><li>Spalla, anca e caviglia su una linea sola vista da sopra.</li><li>Non lasciare che la spalla d'appoggio si schiacci verso l'orecchio.</li><li>Se è troppo, piega le ginocchia e appoggiale: conta lo stesso.</li></ul></div></div>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Plank laterale: posizione, tenuta e l'errore del bacino che scende">
+  <title>Plank laterale: posizione, tenuta e l'errore del bacino che scende</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 112 L158 130"></path><path class="s" d="M50 100 L50 68"></path><path class="ref" d="M50 100 L158 130"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 112 L158 130"></path><path class="s" d="M50 100 L50 68"></path><path class="att" d="M104 88 L104 104"></path><path class="att" d="M98 96 L104 106 L110 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 128 L158 130"></path><path class="s" d="M50 100 L64 74"></path><path class="att" d="M96 140 L112 140"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Spalla, anca e caviglia su una linea sola vista da sopra.</li><li>Non lasciare che la spalla d'appoggio si schiacci verso l'orecchio.</li><li>Se è troppo, piega le ginocchia e appoggiale: conta lo stesso.</li></ul></div></div>
 </details>
 <details class="acc" data-ex="superman">
   <summary><span class="nome">Superman</span><span class="acc-num"><b data-b="1">2 × 20"</b><b data-b="2">3 × 30"</b><b data-b="3">3 × 40"</b></span></summary>
@@ -495,36 +533,39 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
 <div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
 <details class="acc" data-ex="squat">
   <summary><span class="nome">Squat a corpo libero</span><span class="acc-num"><b data-b="1">3 × 12</b><b data-b="2">3 × 18</b><b data-b="3">4 × 20-25</b></span></summary>
-  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Squat a corpo libero, vista laterale">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <path class="gh" d="M78 108 L78 66 L78 42"></path>
-      <circle class="ghf" cx="78" cy="34" r="7"></circle>
-      <path class="s" d="M64 108 L96 82 L70 74"></path>
-      <path class="s" d="M70 74 L66 50"></path>
-      <circle class="h" cx="60" cy="42" r="7.5"></circle>
-      <path class="s" d="M66 50 L104 54"></path>
-      <path class="ref" d="M64 108 L64 36"></path>
-    </svg><div class="acc-testo"><ul><li>Peso su tutto il piede, non sulle punte.</li><li>Ginocchia nella direzione delle punte, non cedono verso l'interno.</li><li>Scendi finché la schiena resta dritta: quello è il tuo fondo.</li></ul><p class="nota">Se la caviglia non ti lascia scendere, un libro sottile sotto i talloni per i primi due mesi.</p></div></div>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Squat: in piedi, fondo corretto e l'errore della schiena arrotondata">
+  <title>Squat: in piedi, fondo corretto e l'errore della schiena arrotondata</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M74 132 L74 88 L74 60"></path><circle class="h" cx="74" cy="50" r="7.5"></circle><path class="s" d="M74 62 L104 66"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 132 L100 100 L70 92"></path><path class="s" d="M70 92 L64 62"></path><circle class="h" cx="56" cy="54" r="7.5"></circle><path class="s" d="M64 62 L104 66"></path><path class="ref" d="M62 132 L62 46"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 132 L100 100 L70 92"></path><path class="s" d="M70 92 Q52 76 46 66"></path><circle class="h" cx="38" cy="60" r="7.5"></circle><path class="att" d="M52 60 Q64 74 70 90"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Peso su tutto il piede, non sulle punte.</li><li>Ginocchia nella direzione delle punte, non cedono verso l'interno.</li><li>Scendi finché la schiena resta dritta: quello è il tuo fondo.</li></ul><p class="nota">Se la caviglia non ti lascia scendere, un libro sottile sotto i talloni per i primi due mesi.</p></div></div>
 </details>
 <details class="acc" data-ex="stepup">
   <summary><span class="nome">Step-up su sedia o gradino</span><span class="acc-num"><b data-b="1">2 × 10 per gamba</b><b data-b="2">3 × 12</b><b data-b="3">3 × 15</b></span></summary>
-  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Step-up su una sedia o un gradino">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <rect class="obj" x="112" y="70" width="64" height="38"></rect>
-      <path class="s" d="M74 108 L84 86 L100 60"></path>
-      <path class="s" d="M100 60 L126 54 L130 70"></path>
-      <path class="s" d="M100 60 L96 34"></path>
-      <circle class="h" cx="94" cy="25" r="7.5"></circle>
-    </svg><div class="acc-testo"><ul><li>Spingi con il tallone del piede sopra, non con la punta di quello a terra.</li><li>Il ginocchio non deve salire sopra l'anca: se succede, serve un appoggio più basso.</li><li>Scendi appoggiando piano, non lasciandoti cadere.</li></ul></div></div>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Step-up: piede sul gradino, salita e l'errore del ginocchio troppo alto">
+  <title>Step-up: piede sul gradino, salita e l'errore del ginocchio troppo alto</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M70 132 L74 104 L96 92"></path><path class="s" d="M96 92 L128 84 L132 94"></path><path class="s" d="M96 92 L92 62"></path><circle class="h" cx="90" cy="52" r="7.5"></circle></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M132 94 L134 70 L112 62"></path><path class="s" d="M112 62 L88 92 L76 120"></path><path class="s" d="M112 62 L110 36"></path><circle class="h" cx="108" cy="27" r="7.5"></circle><path class="ref" d="M110 30 L112 66"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M70 132 L74 104 L96 92"></path><path class="s" d="M96 92 L124 62 L132 94"></path><path class="s" d="M96 92 L92 62"></path><circle class="h" cx="90" cy="52" r="7.5"></circle><path class="att" d="M126 48 L140 48"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Spingi con il tallone del piede sopra, non con la punta di quello a terra.</li><li>Il ginocchio non deve salire sopra l'anca: se succede, serve un appoggio più basso.</li><li><strong>Altezza del gradino, da terra:</strong> 15-20 cm per iniziare (un gradino di scala) · 25-30 dal secondo blocco · 40-45, la seduta di una sedia, è il massimo. Il limite vero resta il ginocchio, che non deve superare l'anca.</li><li>Scendi appoggiando piano, non lasciandoti cadere.</li></ul></div></div>
 </details>
 <details class="acc" data-ex="ponte">
   <summary><span class="nome">Ponte dei glutei</span><span class="acc-num"><b data-b="1">2 × 12</b><b data-b="2">3 × 15</b><b data-b="3">3 × 20</b></span></summary>
-  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Ponte dei glutei a terra">
-      <line class="ground" x1="8" y1="106" x2="192" y2="106"></line>
-      <path class="s" d="M42 102 L92 74 L130 72 L142 104"></path>
-      <circle class="h" cx="32" cy="98" r="7"></circle>
-      <path class="gh" d="M42 102 L92 100 L130 84"></path>
-    </svg><div class="acc-testo"><ul><li>La spinta parte da talloni e glutei, non dalla schiena.</li><li>In alto stringi i glutei un secondo prima di scendere.</li><li>Se lavorano più i posteriori della coscia, avvicina i piedi.</li></ul></div></div>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Ponte dei glutei: appoggio, salita e l'errore dell'inarcamento lombare">
+  <title>Ponte dei glutei: appoggio, salita e l'errore dell'inarcamento lombare</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 L108 126"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M108 126 L140 96 L152 128"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 L100 96 L140 92"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M140 92 L152 128"></path><path class="ref" d="M40 126 L140 92"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 Q92 70 140 88"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M140 88 L152 128"></path><path class="att" d="M84 68 L100 68"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>La spinta parte da talloni e glutei, non dalla schiena.</li><li>In alto stringi i glutei un secondo prima di scendere.</li><li>Se lavorano più i posteriori della coscia, avvicina i piedi.</li></ul></div></div>
 </details>
 <details class="acc" data-ex="fiato">
   <summary><span class="nome">Corsa sul posto / jumping jack</span><span class="acc-num"><b data-b="1">—</b><b data-b="2">3 × 30"</b><b data-b="3">4 × 45"</b></span></summary>
@@ -546,30 +587,27 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
 <div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
 <details class="acc">
   <summary><span class="nome">Isometrie collo · 4 direzioni</span><span class="acc-num"><b>2 × 15"</b><b>2 × 20"</b><b>3 × 20"</b></span></summary>
-  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Isometria del collo con resistenza della mano">
-      <circle class="s" cx="94" cy="44" r="19"></circle>
-      <line class="s" x1="94" y1="63" x2="94" y2="76"></line>
-      <line class="s" x1="64" y1="78" x2="124" y2="78"></line>
-      <path class="obj" d="M62 34 q8 -6 12 4 q2 8 -6 10 q-8 2 -6 -14 z"></path>
-      <path class="att" d="M134 44 L106 44"></path>
-      <path class="att" d="M112 39 L104 44 L112 49"></path>
-      <path class="att" d="M44 44 L72 44"></path>
-      <path class="att" d="M66 39 L74 44 L66 49"></path>
-      <text x="128" y="64">testa spinge</text>
-      <text x="22" y="64">mano resiste</text>
-    </svg><div class="acc-testo"><ul><li>Mano alla fronte, alla nuca o alla tempia: spingi la testa contro la mano senza muoverla.</li><li>Spinta al 30-40% della forza massima, mai al massimo.</li><li>Nessun movimento visibile. Non andare in apnea, rilascia lentamente.</li></ul><p class="nota">Per i primi tre-quattro mesi solo isometrie a mano: niente ponti, caschi zavorrati o elastici.</p></div></div>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Isometria del collo: posizione, spinta contro la mano e l'errore della testa che si muove">
+  <title>Isometria del collo: posizione, spinta contro la mano e l'errore della testa che si muove</title>
+  <g transform="translate(0,0)" class="pan"><circle class="s" cx="92" cy="56" r="20"></circle><path class="s" d="M92 76 L92 92"></path><path class="s" d="M58 94 L126 94"></path><path class="ref" d="M92 30 L92 92"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><circle class="s" cx="92" cy="56" r="20"></circle><path class="s" d="M92 76 L92 92"></path><path class="s" d="M58 94 L126 94"></path><path class="obj" d="M58 46 q9 -7 13 4 q2 9 -7 11 q-9 2 -6 -15 z"></path><path class="att" d="M136 56 L110 56"></path><path class="att" d="M116 50 L108 56 L116 62"></path><path class="ref" d="M92 30 L92 92"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><circle class="s" cx="78" cy="58" r="20"></circle><path class="s" d="M80 78 L92 92"></path><path class="s" d="M58 94 L126 94"></path><path class="obj" d="M44 48 q9 -7 13 4 q2 9 -7 11 q-9 2 -6 -15 z"></path><path class="att" d="M92 30 L78 38"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Mano alla fronte, alla nuca o alla tempia: spingi la testa contro la mano senza muoverla.</li><li>Spinta al 30-40% della forza massima, mai al massimo.</li><li>Nessun movimento visibile. Non andare in apnea, rilascia lentamente.</li></ul><p class="nota">Per i primi tre-quattro mesi solo isometrie a mano: niente ponti, caschi zavorrati o elastici.</p></div></div>
 </details>
 <details class="acc" data-ex="appensione">
   <summary><span class="nome">Appensione alla sbarra</span><span class="acc-num"><b data-b="1">3 × 20"</b><b data-b="2">3 × 35"</b><b data-b="3">3 × 50"</b></span></summary>
-  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Appensione alla sbarra a braccia tese">
-      <line class="obj" x1="44" y1="18" x2="156" y2="18"></line>
-      <line class="s" x1="88" y1="18" x2="88" y2="46"></line>
-      <line class="s" x1="112" y1="18" x2="112" y2="46"></line>
-      <circle class="h" cx="100" cy="36" r="7.5"></circle>
-      <path class="s" d="M88 46 L112 46"></path>
-      <path class="s" d="M100 46 L100 78 L94 108"></path>
-      <path class="s" d="M100 78 L110 106"></path>
-    </svg><div class="acc-testo"><ul><li>Braccia tese ma spalle attive: tira leggermente le scapole in basso.</li><li>Se la presa cede prima del tempo va bene, è il punto dell'esercizio.</li><li>Scendi appoggiando i piedi, non saltando giù.</li></ul></div></div>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Appensione: presa, spalle attive e l'errore delle spalle passive">
+  <title>Appensione: presa, spalle attive e l'errore delle spalle passive</title>
+  <g transform="translate(0,0)" class="pan"><line class="obj" x1="40" y1="26" x2="150" y2="26"></line><path class="s" d="M84 26 L84 54"></path><path class="s" d="M106 26 L106 54"></path><circle class="h" cx="95" cy="46" r="7.5"></circle><path class="s" d="M84 54 L106 54"></path><path class="s" d="M95 54 L95 92 L88 130"></path><path class="s" d="M95 92 L106 128"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="obj" x1="40" y1="26" x2="150" y2="26"></line><path class="s" d="M84 26 L84 58"></path><path class="s" d="M106 26 L106 58"></path><circle class="h" cx="95" cy="50" r="7.5"></circle><path class="s" d="M84 58 L106 58"></path><path class="s" d="M95 58 L95 96 L88 132"></path><path class="s" d="M95 96 L106 130"></path><path class="att" d="M130 46 L130 62"></path><path class="att" d="M124 54 L130 64 L136 54"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="obj" x1="40" y1="26" x2="150" y2="26"></line><path class="s" d="M84 26 L84 46"></path><path class="s" d="M106 26 L106 46"></path><circle class="h" cx="95" cy="38" r="7"></circle><path class="s" d="M84 46 L106 46"></path><path class="s" d="M95 46 L95 88 L88 126"></path><path class="s" d="M95 88 L106 124"></path><path class="att" d="M126 34 L142 34"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Braccia tese ma spalle attive: tira leggermente le scapole in basso.</li><li><strong>Sbarra da porta:</strong> montala a 190-200 cm da terra, così resti appeso a ginocchia piegate senza toccare. Sotto i 185 serve piegare troppo le gambe e la presa lavora male.</li><li>Se la presa cede prima del tempo va bene, è il punto dell'esercizio.</li><li>Scendi appoggiando i piedi, non saltando giù.</li></ul></div></div>
 </details>
 <details class="acc" data-ex="presa">
   <summary><span class="nome">Presa su asciugamano arrotolato</span><span class="acc-num"><b data-b="1">3 × 20"</b><b data-b="2">3 × 30"</b><b data-b="3">3 × 40"</b></span></summary>
@@ -600,6 +638,21 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
     <li><strong>Un tappetino</strong>, o un asciugamano grande, per plank e lavoro a terra.</li>
   </ul>
 
+  <h3>Le altezze, in centimetri</h3>
+  <p>Dove serve un appoggio, la misura non è un dettaglio: è quella che decide quanto pesa l'esercizio. Misura una volta con il metro e poi non ci pensi più.</p>
+  <table>
+    <thead><tr><th>Esercizio</th><th class="num">Facile</th><th class="num">Normale</th><th class="num">Difficile</th><th>Riferimento in casa</th></tr></thead>
+    <tbody>
+      <tr><td class="g">Piegamenti su rialzo</td><td class="num">90</td><td class="num">60</td><td class="num">30 → 0</td><td>Piano cucina · bracciolo divano · panchetto</td></tr>
+      <tr><td class="g">Rematore</td><td class="num">90</td><td class="num">75</td><td class="num">60</td><td>Tavolo da pranzo a 75</td></tr>
+      <tr><td class="g">Step-up</td><td class="num">15-20</td><td class="num">25-30</td><td class="num">40-45</td><td>Un gradino · due gradini · sedia</td></tr>
+      <tr><td class="g">Sbarra da porta</td><td colspan="3" class="num">190-200</td><td>Deve restare lo spazio per le ginocchia piegate</td></tr>
+      <tr><td class="g">Apertura al muro</td><td colspan="3" class="num">circa 135</td><td>Il braccio all'altezza della spalla</td></tr>
+    </tbody>
+  </table>
+  <p class="nota">Se un appoggio sta fra due misure, scegli il più alto: si scende quando l'esercizio diventa facile, non prima.</p>
+
+
   <div class="regola">
     <p><strong>Cosa cambia con quindici minuti.</strong> Il volume settimanale scende di circa un terzo rispetto a sedute da mezz'ora, quindi i numeri dei test arrivano più tardi: la colonna a 24 mesi diventa realisticamente a 30-36. Il guadagno in pista invece non cambia quasi, perché la seduta K è breve per sua natura e il collo si allena con pochi minuti fatti bene.</p>
   </div>
@@ -612,23 +665,22 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   <p class="occhiello">I disegni mostrano la posizione di lavoro; in grigio, dove esiste, la seconda posizione del movimento. I pulsanti aprono una ricerca video filtrata: guarda due o tre esecuzioni diverse prima di fidarti di una sola.</p>
 
   <article class="esercizio">
-    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Piegamento sulle braccia con le mani su un rialzo">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <rect class="obj" x="18" y="72" width="38" height="36"></rect>
-      <line class="s" x1="37" y1="72" x2="37" y2="50"></line>
-      <circle class="h" cx="29" cy="43" r="7"></circle>
-      <path class="s" d="M37 50 L92 70 L142 100 L152 106"></path>
-      <path class="gh" d="M37 72 L51 64 L37 60"></path>
-      <circle class="ghf" cx="29" cy="53" r="7"></circle>
-      <path class="gh" d="M37 60 L92 76 L142 100"></path>
-    </svg>
+    <svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Piegamenti su rialzo: partenza, discesa e l'errore del bacino che cede">
+  <title>Piegamenti su rialzo: partenza, discesa e l'errore del bacino che cede</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L43 68"></path><circle class="h" cx="35" cy="60" r="7"></circle><path class="s" d="M43 68 L100 88 L150 124 L160 130"></path><path class="ref" d="M43 68 L150 124"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L58 86 L43 80"></path><circle class="h" cx="35" cy="72" r="7"></circle><path class="s" d="M43 80 L100 96 L150 124 L160 130"></path><path class="ref" d="M43 80 L150 124"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L58 86 L43 80"></path><circle class="h" cx="35" cy="72" r="7"></circle><path class="s" d="M43 80 L100 116 L150 124 L160 130"></path><path class="att" d="M96 82 L100 108"></path><path class="att" d="M92 100 L100 112 L106 100"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
     <div>
       <h3>Piegamenti su rialzo</h3>
       <p class="tag">Seduta A · petto, spalle, tricipiti, core</p>
       <p>Mani su un tavolo, un davanzale o il bordo del divano. Più alto è l'appoggio, più leggero è l'esercizio: è la manopola con cui regoli la difficoltà senza mai fare ripetizioni sporche. Nel terzo blocco scendi progressivamente verso terra.</p>
       <h4>Esecuzione</h4>
       <ul>
-        <li>Mani poco più larghe delle spalle, all'altezza del petto, non delle clavicole.</li>
+        <li>Mani poco più larghe delle spalle, all'altezza del petto, non delle clavicole.</li><li><strong>Altezza dell'appoggio, da terra:</strong> piano cucina 90 cm · tavolo da pranzo 75 · bracciolo del divano 60 · sedia 45 · panchetto o cassetta 30 · un gradino 17 · poi terra. Scendi di un gradino quando ne fai 15 puliti.</li>
         <li>Glutei e addome contratti: dalla testa ai talloni una linea sola.</li>
         <li>Gomiti a circa 45° dal busto, non aperti a T.</li>
         <li>Scendi in 2 secondi, spingi in 1, senza rimbalzare in fondo.</li>
@@ -663,24 +715,22 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   </article>
 
   <article class="esercizio">
-    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Rematore a corpo libero sotto una barra bassa">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <line class="obj" x1="30" y1="50" x2="176" y2="50"></line>
-      <line class="obj" x1="36" y1="50" x2="36" y2="108"></line>
-      <line class="obj" x1="170" y1="50" x2="170" y2="108"></line>
-      <line class="s" x1="104" y1="50" x2="104" y2="76"></line>
-      <circle class="h" cx="92" cy="80" r="7"></circle>
-      <path class="s" d="M104 76 L138 90 L172 102"></path>
-      <path class="gh" d="M104 50 L122 60 L104 64"></path>
-      <path class="gh" d="M104 64 L138 84 L172 102"></path>
-    </svg>
+    <svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Rematore: braccia tese, tirata al petto e l'errore del bacino che si alza">
+  <title>Rematore: braccia tese, tirata al petto e l'errore del bacino che si alza</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L100 92"></path><circle class="h" cx="88" cy="96" r="7"></circle><path class="s" d="M100 92 L132 106 L164 120"></path><path class="ref" d="M100 92 L164 120"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L120 72 L100 78"></path><circle class="h" cx="88" cy="84" r="7"></circle><path class="s" d="M100 78 L132 98 L164 120"></path><path class="ref" d="M100 78 L164 120"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L120 72 L100 78"></path><circle class="h" cx="88" cy="84" r="7"></circle><path class="s" d="M100 78 L128 84 L164 120"></path><path class="att" d="M124 66 L128 78"></path><path class="att" d="M120 70 L128 62 L134 70"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
     <div>
       <h3>Rematore su barra bassa</h3>
       <p class="tag">Seduta B · dorsali, bicipiti, core — la base delle trazioni</p>
       <p>Sotto una sbarra bassa, un tavolo robusto o due sedie con un manico di scopa. Corpo disteso, talloni a terra, tiri il petto verso la barra. È l'esercizio che nei primi due mesi costruisce davvero le trazioni.</p>
       <h4>Esecuzione</h4>
       <ul>
-        <li>Regola la difficoltà con l'inclinazione: più il corpo è orizzontale, più è duro.</li>
+        <li>Regola la difficoltà con l'inclinazione: più il corpo è orizzontale, più è duro.</li><li><strong>Altezza del piano, da terra:</strong> 90 cm per partire facile · 75 cm, il tavolo da pranzo, è la misura normale · 60 cm è già impegnativo. Con manico di scopa su due sedie sei a 45: troppo basso per il primo blocco.</li>
         <li>Parti portando indietro le scapole, poi piega i gomiti. Non il contrario.</li>
         <li>Corpo rigido come nel plank per tutta la serie.</li>
       </ul>
@@ -716,16 +766,15 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   </article>
 
   <article class="esercizio">
-    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Squat a corpo libero, vista laterale">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <path class="gh" d="M78 108 L78 66 L78 42"></path>
-      <circle class="ghf" cx="78" cy="34" r="7"></circle>
-      <path class="s" d="M64 108 L96 82 L70 74"></path>
-      <path class="s" d="M70 74 L66 50"></path>
-      <circle class="h" cx="60" cy="42" r="7.5"></circle>
-      <path class="s" d="M66 50 L104 54"></path>
-      <path class="ref" d="M64 108 L64 36"></path>
-    </svg>
+    <svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Squat: in piedi, fondo corretto e l'errore della schiena arrotondata">
+  <title>Squat: in piedi, fondo corretto e l'errore della schiena arrotondata</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M74 132 L74 88 L74 60"></path><circle class="h" cx="74" cy="50" r="7.5"></circle><path class="s" d="M74 62 L104 66"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 132 L100 100 L70 92"></path><path class="s" d="M70 92 L64 62"></path><circle class="h" cx="56" cy="54" r="7.5"></circle><path class="s" d="M64 62 L104 66"></path><path class="ref" d="M62 132 L62 46"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 132 L100 100 L70 92"></path><path class="s" d="M70 92 Q52 76 46 66"></path><circle class="h" cx="38" cy="60" r="7.5"></circle><path class="att" d="M52 60 Q64 74 70 90"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
     <div>
       <h3>Squat a corpo libero</h3>
       <p class="tag">Seduta A · gambe, glutei, mobilità di anca e caviglia</p>
@@ -742,14 +791,15 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   </article>
 
   <article class="esercizio">
-    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Affondo, vista laterale">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <path class="s" d="M58 108 L58 78 L96 72"></path>
-      <path class="s" d="M96 72 L124 100 L146 108"></path>
-      <path class="s" d="M96 72 L92 48"></path>
-      <circle class="h" cx="90" cy="39" r="7.5"></circle>
-      <path class="ref" d="M92 30 L96 76"></path>
-    </svg>
+    <svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Affondo: partenza in piedi, discesa e l'errore del ginocchio oltre la punta">
+  <title>Affondo: partenza in piedi, discesa e l'errore del ginocchio oltre la punta</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M80 132 L80 90 L80 62"></path><circle class="h" cx="80" cy="52" r="7.5"></circle></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M58 132 L58 100 L98 92"></path><path class="s" d="M98 92 L126 124 L146 132"></path><path class="s" d="M98 92 L94 64"></path><circle class="h" cx="92" cy="54" r="7.5"></circle><path class="ref" d="M94 46 L98 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M58 132 L74 100 L98 92"></path><path class="s" d="M98 92 L126 124 L146 132"></path><path class="s" d="M98 92 L108 66"></path><circle class="h" cx="108" cy="56" r="7.5"></circle><path class="att" d="M70 108 L54 122"></path><path class="att" d="M58 112 L52 124 L64 124"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
     <div>
       <h3>Affondi alternati</h3>
       <p class="tag">Seduta A · gambe una alla volta, equilibrio, anche</p>
@@ -765,14 +815,15 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   </article>
 
   <article class="esercizio">
-    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Plank frontale sugli avambracci">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <line class="s" x1="34" y1="104" x2="62" y2="104"></line>
-      <line class="s" x1="40" y1="104" x2="40" y2="80"></line>
-      <circle class="h" cx="30" cy="74" r="7"></circle>
-      <path class="s" d="M40 80 L96 88 L150 104 L161 108"></path>
-      <path class="ref" d="M40 80 L150 104"></path>
-    </svg>
+    <svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Plank: posizione corretta, tenuta e l'errore del bacino che affonda">
+  <title>Plank: posizione corretta, tenuta e l'errore del bacino che affonda</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 110 L158 128"></path><path class="ref" d="M46 100 L158 128"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 110 L158 128"></path><path class="att" d="M100 92 L104 104"></path><path class="att" d="M96 96 L104 106 L110 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 126 L158 128"></path><path class="att" d="M96 138 L112 138"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
     <div>
       <h3>Plank frontale</h3>
       <p class="tag">Seduta A · addome profondo — l'esercizio più utile in curva</p>
@@ -789,14 +840,15 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   </article>
 
   <article class="esercizio">
-    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Plank laterale">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <line class="s" x1="44" y1="106" x2="44" y2="80"></line>
-      <circle class="h" cx="36" cy="73" r="7"></circle>
-      <path class="s" d="M44 80 L98 92 L152 106"></path>
-      <line class="s" x1="44" y1="80" x2="44" y2="48"></line>
-      <path class="ref" d="M44 80 L152 106"></path>
-    </svg>
+    <svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Plank laterale: posizione, tenuta e l'errore del bacino che scende">
+  <title>Plank laterale: posizione, tenuta e l'errore del bacino che scende</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 112 L158 130"></path><path class="s" d="M50 100 L50 68"></path><path class="ref" d="M50 100 L158 130"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 112 L158 130"></path><path class="s" d="M50 100 L50 68"></path><path class="att" d="M104 88 L104 104"></path><path class="att" d="M98 96 L104 106 L110 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 128 L158 130"></path><path class="s" d="M50 100 L64 74"></path><path class="att" d="M96 140 L112 140"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
     <div>
       <h3>Plank laterale</h3>
       <p class="tag">Seduta B · obliqui — il freno alle spinte laterali</p>
@@ -812,18 +864,15 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   </article>
 
   <article class="esercizio">
-    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Isometria del collo con resistenza della mano">
-      <circle class="s" cx="94" cy="44" r="19"></circle>
-      <line class="s" x1="94" y1="63" x2="94" y2="76"></line>
-      <line class="s" x1="64" y1="78" x2="124" y2="78"></line>
-      <path class="obj" d="M62 34 q8 -6 12 4 q2 8 -6 10 q-8 2 -6 -14 z"></path>
-      <path class="att" d="M134 44 L106 44"></path>
-      <path class="att" d="M112 39 L104 44 L112 49"></path>
-      <path class="att" d="M44 44 L72 44"></path>
-      <path class="att" d="M66 39 L74 44 L66 49"></path>
-      <text x="128" y="64">testa spinge</text>
-      <text x="22" y="64">mano resiste</text>
-    </svg>
+    <svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Isometria del collo: posizione, spinta contro la mano e l'errore della testa che si muove">
+  <title>Isometria del collo: posizione, spinta contro la mano e l'errore della testa che si muove</title>
+  <g transform="translate(0,0)" class="pan"><circle class="s" cx="92" cy="56" r="20"></circle><path class="s" d="M92 76 L92 92"></path><path class="s" d="M58 94 L126 94"></path><path class="ref" d="M92 30 L92 92"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><circle class="s" cx="92" cy="56" r="20"></circle><path class="s" d="M92 76 L92 92"></path><path class="s" d="M58 94 L126 94"></path><path class="obj" d="M58 46 q9 -7 13 4 q2 9 -7 11 q-9 2 -6 -15 z"></path><path class="att" d="M136 56 L110 56"></path><path class="att" d="M116 50 L108 56 L116 62"></path><path class="ref" d="M92 30 L92 92"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><circle class="s" cx="78" cy="58" r="20"></circle><path class="s" d="M80 78 L92 92"></path><path class="s" d="M58 94 L126 94"></path><path class="obj" d="M44 48 q9 -7 13 4 q2 9 -7 11 q-9 2 -6 -15 z"></path><path class="att" d="M92 30 L78 38"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
     <div>
       <h3>Isometrie del collo</h3>
       <p class="tag">Seduta K · la parte più importante e la più delicata</p>
@@ -842,22 +891,22 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   </article>
 
   <article class="esercizio">
-    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Appensione alla sbarra a braccia tese">
-      <line class="obj" x1="44" y1="18" x2="156" y2="18"></line>
-      <line class="s" x1="88" y1="18" x2="88" y2="46"></line>
-      <line class="s" x1="112" y1="18" x2="112" y2="46"></line>
-      <circle class="h" cx="100" cy="36" r="7.5"></circle>
-      <path class="s" d="M88 46 L112 46"></path>
-      <path class="s" d="M100 46 L100 78 L94 108"></path>
-      <path class="s" d="M100 78 L110 106"></path>
-    </svg>
+    <svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Appensione: presa, spalle attive e l'errore delle spalle passive">
+  <title>Appensione: presa, spalle attive e l'errore delle spalle passive</title>
+  <g transform="translate(0,0)" class="pan"><line class="obj" x1="40" y1="26" x2="150" y2="26"></line><path class="s" d="M84 26 L84 54"></path><path class="s" d="M106 26 L106 54"></path><circle class="h" cx="95" cy="46" r="7.5"></circle><path class="s" d="M84 54 L106 54"></path><path class="s" d="M95 54 L95 92 L88 130"></path><path class="s" d="M95 92 L106 128"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="obj" x1="40" y1="26" x2="150" y2="26"></line><path class="s" d="M84 26 L84 58"></path><path class="s" d="M106 26 L106 58"></path><circle class="h" cx="95" cy="50" r="7.5"></circle><path class="s" d="M84 58 L106 58"></path><path class="s" d="M95 58 L95 96 L88 132"></path><path class="s" d="M95 96 L106 130"></path><path class="att" d="M130 46 L130 62"></path><path class="att" d="M124 54 L130 64 L136 54"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="obj" x1="40" y1="26" x2="150" y2="26"></line><path class="s" d="M84 26 L84 46"></path><path class="s" d="M106 26 L106 46"></path><circle class="h" cx="95" cy="38" r="7"></circle><path class="s" d="M84 46 L106 46"></path><path class="s" d="M95 46 L95 88 L88 126"></path><path class="s" d="M95 88 L106 124"></path><path class="att" d="M126 34 L142 34"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
     <div>
       <h3>Appensione alla sbarra</h3>
       <p class="tag">Sedute A e K · presa, avambracci, decompressione della colonna</p>
       <p>Ti appendi e resti lì. Sembra niente ed è uno degli esercizi col miglior rapporto beneficio-rischio del programma: allena la presa che ti serve sullo sterzo, prepara le spalle alle trazioni e decomprime la schiena.</p>
       <h4>Esecuzione</h4>
       <ul>
-        <li>Braccia tese ma spalle attive: non restare appeso passivamente con le scapole in alto, tirale leggermente in basso.</li>
+        <li>Braccia tese ma spalle attive: non restare appeso passivamente con le scapole in alto, tirale leggermente in basso.</li><li><strong>Sbarra da porta:</strong> montala a 190-200 cm da terra, così resti appeso a ginocchia piegate senza toccare. Sotto i 185 serve piegare troppo le gambe e la presa lavora male.</li>
         <li>Se la presa cede prima del tempo va bene, è proprio il punto.</li>
         <li>Scendi appoggiando i piedi, non saltando giù.</li>
       </ul>
@@ -914,14 +963,15 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   </article>
 
   <article class="esercizio">
-    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Step-up su una sedia o un gradino">
-      <line class="ground" x1="8" y1="108" x2="192" y2="108"></line>
-      <rect class="obj" x="112" y="70" width="64" height="38"></rect>
-      <path class="s" d="M74 108 L84 86 L100 60"></path>
-      <path class="s" d="M100 60 L126 54 L130 70"></path>
-      <path class="s" d="M100 60 L96 34"></path>
-      <circle class="h" cx="94" cy="25" r="7.5"></circle>
-    </svg>
+    <svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Step-up: piede sul gradino, salita e l'errore del ginocchio troppo alto">
+  <title>Step-up: piede sul gradino, salita e l'errore del ginocchio troppo alto</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M70 132 L74 104 L96 92"></path><path class="s" d="M96 92 L128 84 L132 94"></path><path class="s" d="M96 92 L92 62"></path><circle class="h" cx="90" cy="52" r="7.5"></circle></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M132 94 L134 70 L112 62"></path><path class="s" d="M112 62 L88 92 L76 120"></path><path class="s" d="M112 62 L110 36"></path><circle class="h" cx="108" cy="27" r="7.5"></circle><path class="ref" d="M110 30 L112 66"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M70 132 L74 104 L96 92"></path><path class="s" d="M96 92 L124 62 L132 94"></path><path class="s" d="M96 92 L92 62"></path><circle class="h" cx="90" cy="52" r="7.5"></circle><path class="att" d="M126 48 L140 48"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
     <div>
       <h3>Step-up su sedia o gradino</h3>
       <p class="tag">Seduta C · gambe e fiato, senza saltelli</p>
@@ -929,7 +979,7 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
       <h4>Esecuzione</h4>
       <ul>
         <li>Spingi con il tallone del piede sopra, non con la punta di quello a terra.</li>
-        <li>Altezza del gradino: il ginocchio non deve salire sopra l'anca. Se succede, serve un appoggio più basso.</li>
+        <li>Altezza del gradino: il ginocchio non deve salire sopra l'anca. Se succede, serve un appoggio più basso.</li><li><strong>Altezza del gradino, da terra:</strong> 15-20 cm per iniziare (un gradino di scala) · 25-30 dal secondo blocco · 40-45, la seduta di una sedia, è il massimo. Il limite vero resta il ginocchio, che non deve superare l'anca.</li>
         <li>Scendi appoggiando piano, non lasciandoti cadere.</li>
       </ul>
       <a class="video" href="https://www.youtube.com/results?search_query=step+up+esercizio+esecuzione+corretta" target="_blank" rel="noopener">Video tecnica</a>
@@ -937,12 +987,15 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   </article>
 
   <article class="esercizio">
-    <svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Ponte dei glutei a terra">
-      <line class="ground" x1="8" y1="106" x2="192" y2="106"></line>
-      <path class="s" d="M42 102 L92 74 L130 72 L142 104"></path>
-      <circle class="h" cx="32" cy="98" r="7"></circle>
-      <path class="gh" d="M42 102 L92 100 L130 84"></path>
-    </svg>
+    <svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Ponte dei glutei: appoggio, salita e l'errore dell'inarcamento lombare">
+  <title>Ponte dei glutei: appoggio, salita e l'errore dell'inarcamento lombare</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 L108 126"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M108 126 L140 96 L152 128"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 L100 96 L140 92"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M140 92 L152 128"></path><path class="ref" d="M40 126 L140 92"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 Q92 70 140 88"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M140 88 L152 128"></path><path class="att" d="M84 68 L100 68"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
     <div>
       <h3>Ponte dei glutei</h3>
       <p class="tag">Seduta C · glutei e catena posteriore</p>
@@ -1207,10 +1260,797 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   </footer>
 </div>
 
+
+</div>
+
+<div id="app-maura" hidden>
+
+
+<div class="wrap">
+  <header class="testata">
+    <p class="kicker">Calisthenics Maura · 14 settembre 2026</p>
+    <h1>Dodici settimane<br>per riprendersi il corpo</h1>
+    <p class="sottotitolo">Quindici minuti, quattro volte a settimana, in casa e interrompibili. Due anni dopo il parto la ripresa non è più una questione di tempo: è una questione di rimettere in ordine le cose nell'ordine giusto, partendo dal respiro e non dagli addominali.</p>
+    <dl class="scheda-dati">
+      <div><dt>Età</dt><dd>31</dd></div>
+      <div><dt>Statura</dt><dd>165 cm</dd></div>
+      <div><dt>Peso</dt><dd>50 kg</dd></div>
+      <div><dt>Dal parto</dt><dd>2 anni</dd></div>
+      <div><dt>Sedute</dt><dd>15'</dd></div>
+      <div><dt>A settimana</dt><dd>4</dd></div>
+    </dl>
+  </header>
+</div>
+
+<nav class="barra" aria-label="Sezioni del programma">
+  <div class="barra-int" role="tablist">
+    <button class="tab" role="tab" data-sez="mx_come" aria-selected="true">Come funziona</button>
+    <button class="tab" role="tab" data-sez="mx_prima" aria-selected="false">Prima di iniziare</button>
+    <button class="tab" role="tab" data-sez="mx_settimana" aria-selected="false">La settimana</button>
+    <button class="tab" role="tab" data-sez="mx_sedute" aria-selected="false">Sedute</button>
+    <button class="tab" role="tab" data-sez="mx_esercizi" aria-selected="false">Esercizi</button>
+    <button class="tab" role="tab" data-sez="mx_dati" aria-selected="false">I tuoi dati</button>
+    <button class="tab" role="tab" data-sez="mx_diario" aria-selected="false">Diario</button>
+    <button class="tab" role="tab" data-sez="mx_dieta" aria-selected="false">Alimentazione</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <p class="conta" id="mx_conta">Sezione 1 di 8</p>
+
+<section class="pannello attivo" id="mx_come" role="tabpanel">
+  <h2>Come funziona</h2>
+  <p class="occhiello">Quattro sedute da quindici minuti a settimana, tutte in casa, tutte interrompibili a metà senza perdere niente. Dodici settimane divise in tre blocchi da quattro.</p>
+
+  <svg viewBox="0 0 800 96" role="img" style="width:100%;height:auto;display:block;margin:10px 0 26px">
+    <title>Tre blocchi da quattro settimane</title>
+    <rect x="0" y="30" width="258" height="26" fill="#DE3A79" opacity=".14"></rect>
+    <rect x="264" y="30" width="258" height="26" fill="#DE3A79" opacity=".30"></rect>
+    <rect x="528" y="30" width="272" height="26" fill="#DE3A79" opacity=".55"></rect>
+    <line x1="0" y1="30" x2="258" y2="30" stroke="#F2A6C2" stroke-width="4"></line>
+    <line x1="264" y1="30" x2="522" y2="30" stroke="#DE3A79" stroke-width="4"></line>
+    <line x1="528" y1="30" x2="800" y2="30" stroke="#A81F55" stroke-width="4"></line>
+    <text x="0" y="22" style="font-size:13px;font-weight:700;fill:#A81F55">Settimane 1–4</text>
+    <text x="264" y="22" style="font-size:13px;font-weight:700;fill:#A81F55">Settimane 5–8</text>
+    <text x="528" y="22" style="font-size:13px;font-weight:700;fill:#A81F55">Settimane 9–12</text>
+    <text x="0" y="70" style="font-size:14px;font-weight:600;fill:#171820">Respiro e connessione</text>
+    <text x="264" y="70" style="font-size:14px;font-weight:600;fill:#171820">Forza di base</text>
+    <text x="528" y="70" style="font-size:14px;font-weight:600;fill:#171820">Carico e resistenza</text>
+    <text x="0" y="88">poco carico, molta qualità</text>
+    <text x="264" y="88">più serie e ripetizioni</text>
+    <text x="528" y="88">tenute lunghe, meno pause</text>
+  </svg>
+
+  <h3>Le cinque regole</h3>
+  <ul>
+    <li><strong>Si parte dal respiro, non dagli addominali.</strong> Dopo una gravidanza diaframma e pavimento pelvico spesso smettono di lavorare insieme. Finché non tornano a farlo, ogni esercizio di core costruisce sopra una base che non tiene.</li>
+    <li><strong>Niente crunch, niente plank sulle punte, niente salti</strong> finché non hai fatto i controlli della sezione seguente. Non è prudenza eccessiva: sono i tre movimenti che peggiorano una diastasi o un pavimento pelvico debole.</li>
+    <li><strong>Espira nello sforzo.</strong> Trattenere il fiato spinge la pressione verso il basso, che è esattamente la direzione da evitare. Vale per ogni esercizio, anche fuori dal programma: anche quando sollevi tuo figlio.</li>
+    <li><strong>Quindici minuti interrotti restano quindici minuti.</strong> Se finisci solo due esercizi su quattro, hai fatto la seduta. Il debito da recuperare non esiste.</li>
+    <li><strong>Quattro sedute su sette giorni, l'ordine conta poco.</strong> Salta quello che serve, non riorganizzare la settimana intera.</li>
+  </ul>
+
+  <div class="ok">
+    <p><strong>Cosa serve in casa:</strong> un tappetino o un asciugamano grande, un tavolo robusto, una sedia solida e un gradino. Niente altro. La sbarra e gli elastici non servono in queste dodici settimane.</p>
+  </div>
+
+  <h3>Le altezze, in centimetri</h3>
+  <p>Dove serve un appoggio, la misura non è un dettaglio: è quella che decide quanto pesa l'esercizio. Misura una volta con il metro e poi non ci pensi più.</p>
+  <table>
+    <thead><tr><th>Esercizio</th><th class="num">Facile</th><th class="num">Normale</th><th class="num">Difficile</th><th>Riferimento in casa</th></tr></thead>
+    <tbody>
+      <tr><td class="g">Piegamenti su rialzo</td><td class="num">90</td><td class="num">60</td><td class="num">30 → 0</td><td>Piano cucina · bracciolo divano · panchetto</td></tr>
+      <tr><td class="g">Rematore</td><td class="num">90</td><td class="num">75</td><td class="num">60</td><td>Tavolo da pranzo a 75</td></tr>
+      <tr><td class="g">Step-up</td><td class="num">15-20</td><td class="num">25-30</td><td class="num">40-45</td><td>Un gradino · due gradini · sedia</td></tr>
+      <tr><td class="g">Sbarra da porta</td><td colspan="3" class="num">190-200</td><td>Deve restare lo spazio per le ginocchia piegate</td></tr>
+      <tr><td class="g">Apertura al muro</td><td colspan="3" class="num">circa 135</td><td>Il braccio all'altezza della spalla</td></tr>
+    </tbody>
+  </table>
+  <p class="nota">Se un appoggio sta fra due misure, scegli il più alto: si scende quando l'esercizio diventa facile, non prima.</p>
+
+</section>
+
+<section class="pannello" id="mx_prima" role="tabpanel">
+  <h2>Prima di iniziare</h2>
+  <p class="occhiello">Due controlli di due minuti. Da fare prima della prima seduta, perché decidono quali esercizi puoi fare subito e quali aspettano.</p>
+
+  <h3>1 · La diastasi</h3>
+  <p>A due anni dal parto una separazione dei retti addominali può essere ancora presente, e non si vede sempre da fuori. Il controllo è semplice.</p>
+  <ul>
+    <li>Sdraiata a pancia in su, ginocchia piegate, piedi a terra.</li>
+    <li>Appoggia le dita in orizzontale sulla linea centrale della pancia, appena sopra l'ombelico.</li>
+    <li>Solleva leggermente la testa e le spalle, come per guardarti i piedi.</li>
+    <li>Senti quanto è largo lo spazio fra i due lati e quanto è profondo.</li>
+  </ul>
+  <div class="regola">
+    <p><strong>Se lo spazio supera le due dita, o se il centro sprofonda invece di opporre resistenza</strong>, fai il programma come è scritto — è già costruito per questo — ma prenditi un appuntamento con una fisioterapista specializzata in pavimento pelvico prima di passare al terzo blocco. È una cosa che si risolve, e senza valutazione si rischia di lavorarci contro per mesi.</p>
+  </div>
+
+  <h3>2 · Il pavimento pelvico</h3>
+  <p>Tre domande, e la risposta onesta conta più della risposta che vorresti dare.</p>
+  <ul>
+    <li>Ti capita di perdere urina starnutendo, tossendo, ridendo o saltando?</li>
+    <li>Senti un peso o una pressione verso il basso a fine giornata?</li>
+    <li>Hai dolore o fastidio nei rapporti?</li>
+  </ul>
+  <div class="regola">
+    <p><strong>Se la risposta a una qualsiasi è sì, vai da una fisioterapista del pavimento pelvico prima di iniziare.</strong> Sono cose comuni dopo un parto, ma comune non vuol dire normale né definitivo: nella maggior parte dei casi si risolvono in poche sedute. Aspettare che passino da sole a due anni di distanza vuol dire che non passeranno.</p>
+  </div>
+
+  <h3>Cosa cambia in base alle risposte</h3>
+  <table>
+    <thead><tr><th>Situazione</th><th>Cosa fai</th></tr></thead>
+    <tbody>
+      <tr><td class="g">Tutto a posto</td><td>Programma come scritto. Dal terzo blocco puoi provare il plank sulle punte.</td></tr>
+      <tr><td class="g">Diastasi oltre due dita</td><td>Programma come scritto, plank sempre sulle ginocchia, e valutazione prima del terzo blocco.</td></tr>
+      <tr><td class="g">Sintomi pelvici</td><td>Valutazione prima di iniziare. Nel frattempo puoi fare la seduta A e la D, che sono sicure in ogni caso.</td></tr>
+    </tbody>
+  </table>
+  <p class="nota">Non sono un medico e questo non è un esame: è un controllo di orientamento, che serve a capire se vale la pena farsi vedere da chi può valutarlo davvero.</p>
+</section>
+
+<section class="pannello" id="mx_settimana" role="tabpanel">
+  <h2>La settimana</h2>
+  <p class="occhiello">Quattro sedute su sette giorni. Lo schema qui sotto è un suggerimento, non un vincolo: l'unica regola vera è non fare due volte la stessa seduta in due giorni consecutivi.</p>
+  <table>
+    <thead><tr><th>Giorno</th><th>Seduta</th><th>Contenuto</th><th class="num">Durata</th></tr></thead>
+    <tbody>
+      <tr><td class="g">Lun</td><td>A · Respiro e centro</td><td>Respiro, dead bug, bird dog, ponte</td><td class="num">15'</td></tr>
+      <tr><td class="g">Mar</td><td>C · Gambe e glutei</td><td>Squat, hip hinge, affondi, step-up</td><td class="num">15'</td></tr>
+      <tr><td class="g">Mer</td><td>Libero</td><td>D se ne hai voglia, altrimenti niente</td><td class="num">—</td></tr>
+      <tr><td class="g">Gio</td><td>B · Spinta e postura</td><td>Piegamenti, rematore, aperture, plank</td><td class="num">15'</td></tr>
+      <tr><td class="g">Ven</td><td>Libero</td><td>—</td><td class="num">—</td></tr>
+      <tr><td class="g">Sab</td><td>A · Respiro e centro</td><td>La seduta che si ripete: è quella che costruisce la base</td><td class="num">15'</td></tr>
+      <tr><td class="g">Dom</td><td>Libero</td><td>—</td><td class="num">—</td></tr>
+    </tbody>
+  </table>
+  <div class="ok">
+    <p><strong>La seduta D è la valvola di sfogo.</strong> Mobilità e schiena, nessuno sforzo: si fa nei giorni in cui non c'è energia per altro, la sera, anche a pezzi. Non conta nel totale delle quattro e non si salta mai "per stanchezza", perché è pensata proprio per quello.</p>
+  </div>
+  <p class="nota">Se in una settimana ne escono due invece di quattro, va bene. Due sedute per dodici settimane battono quattro sedute per tre settimane e poi più niente, e non è nemmeno una gara vicina.</p>
+</section>
+
+<section class="pannello" id="mx_sedute" role="tabpanel">
+  <h2>Le quattro sedute</h2>
+  <p class="occhiello">Quindici minuti. Apri una riga per vedere il disegno e come si esegue. Le tre colonne sono i tre blocchi da quattro settimane.</p>
+  <p class="stato" id="mx_statoScheda">Stai vedendo i valori generici. Inserisci i numeri nella sezione <button class="linkish" data-vai="mx_dati" type="button">I tuoi dati</button> e la scheda si ricalcola.</p>
+
+  <h3>A · Respiro e centro</h3>
+<div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
+<details class="acc" data-ex="respiro">
+  <summary><span class="nome">Respiro diaframmatico</span><span class="acc-num"><b data-b="1">3 × 8 respiri</b><b data-b="2">3 × 10</b><b data-b="3">3 × 12</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Respiro diaframmatico: posizione, inspirazione ed errore del respiro alto">
+  <title>Respiro diaframmatico: posizione, inspirazione ed errore del respiro alto</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 124 L118 124"></path><circle class="h" cx="50" cy="118" r="7"></circle><path class="s" d="M118 124 L144 92 L166 128"></path><path class="s" d="M66 124 L76 108 L94 114"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 124 L118 124"></path><circle class="h" cx="50" cy="118" r="7"></circle><path class="s" d="M118 124 L144 92 L166 128"></path><path class="s" d="M66 124 L76 108 L94 114"></path><path class="att" d="M78 98 q16 -14 30 0"></path><path class="att" d="M102 92 L110 98 L100 102"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 124 L118 124"></path><circle class="h" cx="50" cy="116" r="7"></circle><path class="s" d="M118 124 L144 92 L166 128"></path><path class="s" d="M66 124 L76 108 L94 114"></path><path class="att" d="M52 96 L52 82"></path><path class="att" d="M46 88 L52 78 L58 88"></path><path class="att" d="M96 138 L120 138"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Sdraiata, ginocchia piegate, una mano sulle costole e una sulla pancia.</li><li>Inspira lasciando allargare le costole ai lati, non gonfiando solo la pancia.</li><li>Espirando, immagina di chiudere una cerniera dal basso verso l'alto: è la connessione col pavimento pelvico.</li><li>Lento. Otto respiri fatti bene valgono più di trenta di corsa.</li></ul><p class="nota">È l'esercizio più importante dei primi due blocchi, anche se sembra il meno faticoso.</p></div></div>
+</details>
+<details class="acc" data-ex="deadbug">
+  <summary><span class="nome">Dead bug</span><span class="acc-num"><b data-b="1">3 × 6 per lato</b><b data-b="2">3 × 8</b><b data-b="3">3 × 10</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Dead bug: posizione di partenza, allungo e l'errore della schiena staccata">
+  <title>Dead bug: posizione di partenza, allungo e l'errore della schiena staccata</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M66 124 L120 124"></path><circle class="h" cx="55" cy="119" r="7"></circle><path class="s" d="M66 124 L64 100 L66 82"></path><path class="s" d="M120 124 L140 96 L136 116"></path><path class="ref" d="M66 124 L120 124"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M66 124 L120 124"></path><circle class="h" cx="55" cy="119" r="7"></circle><path class="s" d="M66 124 L64 100 L66 82"></path><path class="s" d="M66 124 L32 108"></path><path class="s" d="M120 124 L140 96 L136 116"></path><path class="s" d="M120 124 L150 118 L178 126"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M66 124 Q94 108 120 124"></path><circle class="h" cx="55" cy="119" r="7"></circle><path class="s" d="M66 124 L30 106"></path><path class="s" d="M120 124 L152 116 L178 126"></path><path class="att" d="M86 104 L102 104"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Sdraiata, braccia verso il soffitto e ginocchia a novanta.</li><li>Distendi braccio e gamba opposti, lentamente, tenendo la schiena bassa a contatto col pavimento.</li><li>Se la schiena si stacca, scendi meno: il raggio giusto è quello in cui resti appoggiata.</li><li>Espira mentre distendi.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="birddog">
+  <summary><span class="nome">Bird dog</span><span class="acc-num"><b data-b="1">3 × 6 per lato</b><b data-b="2">3 × 8</b><b data-b="3">3 × 10</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Bird dog: quadrupedia, allungo e l'errore del bacino che ruota">
+  <title>Bird dog: quadrupedia, allungo e l'errore del bacino che ruota</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M64 92 L118 92"></path><circle class="h" cx="54" cy="86" r="7"></circle><path class="s" d="M64 92 L64 130"></path><path class="s" d="M118 92 L118 112 L130 130"></path><path class="ref" d="M64 92 L118 92"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M64 92 L118 92"></path><circle class="h" cx="54" cy="86" r="7"></circle><path class="s" d="M64 92 L64 130"></path><path class="s" d="M118 92 L118 112 L130 130"></path><path class="s" d="M64 92 L28 78"></path><path class="s" d="M118 92 L148 84 L176 76"></path><path class="ref" d="M28 78 L176 76"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M64 92 L118 84"></path><circle class="h" cx="54" cy="78" r="7"></circle><path class="s" d="M64 92 L64 130"></path><path class="s" d="M118 84 L120 108 L132 130"></path><path class="s" d="M64 92 L28 78"></path><path class="s" d="M118 84 L150 62 L174 50"></path><path class="att" d="M136 96 L152 96"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>In quadrupedia, mani sotto le spalle e ginocchia sotto le anche.</li><li>Allunga braccio e gamba opposti fino alla linea del corpo, non più su.</li><li>Il bacino resta fermo: se ruota, stai andando troppo lontano.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="ponte">
+  <summary><span class="nome">Ponte dei glutei</span><span class="acc-num"><b data-b="1">3 × 10</b><b data-b="2">3 × 15</b><b data-b="3">3 × 20</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Ponte dei glutei: appoggio, salita e l'errore dell'inarcamento lombare">
+  <title>Ponte dei glutei: appoggio, salita e l'errore dell'inarcamento lombare</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 L108 126"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M108 126 L140 96 L152 128"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 L100 96 L140 92"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M140 92 L152 128"></path><path class="ref" d="M40 126 L140 92"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 Q92 70 140 88"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M140 88 L152 128"></path><path class="att" d="M84 68 L100 68"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Spinta da talloni e glutei, non dalla schiena.</li><li>Sali fino alla linea ginocchia-anche-spalle, non oltre.</li><li>Espira salendo, stringi un secondo in alto.</li></ul></div></div>
+</details>
+
+  <h3>B · Spinta e postura</h3>
+<div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
+<details class="acc" data-ex="piegamenti">
+  <summary><span class="nome">Piegamenti su rialzo</span><span class="acc-num"><b data-b="1">3 × 5-8</b><b data-b="2">3 × 8-12</b><b data-b="3">4 × 10-15</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Piegamenti su rialzo: partenza, discesa e l'errore del bacino che cede">
+  <title>Piegamenti su rialzo: partenza, discesa e l'errore del bacino che cede</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L43 68"></path><circle class="h" cx="35" cy="60" r="7"></circle><path class="s" d="M43 68 L100 88 L150 124 L160 130"></path><path class="ref" d="M43 68 L150 124"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L58 86 L43 80"></path><circle class="h" cx="35" cy="72" r="7"></circle><path class="s" d="M43 80 L100 96 L150 124 L160 130"></path><path class="ref" d="M43 80 L150 124"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L58 86 L43 80"></path><circle class="h" cx="35" cy="72" r="7"></circle><path class="s" d="M43 80 L100 116 L150 124 L160 130"></path><path class="att" d="M96 82 L100 108"></path><path class="att" d="M92 100 L100 112 L106 100"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Mani su tavolo o piano alto: più alto è l'appoggio, più leggero l'esercizio.</li><li>Dalla testa ai talloni una linea sola.</li><li>Gomiti a 45°, non aperti a T.</li></ul><p class="errore">Fermati alla prima ripetizione in cui il centro della pancia si gonfia verso l'alto o il bacino cede.</p></div></div>
+</details>
+<details class="acc" data-ex="rematore">
+  <summary><span class="nome">Rematore su tavolo</span><span class="acc-num"><b data-b="1">3 × 6</b><b data-b="2">3 × 10</b><b data-b="3">4 × 12</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Rematore: braccia tese, tirata al petto e l'errore del bacino che si alza">
+  <title>Rematore: braccia tese, tirata al petto e l'errore del bacino che si alza</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L100 92"></path><circle class="h" cx="88" cy="96" r="7"></circle><path class="s" d="M100 92 L132 106 L164 120"></path><path class="ref" d="M100 92 L164 120"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L120 72 L100 78"></path><circle class="h" cx="88" cy="84" r="7"></circle><path class="s" d="M100 78 L132 98 L164 120"></path><path class="ref" d="M100 78 L164 120"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L120 72 L100 78"></path><circle class="h" cx="88" cy="84" r="7"></circle><path class="s" d="M100 78 L128 84 L164 120"></path><path class="att" d="M124 66 L128 78"></path><path class="att" d="M120 70 L128 62 L134 70"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Sotto un tavolo robusto, talloni a terra, corpo disteso.</li><li>Parti dalle scapole indietro, poi piega i gomiti.</li><li>Regola la difficoltà con l'inclinazione del corpo.</li><li><strong>Altezza del piano, da terra:</strong> 90 cm per partire facile · 75 cm, il tavolo da pranzo, è la misura normale · 60 cm è già impegnativo. Con manico di scopa su due sedie sei a 45: troppo basso per il primo blocco.</li></ul><p class="nota">È l'esercizio che rimette a posto le spalle chiuse in avanti da due anni di braccia in mezzo.</p></div></div>
+</details>
+<details class="acc" data-ex="apertura">
+  <summary><span class="nome">Apertura toracica al muro</span><span class="acc-num"><b data-b="1">2 × 8</b><b data-b="2">2 × 10</b><b data-b="3">3 × 10</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Apertura toracica con le braccia al muro">
+  <line class="obj" x1="150" y1="12" x2="150" y2="112"></line>
+  <line class="ground" x1="8" y1="108" x2="150" y2="108"></line>
+  <path class="s" d="M96 108 L96 62"></path>
+  <circle class="h" cx="96" cy="53" r="7.5"></circle>
+  <path class="s" d="M96 66 L120 50 L146 42"></path>
+  <path class="s" d="M96 66 L120 82 L146 90"></path>
+  <path class="att" d="M74 62 L60 62"></path>
+  <path class="att" d="M66 56 L58 62 L66 68"></path>
+</svg><div class="acc-testo"><ul><li>In piedi di fianco a un muro, braccio appoggiato, ruota lentamente il busto nella direzione opposta.</li><li><strong>Altezza dell'appoggio:</strong> il braccio va all'altezza della spalla, quindi circa 135 cm da terra. Più in alto tira il collo, più in basso non apre niente.</li><li>Movimento lento, senza rimbalzi, fermandoti dove senti tirare e non dove fa male.</li><li>Due passaggi per lato, respirando.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="plank">
+  <summary><span class="nome">Plank su avambracci e ginocchia</span><span class="acc-num"><b data-b="1">2 × 15"</b><b data-b="2">3 × 25"</b><b data-b="3">3 × 40"</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Plank: posizione corretta, tenuta e l'errore del bacino che affonda">
+  <title>Plank: posizione corretta, tenuta e l'errore del bacino che affonda</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 110 L158 128"></path><path class="ref" d="M46 100 L158 128"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 110 L158 128"></path><path class="att" d="M100 92 L104 104"></path><path class="att" d="M96 96 L104 106 L110 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 126 L158 128"></path><path class="att" d="M96 138 L112 138"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Ginocchia appoggiate, gomiti sotto le spalle: è la versione giusta per ora, non una scorciatoia.</li><li>Bacino leggermente retroverso, glutei attivi.</li><li>Respira: se trattieni il fiato o la pancia si gonfia a punta, fermati.</li></ul><p class="errore">Il plank completo sulle punte entra solo dopo i controlli della sezione "Prima di iniziare".</p></div></div>
+</details>
+
+  <h3>C · Gambe e glutei</h3>
+<div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
+<details class="acc" data-ex="squat">
+  <summary><span class="nome">Squat a corpo libero</span><span class="acc-num"><b data-b="1">3 × 10</b><b data-b="2">3 × 15</b><b data-b="3">4 × 20</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Squat: in piedi, fondo corretto e l'errore della schiena arrotondata">
+  <title>Squat: in piedi, fondo corretto e l'errore della schiena arrotondata</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M74 132 L74 88 L74 60"></path><circle class="h" cx="74" cy="50" r="7.5"></circle><path class="s" d="M74 62 L104 66"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 132 L100 100 L70 92"></path><path class="s" d="M70 92 L64 62"></path><circle class="h" cx="56" cy="54" r="7.5"></circle><path class="s" d="M64 62 L104 66"></path><path class="ref" d="M62 132 L62 46"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 132 L100 100 L70 92"></path><path class="s" d="M70 92 Q52 76 46 66"></path><circle class="h" cx="38" cy="60" r="7.5"></circle><path class="att" d="M52 60 Q64 74 70 90"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Piedi alla larghezza delle spalle, peso su tutto il piede.</li><li>Scendi finché la schiena resta dritta.</li><li>Espira salendo, senza trattenere il fiato in fondo.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="hinge">
+  <summary><span class="nome">Hip hinge</span><span class="acc-num"><b data-b="1">3 × 8</b><b data-b="2">3 × 12</b><b data-b="3">3 × 15</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Hip hinge: in piedi, bacino indietro e l'errore della schiena curva">
+  <title>Hip hinge: in piedi, bacino indietro e l'errore della schiena curva</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M84 132 L84 92 L84 64"></path><circle class="h" cx="84" cy="54" r="7.5"></circle><path class="s" d="M84 70 L84 100"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M84 132 L86 100 L110 88"></path><path class="s" d="M110 88 L60 66"></path><circle class="h" cx="50" cy="62" r="7.5"></circle><path class="s" d="M66 70 L70 100"></path><path class="ref" d="M110 88 L46 60"></path><path class="att" d="M130 88 L152 88"></path><path class="att" d="M146 82 L156 88 L146 94"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M84 132 L86 100 L110 88"></path><path class="s" d="M110 88 Q76 76 58 88"></path><circle class="h" cx="48" cy="92" r="7.5"></circle><path class="s" d="M62 92 L66 116"></path><path class="att" d="M76 62 L92 62"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>In piedi, ginocchia morbide: porta il bacino indietro tenendo la schiena dritta.</li><li>Non è uno squat: le ginocchia si piegano poco, il movimento è dell'anca.</li><li>Senti tirare dietro le cosce, non nella zona lombare.</li></ul><p class="nota">È il movimento con cui si raccolgono cose da terra cento volte al giorno. Impararlo bene vale più di qualunque esercizio per la schiena.</p></div></div>
+</details>
+<details class="acc" data-ex="affondi">
+  <summary><span class="nome">Affondi</span><span class="acc-num"><b data-b="1">2 × 6 per gamba</b><b data-b="2">3 × 8</b><b data-b="3">3 × 10</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Affondo: partenza in piedi, discesa e l'errore del ginocchio oltre la punta">
+  <title>Affondo: partenza in piedi, discesa e l'errore del ginocchio oltre la punta</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M80 132 L80 90 L80 62"></path><circle class="h" cx="80" cy="52" r="7.5"></circle></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M58 132 L58 100 L98 92"></path><path class="s" d="M98 92 L126 124 L146 132"></path><path class="s" d="M98 92 L94 64"></path><circle class="h" cx="92" cy="54" r="7.5"></circle><path class="ref" d="M94 46 L98 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M58 132 L74 100 L98 92"></path><path class="s" d="M98 92 L126 124 L146 132"></path><path class="s" d="M98 92 L108 66"></path><circle class="h" cx="108" cy="56" r="7.5"></circle><path class="att" d="M70 108 L54 122"></path><path class="att" d="M58 112 L52 124 L64 124"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Busto verticale, ginocchio davanti sopra la caviglia.</li><li>Se l'equilibrio manca, due dita al muro.</li><li>Risali spingendo con il tallone davanti.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="stepup">
+  <summary><span class="nome">Step-up su gradino</span><span class="acc-num"><b data-b="1">2 × 8 per gamba</b><b data-b="2">3 × 10</b><b data-b="3">3 × 12</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Step-up: piede sul gradino, salita e l'errore del ginocchio troppo alto">
+  <title>Step-up: piede sul gradino, salita e l'errore del ginocchio troppo alto</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M70 132 L74 104 L96 92"></path><path class="s" d="M96 92 L128 84 L132 94"></path><path class="s" d="M96 92 L92 62"></path><circle class="h" cx="90" cy="52" r="7.5"></circle></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M132 94 L134 70 L112 62"></path><path class="s" d="M112 62 L88 92 L76 120"></path><path class="s" d="M112 62 L110 36"></path><circle class="h" cx="108" cy="27" r="7.5"></circle><path class="ref" d="M110 30 L112 66"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M70 132 L74 104 L96 92"></path><path class="s" d="M96 92 L124 62 L132 94"></path><path class="s" d="M96 92 L92 62"></path><circle class="h" cx="90" cy="52" r="7.5"></circle><path class="att" d="M126 48 L140 48"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Spingi con il tallone del piede sopra.</li><li>Il ginocchio non deve salire sopra l'anca: se succede, gradino più basso.</li><li><strong>Altezza del gradino, da terra:</strong> 15-20 cm per iniziare (un gradino di scala) · 25-30 dal secondo blocco · 40-45, la seduta di una sedia, è il massimo. Il limite vero resta il ginocchio, che non deve superare l'anca.</li><li>Scendi appoggiando piano.</li></ul></div></div>
+</details>
+
+  <h3>D · Mobilità e schiena</h3>
+<div class="acc-legenda"><span></span><span>1–4</span><span>5–8</span><span>9–12</span></div>
+<details class="acc">
+  <summary><span class="nome">Mobilità della colonna (gatto-mucca)</span><span class="acc-num"><b>2 × 8</b><b>2 × 10</b><b>2 × 12</b></span></summary>
+  <div class="acc-corpo"><div class="acc-testo"><ul><li>In quadrupedia, arrotonda la schiena espirando e inarcala inspirando.</li><li>Movimento lento, vertebra per vertebra.</li><li>Da fare anche fuori programma, quando la schiena è stanca.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="superman">
+  <summary><span class="nome">Superman leggero</span><span class="acc-num"><b data-b="1">2 × 15"</b><b data-b="2">3 × 25"</b><b data-b="3">3 × 35"</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 200 120" role="img" aria-label="Superman a pancia in giù">
+      <line class="ground" x1="8" y1="104" x2="192" y2="104"></line>
+      <path class="s" d="M34 66 Q70 96 110 94 Q148 92 166 68"></path>
+      <circle class="h" cx="62" cy="80" r="7"></circle>
+      <path class="att" d="M34 78 L34 60"></path>
+      <path class="att" d="M28 66 L34 56 L40 66"></path>
+      <path class="att" d="M166 80 L166 62"></path>
+      <path class="att" d="M160 68 L166 58 L172 68"></path>
+    </svg><div class="acc-testo"><ul><li>Pochi centimetri: non è una prova di quanto inarchi.</li><li>Collo neutro, sguardo a terra.</li><li>Se pizzica la zona lombare, alterna braccio destro e gamba sinistra.</li></ul></div></div>
+</details>
+<details class="acc" data-ex="planklat">
+  <summary><span class="nome">Plank laterale sulle ginocchia</span><span class="acc-num"><b data-b="1">2 × 15" per lato</b><b data-b="2">2 × 25"</b><b data-b="3">3 × 35"</b></span></summary>
+  <div class="acc-corpo"><svg class="fig acc-fig" viewBox="0 0 598 176" role="img" aria-label="Plank laterale: posizione, tenuta e l'errore del bacino che scende">
+  <title>Plank laterale: posizione, tenuta e l'errore del bacino che scende</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 112 L158 130"></path><path class="s" d="M50 100 L50 68"></path><path class="ref" d="M50 100 L158 130"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 112 L158 130"></path><path class="s" d="M50 100 L50 68"></path><path class="att" d="M104 88 L104 104"></path><path class="att" d="M98 96 L104 106 L110 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 128 L158 130"></path><path class="s" d="M50 100 L64 74"></path><path class="att" d="M96 140 L112 140"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg><div class="acc-testo"><ul><li>Ginocchia piegate e appoggiate, gomito sotto la spalla.</li><li>Spalla, anca e ginocchio su una linea.</li><li>La spalla d'appoggio non si schiaccia verso l'orecchio.</li></ul></div></div>
+</details>
+<details class="acc">
+  <summary><span class="nome">Allungamento dei flessori dell'anca</span><span class="acc-num"><b>2 × 30" per lato</b><b>2 × 40"</b><b>2 × 45"</b></span></summary>
+  <div class="acc-corpo"><div class="acc-testo"><ul><li>In affondo basso con il ginocchio a terra, bacino leggermente in avanti.</li><li>Senti tirare davanti alla coscia della gamba dietro.</li><li>Respira e non forzare: è la zona che più risente delle ore passate a prendere in braccio.</li></ul></div></div>
+</details>
+
+
+  <div class="regola">
+    <p><strong>Recuperi:</strong> 60 secondi fra le serie nel primo blocco, 45 nel secondo, 30 nel terzo. Se il respiro non è tornato regolare, aspetta: il recupero scritto è un massimo consigliato, non un obbligo.</p>
+  </div>
+</section>
+
+<section class="pannello" id="mx_esercizi" role="tabpanel">
+  <h2>Gli esercizi</h2>
+  <p class="occhiello">Le schede complete. I disegni mostrano la posizione di lavoro; in grigio, dove c'è, la seconda posizione del movimento.</p>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Respiro diaframmatico: posizione, inspirazione ed errore del respiro alto">
+  <title>Respiro diaframmatico: posizione, inspirazione ed errore del respiro alto</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 124 L118 124"></path><circle class="h" cx="50" cy="118" r="7"></circle><path class="s" d="M118 124 L144 92 L166 128"></path><path class="s" d="M66 124 L76 108 L94 114"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 124 L118 124"></path><circle class="h" cx="50" cy="118" r="7"></circle><path class="s" d="M118 124 L144 92 L166 128"></path><path class="s" d="M66 124 L76 108 L94 114"></path><path class="att" d="M78 98 q16 -14 30 0"></path><path class="att" d="M102 92 L110 98 L100 102"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 124 L118 124"></path><circle class="h" cx="50" cy="116" r="7"></circle><path class="s" d="M118 124 L144 92 L166 128"></path><path class="s" d="M66 124 L76 108 L94 114"></path><path class="att" d="M52 96 L52 82"></path><path class="att" d="M46 88 L52 78 L58 88"></path><path class="att" d="M96 138 L120 138"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Respiro diaframmatico</h3>
+<p class="tag">Seduta A · diaframma e pavimento pelvico</p>
+<p>Il punto di partenza di tutto. Dopo una gravidanza diaframma e pavimento pelvico smettono spesso di lavorare insieme, e finché non tornano a farlo ogni esercizio di core costruisce sopra una base che non tiene.</p>
+<h4>Esecuzione</h4>
+<ul><li>Sdraiata, ginocchia piegate, una mano sulle costole e una sulla pancia.</li><li>Inspira lasciando allargare le costole ai lati: la mano sul fianco si muove più di quella sulla pancia.</li><li>Espirando, immagina di chiudere una cerniera dal basso verso l'alto, senza stringere i glutei.</li><li>Otto respiri lenti, poi pausa. Non è un esercizio di resistenza.</li></ul>
+<p class="nota">Se non senti nulla, non forzare: è il tipo di cosa che una fisioterapista sistema in una seduta e da sola può richiedere mesi.</p>
+<a class="video" href="https://www.youtube.com/results?search_query=respirazione+diaframmatica+pavimento+pelvico+post+parto" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Dead bug: posizione di partenza, allungo e l'errore della schiena staccata">
+  <title>Dead bug: posizione di partenza, allungo e l'errore della schiena staccata</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M66 124 L120 124"></path><circle class="h" cx="55" cy="119" r="7"></circle><path class="s" d="M66 124 L64 100 L66 82"></path><path class="s" d="M120 124 L140 96 L136 116"></path><path class="ref" d="M66 124 L120 124"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M66 124 L120 124"></path><circle class="h" cx="55" cy="119" r="7"></circle><path class="s" d="M66 124 L64 100 L66 82"></path><path class="s" d="M66 124 L32 108"></path><path class="s" d="M120 124 L140 96 L136 116"></path><path class="s" d="M120 124 L150 118 L178 126"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M66 124 Q94 108 120 124"></path><circle class="h" cx="55" cy="119" r="7"></circle><path class="s" d="M66 124 L30 106"></path><path class="s" d="M120 124 L152 116 L178 126"></path><path class="att" d="M86 104 L102 104"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Dead bug</h3>
+<p class="tag">Seduta A · core profondo, sicuro per la diastasi</p>
+<p>Sostituisce i crunch. Allena il trasverso e la stabilità del bacino senza mai spingere la parete addominale verso l'alto, che è il movimento da evitare finché la diastasi non è chiusa.</p>
+<h4>Esecuzione</h4>
+<ul><li>Braccia verso il soffitto, ginocchia a novanta sopra le anche.</li><li>Distendi braccio e gamba opposti lentamente, tenendo la zona lombare appoggiata.</li><li>Se la schiena si stacca, scendi meno: quello è il tuo raggio.</li><li>Espira mentre distendi, inspira mentre torni.</li></ul>
+<p class="errore">Se al centro della pancia compare una punta o un solco durante il movimento, riduci subito il raggio.</p>
+<a class="video" href="https://www.youtube.com/results?search_query=dead+bug+esercizio+esecuzione+corretta" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Bird dog: quadrupedia, allungo e l'errore del bacino che ruota">
+  <title>Bird dog: quadrupedia, allungo e l'errore del bacino che ruota</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M64 92 L118 92"></path><circle class="h" cx="54" cy="86" r="7"></circle><path class="s" d="M64 92 L64 130"></path><path class="s" d="M118 92 L118 112 L130 130"></path><path class="ref" d="M64 92 L118 92"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M64 92 L118 92"></path><circle class="h" cx="54" cy="86" r="7"></circle><path class="s" d="M64 92 L64 130"></path><path class="s" d="M118 92 L118 112 L130 130"></path><path class="s" d="M64 92 L28 78"></path><path class="s" d="M118 92 L148 84 L176 76"></path><path class="ref" d="M28 78 L176 76"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M64 92 L118 84"></path><circle class="h" cx="54" cy="78" r="7"></circle><path class="s" d="M64 92 L64 130"></path><path class="s" d="M118 84 L120 108 L132 130"></path><path class="s" d="M64 92 L28 78"></path><path class="s" d="M118 84 L150 62 L174 50"></path><path class="att" d="M136 96 L152 96"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Bird dog</h3>
+<p class="tag">Seduta A · stabilità di schiena e bacino</p>
+<p>Insegna a tenere il bacino fermo mentre braccia e gambe si muovono. È esattamente quello che serve nella vita quotidiana con un bambino in braccio e la spesa nell'altra mano.</p>
+<h4>Esecuzione</h4>
+<ul><li>Mani sotto le spalle, ginocchia sotto le anche, schiena neutra.</li><li>Allunga braccio e gamba opposti fino alla linea del corpo, non più in alto.</li><li>Il bacino resta fermo: se ruota, stai andando troppo lontano.</li><li>Due secondi in allungo, poi torna.</li></ul>
+<a class="video" href="https://www.youtube.com/results?search_query=bird+dog+esercizio+esecuzione" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Hip hinge: in piedi, bacino indietro e l'errore della schiena curva">
+  <title>Hip hinge: in piedi, bacino indietro e l'errore della schiena curva</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M84 132 L84 92 L84 64"></path><circle class="h" cx="84" cy="54" r="7.5"></circle><path class="s" d="M84 70 L84 100"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M84 132 L86 100 L110 88"></path><path class="s" d="M110 88 L60 66"></path><circle class="h" cx="50" cy="62" r="7.5"></circle><path class="s" d="M66 70 L70 100"></path><path class="ref" d="M110 88 L46 60"></path><path class="att" d="M130 88 L152 88"></path><path class="att" d="M146 82 L156 88 L146 94"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M84 132 L86 100 L110 88"></path><path class="s" d="M110 88 Q76 76 58 88"></path><circle class="h" cx="48" cy="92" r="7.5"></circle><path class="s" d="M62 92 L66 116"></path><path class="att" d="M76 62 L92 62"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Hip hinge</h3>
+<p class="tag">Seduta C · il movimento più utile della giornata</p>
+<p>È il gesto con cui si raccoglie qualcosa da terra, e lo fai cento volte al giorno. Impararlo bene protegge la schiena più di qualunque esercizio specifico per i lombari.</p>
+<h4>Esecuzione</h4>
+<ul><li>In piedi, ginocchia morbide ma non piegate.</li><li>Porta il bacino indietro, come per chiudere un cassetto con il sedere.</li><li>La schiena resta dritta: se si arrotonda, fermati più in alto.</li><li>Senti tirare dietro le cosce, mai nella zona lombare.</li></ul>
+<p class="nota">Quando lo hai imparato, usalo ogni volta che raccogli qualcosa: è lì che vale davvero.</p>
+<a class="video" href="https://www.youtube.com/results?search_query=hip+hinge+stacco+corpo+libero+tecnica" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Apertura toracica con le braccia al muro">
+  <line class="obj" x1="150" y1="12" x2="150" y2="112"></line>
+  <line class="ground" x1="8" y1="108" x2="150" y2="108"></line>
+  <path class="s" d="M96 108 L96 62"></path>
+  <circle class="h" cx="96" cy="53" r="7.5"></circle>
+  <path class="s" d="M96 66 L120 50 L146 42"></path>
+  <path class="s" d="M96 66 L120 82 L146 90"></path>
+  <path class="att" d="M74 62 L60 62"></path>
+  <path class="att" d="M66 56 L58 62 L66 68"></path>
+</svg>
+<div>
+<h3>Apertura toracica al muro</h3>
+<p class="tag">Seduta B · spalle e parte alta della schiena</p>
+<p>Due anni di braccia in avanti — prendere in braccio, allattare, spingere il passeggino — chiudono le spalle e irrigidiscono la parte alta della schiena. Questo è l'antidoto.</p>
+<h4>Esecuzione</h4>
+<ul><li>In piedi di fianco a un muro, braccio appoggiato all'altezza della spalla.</li><li><strong>Altezza dell'appoggio:</strong> il braccio va all'altezza della spalla, quindi circa 135 cm da terra. Più in alto tira il collo, più in basso non apre niente.</li><li>Ruota lentamente il busto nella direzione opposta, respirando.</li><li>Fermati dove senti tirare, non dove fa male.</li><li>Otto passaggi lenti per lato.</li></ul>
+<a class="video" href="https://www.youtube.com/results?search_query=apertura+toracica+muro+mobilita+spalle" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Piegamenti su rialzo: partenza, discesa e l'errore del bacino che cede">
+  <title>Piegamenti su rialzo: partenza, discesa e l'errore del bacino che cede</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L43 68"></path><circle class="h" cx="35" cy="60" r="7"></circle><path class="s" d="M43 68 L100 88 L150 124 L160 130"></path><path class="ref" d="M43 68 L150 124"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L58 86 L43 80"></path><circle class="h" cx="35" cy="72" r="7"></circle><path class="s" d="M43 80 L100 96 L150 124 L160 130"></path><path class="ref" d="M43 80 L150 124"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="22" y="96" width="42" height="36"></rect><path class="s" d="M43 96 L58 86 L43 80"></path><circle class="h" cx="35" cy="72" r="7"></circle><path class="s" d="M43 80 L100 116 L150 124 L160 130"></path><path class="att" d="M96 82 L100 108"></path><path class="att" d="M92 100 L100 112 L106 100"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Piegamenti su rialzo</h3>
+<p class="tag">Seduta B · petto, spalle, braccia</p>
+<p>Mani su un tavolo o un piano alto. Più alto è l'appoggio, più leggero è l'esercizio: è la manopola con cui regoli la difficoltà senza mai fare ripetizioni sporche.</p>
+<h4>Esecuzione</h4>
+<ul><li>Mani poco più larghe delle spalle, all'altezza del petto.</li><li><strong>Altezza dell'appoggio, da terra:</strong> piano cucina 90 cm · tavolo da pranzo 75 · bracciolo del divano 60 · sedia 45 · panchetto o cassetta 30 · un gradino 17 · poi terra. Scendi di un gradino quando ne fai 15 puliti.</li><li>Glutei e addome attivi: dalla testa ai talloni una linea sola.</li><li>Gomiti a 45° dal busto, non aperti a T.</li><li>Scendi in 2 secondi, spingi in 1.</li></ul>
+<p class="errore">Fermati alla prima ripetizione in cui il centro della pancia si gonfia verso l'alto o il bacino cede.</p>
+<a class="video" href="https://www.youtube.com/results?search_query=piegamenti+su+rialzo+esecuzione+corretta" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Rematore: braccia tese, tirata al petto e l'errore del bacino che si alza">
+  <title>Rematore: braccia tese, tirata al petto e l'errore del bacino che si alza</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L100 92"></path><circle class="h" cx="88" cy="96" r="7"></circle><path class="s" d="M100 92 L132 106 L164 120"></path><path class="ref" d="M100 92 L164 120"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L120 72 L100 78"></path><circle class="h" cx="88" cy="84" r="7"></circle><path class="s" d="M100 78 L132 98 L164 120"></path><path class="ref" d="M100 78 L164 120"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><line class="obj" x1="30" y1="60" x2="170" y2="60"></line><line class="obj" x1="36" y1="60" x2="36" y2="132"></line><line class="obj" x1="164" y1="60" x2="164" y2="132"></line><path class="s" d="M100 60 L120 72 L100 78"></path><circle class="h" cx="88" cy="84" r="7"></circle><path class="s" d="M100 78 L128 84 L164 120"></path><path class="att" d="M124 66 L128 78"></path><path class="att" d="M120 70 L128 62 L134 70"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Rematore su barra bassa</h3>
+<p class="tag">Seduta B · dorsali e postura</p>
+<p>Sotto un tavolo robusto, corpo disteso e talloni a terra, tiri il petto verso il piano. È l'esercizio che riapre le spalle chiuse in avanti.</p>
+<h4>Esecuzione</h4>
+<ul><li>Regola la difficoltà con l'inclinazione: più orizzontale, più duro.</li><li><strong>Altezza del piano, da terra:</strong> 90 cm per partire facile · 75 cm, il tavolo da pranzo, è la misura normale · 60 cm è già impegnativo. Con manico di scopa su due sedie sei a 45: troppo basso per il primo blocco.</li><li>Parti portando indietro le scapole, poi piega i gomiti.</li><li>Corpo rigido per tutta la serie.</li></ul>
+<p class="errore">Errore tipico: il bacino che si alza per aiutare il tiro.</p>
+<a class="video" href="https://www.youtube.com/results?search_query=australian+pull+up+rematore+tavolo+tecnica" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Ponte dei glutei: appoggio, salita e l'errore dell'inarcamento lombare">
+  <title>Ponte dei glutei: appoggio, salita e l'errore dell'inarcamento lombare</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 L108 126"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M108 126 L140 96 L152 128"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 L100 96 L140 92"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M140 92 L152 128"></path><path class="ref" d="M40 126 L140 92"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 126 Q92 70 140 88"></path><circle class="h" cx="30" cy="120" r="7"></circle><path class="s" d="M140 88 L152 128"></path><path class="att" d="M84 68 L100 68"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Ponte dei glutei</h3>
+<p class="tag">Seduta A · glutei e catena posteriore</p>
+<p>Compensa le ore passate seduta e in posizioni scomode, e riattiva i glutei, che dopo una gravidanza sono quasi sempre la parte più addormentata.</p>
+<h4>Esecuzione</h4>
+<ul><li>La spinta parte da talloni e glutei, non dalla schiena.</li><li>Sali fino alla linea ginocchia-anche-spalle, non oltre.</li><li>Espira salendo, stringi un secondo in alto.</li></ul>
+<a class="video" href="https://www.youtube.com/results?search_query=ponte+glutei+esecuzione+corretta" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Squat: in piedi, fondo corretto e l'errore della schiena arrotondata">
+  <title>Squat: in piedi, fondo corretto e l'errore della schiena arrotondata</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M74 132 L74 88 L74 60"></path><circle class="h" cx="74" cy="50" r="7.5"></circle><path class="s" d="M74 62 L104 66"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 132 L100 100 L70 92"></path><path class="s" d="M70 92 L64 62"></path><circle class="h" cx="56" cy="54" r="7.5"></circle><path class="s" d="M64 62 L104 66"></path><path class="ref" d="M62 132 L62 46"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M62 132 L100 100 L70 92"></path><path class="s" d="M70 92 Q52 76 46 66"></path><circle class="h" cx="38" cy="60" r="7.5"></circle><path class="att" d="M52 60 Q64 74 70 90"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Squat a corpo libero</h3>
+<p class="tag">Seduta C · gambe e glutei</p>
+<p>Piedi alla larghezza delle spalle, punte leggermente aperte. Scendi finché la schiena resta dritta: quello è il tuo fondo, e va bene anche se è alto.</p>
+<h4>Esecuzione</h4>
+<ul><li>Peso su tutto il piede, non sulle punte.</li><li>Ginocchia nella direzione delle punte.</li><li>Espira salendo, senza trattenere il fiato in fondo.</li></ul>
+<p class="nota">Trattenere il fiato aumenta la pressione verso il basso: è la cosa da evitare finché il pavimento pelvico non è solido.</p>
+<a class="video" href="https://www.youtube.com/results?search_query=squat+corpo+libero+tecnica+principianti" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Affondo: partenza in piedi, discesa e l'errore del ginocchio oltre la punta">
+  <title>Affondo: partenza in piedi, discesa e l'errore del ginocchio oltre la punta</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M80 132 L80 90 L80 62"></path><circle class="h" cx="80" cy="52" r="7.5"></circle></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M58 132 L58 100 L98 92"></path><path class="s" d="M98 92 L126 124 L146 132"></path><path class="s" d="M98 92 L94 64"></path><circle class="h" cx="92" cy="54" r="7.5"></circle><path class="ref" d="M94 46 L98 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M58 132 L74 100 L98 92"></path><path class="s" d="M98 92 L126 124 L146 132"></path><path class="s" d="M98 92 L108 66"></path><circle class="h" cx="108" cy="56" r="7.5"></circle><path class="att" d="M70 108 L54 122"></path><path class="att" d="M58 112 L52 124 L64 124"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Affondi alternati</h3>
+<p class="tag">Seduta C · una gamba alla volta, equilibrio</p>
+<p>Un passo avanti, ginocchio posteriore verso terra senza toccarla, poi risali spingendo con il tallone davanti.</p>
+<h4>Esecuzione</h4>
+<ul><li>Busto verticale, non inclinato in avanti.</li><li>Ginocchio davanti sopra la caviglia.</li><li>Se perdi l'equilibrio, due dita al muro.</li></ul>
+<a class="video" href="https://www.youtube.com/results?search_query=affondi+esecuzione+corretta" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Step-up: piede sul gradino, salita e l'errore del ginocchio troppo alto">
+  <title>Step-up: piede sul gradino, salita e l'errore del ginocchio troppo alto</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M70 132 L74 104 L96 92"></path><path class="s" d="M96 92 L128 84 L132 94"></path><path class="s" d="M96 92 L92 62"></path><circle class="h" cx="90" cy="52" r="7.5"></circle></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M132 94 L134 70 L112 62"></path><path class="s" d="M112 62 L88 92 L76 120"></path><path class="s" d="M112 62 L110 36"></path><circle class="h" cx="108" cy="27" r="7.5"></circle><path class="ref" d="M110 30 L112 66"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><rect class="obj" x="112" y="94" width="62" height="38"></rect><path class="s" d="M70 132 L74 104 L96 92"></path><path class="s" d="M96 92 L124 62 L132 94"></path><path class="s" d="M96 92 L92 62"></path><circle class="h" cx="90" cy="52" r="7.5"></circle><path class="att" d="M126 48 L140 48"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Step-up su sedia o gradino</h3>
+<p class="tag">Seduta C · gambe e fiato</p>
+<p>Sali con un piede su un gradino o una sedia solida, porta su tutto il corpo, scendi con controllo. Alza la frequenza cardiaca senza impatto e senza fare rumore.</p>
+<h4>Esecuzione</h4>
+<ul><li>Spingi con il tallone del piede sopra.</li><li>Il ginocchio non sale sopra l'anca: se succede, serve un appoggio più basso.</li><li><strong>Altezza del gradino, da terra:</strong> 15-20 cm per iniziare (un gradino di scala) · 25-30 dal secondo blocco · 40-45, la seduta di una sedia, è il massimo. Il limite vero resta il ginocchio, che non deve superare l'anca.</li><li>Scendi appoggiando piano.</li></ul>
+<a class="video" href="https://www.youtube.com/results?search_query=step+up+esercizio+esecuzione+corretta" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Plank: posizione corretta, tenuta e l'errore del bacino che affonda">
+  <title>Plank: posizione corretta, tenuta e l'errore del bacino che affonda</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 110 L158 128"></path><path class="ref" d="M46 100 L158 128"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 110 L158 128"></path><path class="att" d="M100 92 L104 104"></path><path class="att" d="M96 96 L104 106 L110 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M40 128 L70 128"></path><path class="s" d="M46 128 L46 100"></path><circle class="h" cx="36" cy="94" r="7"></circle><path class="s" d="M46 100 L104 126 L158 128"></path><path class="att" d="M96 138 L112 138"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Plank frontale</h3>
+<p class="tag">Seduta B · nella versione sulle ginocchia</p>
+<p>Per ora si fa con le ginocchia appoggiate. Non è una versione ridotta per principianti: è quella corretta finché diastasi e pavimento pelvico non sono stati verificati.</p>
+<h4>Esecuzione</h4>
+<ul><li>Gomiti sotto le spalle, ginocchia appoggiate.</li><li>Bacino leggermente retroverso, glutei attivi.</li><li>Respira normalmente.</li></ul>
+<p class="errore">Se la pancia si gonfia a punta al centro, fermati: è il segnale che la pressione sta andando dove non deve.</p>
+<a class="video" href="https://www.youtube.com/results?search_query=plank+ginocchia+esecuzione+corretta" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 598 176" role="img" aria-label="Plank laterale: posizione, tenuta e l'errore del bacino che scende">
+  <title>Plank laterale: posizione, tenuta e l'errore del bacino che scende</title>
+  <g transform="translate(0,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 112 L158 130"></path><path class="s" d="M50 100 L50 68"></path><path class="ref" d="M50 100 L158 130"></path></g>
+  <text x="95" y="168" class="etichetta">Partenza</text>
+  <g transform="translate(204,0)" class="pan"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 112 L158 130"></path><path class="s" d="M50 100 L50 68"></path><path class="att" d="M104 88 L104 104"></path><path class="att" d="M98 96 L104 106 L110 96"></path></g>
+  <text x="299" y="168" class="etichetta">Lavoro</text>
+  <g transform="translate(408,0)" class="pan err"><line class="ground" x1="12" y1="132" x2="178" y2="132"></line><path class="s" d="M50 130 L50 100"></path><circle class="h" cx="42" cy="93" r="7"></circle><path class="s" d="M50 100 L104 128 L158 130"></path><path class="s" d="M50 100 L64 74"></path><path class="att" d="M96 140 L112 140"></path></g>
+  <text x="503" y="168" class="etichetta etichetta-err">Da evitare</text>
+</svg>
+<div>
+<h3>Plank laterale</h3>
+<p class="tag">Seduta D · fianchi e obliqui</p>
+<p>Sul fianco con le ginocchia piegate e appoggiate, gomito sotto la spalla, bacino sollevato.</p>
+<h4>Esecuzione</h4>
+<ul><li>Spalla, anca e ginocchio su una linea.</li><li>La spalla d'appoggio non si schiaccia verso l'orecchio.</li><li>Respira: non è una prova di apnea.</li></ul>
+<a class="video" href="https://www.youtube.com/results?search_query=plank+laterale+ginocchia+esecuzione" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+<article class="esercizio">
+<svg class="fig" viewBox="0 0 200 120" role="img" aria-label="Superman a pancia in giù">
+      <line class="ground" x1="8" y1="104" x2="192" y2="104"></line>
+      <path class="s" d="M34 66 Q70 96 110 94 Q148 92 166 68"></path>
+      <circle class="h" cx="62" cy="80" r="7"></circle>
+      <path class="att" d="M34 78 L34 60"></path>
+      <path class="att" d="M28 66 L34 56 L40 66"></path>
+      <path class="att" d="M166 80 L166 62"></path>
+      <path class="att" d="M160 68 L166 58 L172 68"></path>
+    </svg>
+<div>
+<h3>Superman</h3>
+<p class="tag">Seduta D · lombari e postura</p>
+<p>A pancia in giù, sollevi braccia e gambe di pochi centimetri e tieni. Bilancia tutto il lavoro davanti e sostiene la postura.</p>
+<h4>Esecuzione</h4>
+<ul><li>Pochi centimetri bastano.</li><li>Collo neutro, sguardo a terra.</li><li>Se pizzica la zona lombare, alterna braccio destro e gamba sinistra.</li></ul>
+<a class="video" href="https://www.youtube.com/results?search_query=superman+esercizio+lombari+esecuzione" target="_blank" rel="noopener">Video tecnica</a>
+</div>
+</article>
+
+</section>
+
+<section class="pannello" id="mx_dati" role="tabpanel">
+  <h2>I tuoi dati</h2>
+  <p class="occhiello">Cinque numeri, presi con calma e senza andare a esaurimento. Servono a calibrare la scheda: le serie di lavoro stanno intorno al 40% del massimo nel primo blocco, al 55% nel secondo, al 70% nel terzo.</p>
+
+
+  <div class="azioni avvio-guida">
+    <button class="primario" id="mx_avviaGuida" type="button">Avvia la prova guidata</button>
+  </div>
+
+  <div class="guida" id="mx_guida" hidden>
+    <div class="guida-top">
+      <span class="guida-giorno" id="mx_gGiorno"></span>
+      <span class="guida-passo" id="mx_gPasso"></span>
+      <button class="linkish" id="mx_gEsci" type="button">Esci</button>
+    </div>
+    <h3 id="mx_gTitolo"></h3>
+    <div class="guida-corpo">
+      <div class="guida-fig" id="mx_gFig" hidden></div>
+      <div id="mx_gTesto"></div>
+    </div>
+    <div class="timer" id="mx_gTimer" hidden>
+      <div class="timer-display" id="mx_gDisplay">0:00</div>
+      <div class="azioni">
+        <button id="mx_gStart" type="button">Avvia</button>
+        <button id="mx_gStop" type="button">Ferma</button>
+      </div>
+      <p class="nota" id="mx_gTimerNota"></p>
+    </div>
+    <label class="guida-campo" id="mx_gCampo" hidden><span id="mx_gEtichetta"></span><input type="number" id="mx_gInput" inputmode="numeric" min="0"></label>
+    <div class="azioni guida-nav">
+      <button id="mx_gIndietro" type="button">Indietro</button>
+      <button class="primario" id="mx_gAvanti" type="button">Avanti</button>
+    </div>
+  </div>
+
+  <h3>Prova di partenza</h3>
+  <div class="form">
+    <label>Piegamenti su rialzo<span class="aiuto">ripetizioni pulite</span><input type="number" id="mPiegamenti" min="0" max="100" inputmode="numeric"></label>
+    <label>Rematore sotto il tavolo<span class="aiuto">ripetizioni pulite</span><input type="number" id="mRematore" min="0" max="100" inputmode="numeric"></label>
+    <label>Squat<span class="aiuto">ripetizioni pulite</span><input type="number" id="mSquat" min="0" max="200" inputmode="numeric"></label>
+    <label>Ponte dei glutei<span class="aiuto">ripetizioni</span><input type="number" id="mPonte" min="0" max="200" inputmode="numeric"></label>
+    <label>Plank sulle ginocchia<span class="aiuto">secondi, tenuta pulita</span><input type="number" id="mPlank" min="0" max="400" inputmode="numeric"></label>
+    <label>Peso<span class="aiuto">chili</span><input type="number" id="mPeso" min="30" max="200" step="0.1" inputmode="decimal"></label>
+  </div>
+
+  <h3>Per le stime alimentari</h3>
+  <div class="form">
+    <label>Come passi la giornata
+      <select id="mAttivita">
+        <option value="1.4">Per lo più seduta</option>
+        <option value="1.6" selected>In movimento quasi sempre</option>
+        <option value="1.75">Giornate molto fisiche</option>
+      </select>
+    </label>
+    <label>Obiettivo
+      <select id="mObiettivo">
+        <option value="1" selected>Mantenere il peso</option>
+        <option value="1.08">Mettere un po' di muscolo</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="azioni">
+    <button class="primario" id="mx_ricalcola" type="button">Ricalcola scheda e stime</button>
+    <button id="mx_azzera" type="button">Azzera</button>
+  </div>
+  <p class="stato" id="mx_statoTest">Nessun dato inserito.</p>
+
+  <div class="regola">
+    <p><strong>Nella prova di partenza fermati presto.</strong> Chiudi la serie alla prima ripetizione in cui la tecnica si sporca o il respiro si blocca — non alla prima che non riesci. Il numero che serve è quello, e cercare le ultime due brutte non aggiunge informazione.</p>
+  </div>
+  <p class="nota">I massimali si rifanno ogni quattro settimane, non più spesso. In mezzo conta il diario.</p>
+</section>
+
+<section class="pannello" id="mx_diario" role="tabpanel">
+  <h2>Diario settimanale</h2>
+  <p class="occhiello">Cinque minuti la domenica sera. Tre cose, nessuna delle quali costa fatica.</p>
+  <ul>
+    <li><strong>Sedute fatte.</strong> Quante delle quattro. È l'unico numero che predice i risultati a sei mesi.</li>
+    <li><strong>Energia della settimana</strong>, da 1 a 5. È la cosa che cambia per prima e si nota prima della forza.</li>
+    <li><strong>Schiena e pavimento pelvico.</strong> Meglio, uguale o peggio della settimana prima. Se peggiora due settimane di fila, fermati e fatti vedere.</li>
+  </ul>
+  <table class="log diario">
+    <caption>Dodici settimane da qui</caption>
+    <thead><tr><th>Sett.</th><th>Date</th><th class="num">Sedute</th><th class="num">Energia</th><th class="num">Schiena</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td class="g">1</td><td>14 – 20 set</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">2</td><td>21 – 27 set</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">3</td><td>28 set – 4 ott</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">4</td><td>5 – 11 ott</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">5</td><td>12 – 18 ott</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">6</td><td>19 – 25 ott</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">7</td><td>26 ott – 1 nov</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">8</td><td>2 – 8 nov</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">9</td><td>9 – 15 nov</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">10</td><td>16 – 22 nov</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">11</td><td>23 – 29 nov</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="g">12</td><td>30 nov – 6 dic</td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <p class="nota">Le prove di partenza si rifanno lunedì 12 ottobre, lunedì 9 novembre e lunedì 7 dicembre.</p>
+</section>
+
+<section class="pannello" id="mx_dieta" role="tabpanel">
+  <h2>Alimentazione</h2>
+  <p class="occhiello">Le stime si calcolano dai dati che inserisci. Sono un punto di partenza aritmetico, non una dieta.</p>
+
+  <div class="stime" id="mx_stimeDieta">
+    <p class="stato">Inserisci peso e obiettivo nella sezione <button class="linkish" data-vai="mx_dati" type="button">I tuoi dati</button> per vedere le stime.</p>
+  </div>
+
+  <div class="regola">
+    <p><strong>Perché non c'è l'opzione per dimagrire.</strong> A 50 kg per 165 cm il peso è già nella fascia bassa, e un deficit calorico in questa fase lavorerebbe contro esattamente le cose che il programma cerca di costruire: forza, energia e recupero. Se c'è un motivo per volerlo, è una conversazione da fare con un medico, non un interruttore da mettere in una pagina.</p>
+  </div>
+
+  <h3>Le quattro cose che contano davvero</h3>
+  <ul>
+    <li><strong>Proteine in ogni pasto, non solo a cena.</strong> Settanta-novanta grammi al giorno distribuiti su tre pasti. È la variabile che più influenza il recupero, e quella che salta per prima quando si mangia in piedi o si finiscono gli avanzi dei bambini.</li>
+    <li><strong>Una colazione vera.</strong> Non caffè e basta. Se la mattina è la parte più incasinata, la sera prima si prepara qualcosa che si prende al volo.</li>
+    <li><strong>Acqua.</strong> Un litro e mezzo-due, che è la cosa che si dimentica per prima quando si passa la giornata a occuparsi di qualcun altro.</li>
+    <li><strong>Non mangiare solo quello che avanza.</strong> Finire i piatti dei bambini è il modo più comune di mangiare tanto e male: molti carboidrati, poche proteine, nessuna sazietà. Un piatto proprio, anche piccolo, funziona meglio.</li>
+  </ul>
+
+  <p class="nota">Se ci fossero ancora allattamento in corso o restrizioni particolari, le quantità cambiano e vanno riviste.</p>
+  <p class="nota">Quanto vale il numero delle calorie: è una formula di popolazione, non una misura. Sul singolo sbaglia del 10-15%. L'unico riscontro vero è il peso medio su due o tre settimane.</p>
+</section>
+
+  <div class="avanti">
+    <button id="mx_prec" type="button">← Sezione precedente</button>
+    <button id="mx_succ" type="button">Sezione successiva →</button>
+  </div>
+
+  <footer>
+    <p>Scheda compilata il 14 settembre 2026. Non sostituisce il parere di un medico o di una fisioterapista del pavimento pelvico: i controlli della sezione "Prima di iniziare" servono a capire se serve una valutazione, non a sostituirla.</p>
+  </footer>
+</div>
+
+
+</div>
 <script>
 (function(){
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-  var pannelli = Array.prototype.slice.call(document.querySelectorAll('.pannello'));
+  var CHIAVE='profilo_attivo';
+  var bottoni=Array.prototype.slice.call(document.querySelectorAll('.switch-profilo button'));
+  var app={salvo:document.getElementById('app-salvo'), maura:document.getElementById('app-maura')};
+  function mostra(nome){
+    Object.keys(app).forEach(function(k){ app[k].hidden=(k!==nome); });
+    bottoni.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-app')===nome?'true':'false'); });
+    try{ localStorage.setItem(CHIAVE,nome); }catch(e){}
+    window.scrollTo({top:0});
+  }
+  bottoni.forEach(function(b){ b.addEventListener('click',function(){ mostra(b.getAttribute('data-app')); }); });
+  var salvato=null; try{ salvato=localStorage.getItem(CHIAVE); }catch(e){}
+  if((location.hash||'').indexOf('#mx_')===0) salvato='maura';
+  mostra(salvato==='maura'?'maura':'salvo');
+})();
+</script>
+<script>(function(){var ROOT=document.getElementById('app-salvo');
+
+(function(){
+  var tabs = Array.prototype.slice.call(ROOT.querySelectorAll('.tab'));
+  var pannelli = Array.prototype.slice.call(ROOT.querySelectorAll('.pannello'));
   var conta = document.getElementById('conta');
   var prec = document.getElementById('prec');
   var succ = document.getElementById('succ');
@@ -1229,7 +2069,7 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
     prec.disabled = (i === 0);
     succ.disabled = (i === tot - 1);
     tabs[i].scrollIntoView({block:'nearest', inline:'center'});
-    if(scorri){ window.scrollTo({top: document.querySelector('.barra').offsetTop - 1}); }
+    if(scorri){ window.scrollTo({top: ROOT.querySelector('.barra').offsetTop - 1}); }
     if(history.replaceState){ history.replaceState(null, '', '#' + tabs[i].getAttribute('data-sez')); }
   }
 
@@ -1245,8 +2085,10 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   var iniziale = indiceDa((location.hash || '').replace('#',''));
   mostra(iniziale >= 0 ? iniziale : 0, false);
 })();
-</script>
-<script>
+
+})();</script>
+<script>(function(){var ROOT=document.getElementById('app-salvo');
+
 (function(){
   var CHIAVE='calistenia_dati_v1';
   var campi=['tPiegamenti','tRematore','tTrazioni','tSquat','tPlank','tAppensione','tStepup','tPeso','tAttivita','tObiettivo'];
@@ -1319,7 +2161,7 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
 
   function applicaScheda(d){
     var out=calcola(d);
-    var righe=document.querySelectorAll('[data-ex]');
+    var righe=ROOT.querySelectorAll('[data-ex]');
     var toccate=0;
     Array.prototype.forEach.call(righe,function(tr){
       var k=tr.getAttribute('data-ex');
@@ -1334,7 +2176,7 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
     });
     var et=etichettaPiegamenti(d.tPiegamenti);
     if(et){
-      var r=document.querySelector('[data-ex="piegamenti"] .nome');
+      var r=ROOT.querySelector('[data-ex="piegamenti"] .nome');
       if(r) r.textContent=et;
     }
     var stato=document.getElementById('statoScheda');
@@ -1406,9 +2248,9 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
     location.reload();
   });
 
-  Array.prototype.forEach.call(document.querySelectorAll('[data-vai]'),function(b){
+  Array.prototype.forEach.call(ROOT.querySelectorAll('[data-vai]'),function(b){
     b.addEventListener('click',function(){
-      var t=document.querySelector('.tab[data-sez="'+b.getAttribute('data-vai')+'"]');
+      var t=ROOT.querySelector('.tab[data-sez="'+b.getAttribute('data-vai')+'"]');
       if(t) t.click();
     });
   });
@@ -1416,8 +2258,10 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   var salvati=leggi();
   if(salvati){ popola(salvati); esegui(salvati, false); }
 })();
-</script>
-<script>
+
+})();</script>
+<script>(function(){var ROOT=document.getElementById('app-salvo');
+
 (function(){
   var PASSI = [
     {g:'Giorno 1 · forza', t:'Riscaldamento', dis:'Squat a corpo libero', testo:
@@ -1436,7 +2280,7 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
     {g:'Giorno 1 · forza', t:'Rematore', dis:'Rematore su barra bassa', campo:'tRematore', etichetta:'Ripetizioni pulite', testo:
       '<ul><li>Sotto un tavolo robusto o una sbarra bassa, talloni a terra, corpo disteso.</li>'+
       '<li>Fermati quando il bacino comincia ad alzarsi per aiutare il tiro.</li>'+
-      '<li>Regola l\'inclinazione prima di partire: se al terzo sei già finito, alzati di più.</li></ul>'},
+      '<li>Regola l\'inclinazione prima di partire: se al terzo sei già finito, alzati di più.</li><li><strong>Altezza del piano, da terra:</strong> 90 cm per partire facile · 75 cm, il tavolo da pranzo, è la misura normale · 60 cm è già impegnativo. Con manico di scopa su due sedie sei a 45: troppo basso per il primo blocco.</li></ul>'},
 
     {g:'Giorno 1 · forza', t:'Riposo', riposo:true, testo:'<p>Altri tre minuti.</p>', timer:{tipo:'giu', sec:180}},
 
@@ -1469,7 +2313,7 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
     {g:'Giorno 2 · tenuta', t:'Riposo', riposo:true, testo:'<p>Tre minuti.</p>', timer:{tipo:'giu', sec:180}},
 
     {g:'Giorno 2 · tenuta', t:'Appensione alla sbarra', dis:'Appensione alla sbarra', campo:'tAppensione', etichetta:'Secondi', testo:
-      '<ul><li>Braccia tese, spalle attive: scapole tirate leggermente in basso, non passivo.</li>'+
+      '<ul><li>Braccia tese, spalle attive: scapole tirate leggermente in basso, non passivo.</li><li><strong>Sbarra da porta:</strong> montala a 190-200 cm da terra, così resti appeso a ginocchia piegate senza toccare. Sotto i 185 serve piegare troppo le gambe e la presa lavora male.</li>'+
       '<li>Ferma quando la presa cede. Scendi appoggiando i piedi, non saltando.</li>'+
       '<li>Senza sbarra, salta questa prova e lascia vuoto.</li></ul>',
       timer:{tipo:'su', campo:true, nota:'Ferma quando molli la presa.'}},
@@ -1492,7 +2336,7 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
   ];
 
   var DIS={};
-  Array.prototype.forEach.call(document.querySelectorAll('#esercizi article.esercizio'),function(a){
+  Array.prototype.forEach.call(ROOT.querySelectorAll('#esercizi article.esercizio'),function(a){
     var h=a.querySelector('h3'), sv=a.querySelector('svg');
     if(h && sv) DIS[h.textContent.trim()]=sv;
   });
@@ -1584,16 +2428,243 @@ svg text{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:6
 
   function chiudi(salvando){
     ferma(); box.hidden=true;
-    document.querySelector('.avvio-guida').hidden=false;
+    ROOT.querySelector('.avvio-guida').hidden=false;
     if(salvando){ var r=document.getElementById('ricalcola'); if(r) r.click(); }
   }
   document.getElementById('gEsci').addEventListener('click',function(){ salvaCampo(); chiudi(false); });
 
   document.getElementById('avviaGuida').addEventListener('click',function(){
-    i=0; box.hidden=false; document.querySelector('.avvio-guida').hidden=true; rendi();
+    i=0; box.hidden=false; ROOT.querySelector('.avvio-guida').hidden=true; rendi();
     box.scrollIntoView({block:'start'});
   });
 })();
-</script>
+
+})();</script>
+<script>(function(){var ROOT=document.getElementById('app-maura');
+
+(function(){
+  var tabs=Array.prototype.slice.call(ROOT.querySelectorAll('.tab'));
+  var pan=Array.prototype.slice.call(ROOT.querySelectorAll('.pannello'));
+  var conta=document.getElementById('mx_conta'), prec=document.getElementById('mx_prec'), succ=document.getElementById('mx_succ');
+  var tot=tabs.length;
+  function idx(n){ for(var i=0;i<tabs.length;i++){ if(tabs[i].getAttribute('data-sez')===n) return i; } return -1; }
+  function attuale(){ for(var i=0;i<tabs.length;i++){ if(tabs[i].getAttribute('aria-selected')==='true') return i; } return 0; }
+  function mostra(i,scorri){
+    if(i<0||i>=tot) return;
+    tabs.forEach(function(t,k){ t.setAttribute('aria-selected',k===i?'true':'false'); });
+    pan.forEach(function(p,k){ p.classList.toggle('attivo',k===i); });
+    conta.textContent='Sezione '+(i+1)+' di '+tot;
+    prec.disabled=(i===0); succ.disabled=(i===tot-1);
+    tabs[i].scrollIntoView({block:'nearest',inline:'center'});
+    if(scorri) window.scrollTo({top:ROOT.querySelector('.barra').offsetTop-1});
+    if(history.replaceState) history.replaceState(null,'','#'+tabs[i].getAttribute('data-sez'));
+  }
+  tabs.forEach(function(t,i){ t.addEventListener('click',function(){ mostra(i,true); }); });
+  prec.addEventListener('click',function(){ mostra(attuale()-1,true); });
+  succ.addEventListener('click',function(){ mostra(attuale()+1,true); });
+  Array.prototype.forEach.call(ROOT.querySelectorAll('[data-vai]'),function(b){
+    b.addEventListener('click',function(){ var t=ROOT.querySelector('.tab[data-sez="'+b.getAttribute('data-vai')+'"]'); if(t) t.click(); });
+  });
+  var h=idx((location.hash||'').replace('#',''));
+  mostra(h>=0?h:0,false);
+})();
+
+(function(){
+  var CHIAVE='maura_dati_v1';
+  var campi=['mPiegamenti','mRematore','mSquat','mPonte','mPlank','mPeso','mAttivita','mObiettivo'];
+  var ETA=31, ALTEZZA=165;
+  function leggi(){ try{ var g=localStorage.getItem(CHIAVE); return g?JSON.parse(g):null; }catch(e){ return null; } }
+  function scrivi(d){ try{ localStorage.setItem(CHIAVE,JSON.stringify(d)); return true; }catch(e){ return false; } }
+  function num(id){ var e=document.getElementById(id); if(!e) return null; var v=parseFloat(e.value); return isNaN(v)?null:v; }
+  function rip(max,b){ if(max===null||max<=0) return null; var q=[0.40,0.55,0.70][b-1], s=[3,3,4][b-1];
+    return s+' × '+Math.max(3,Math.round(max*q)); }
+  function iso(max,b,suf){ if(max===null||max<=0) return null; var q=[0.35,0.50,0.65][b-1], s=[2,3,3][b-1];
+    return s+' × '+Math.max(10,Math.round(max*q/5)*5)+'"'+(suf||''); }
+
+  function calcola(d){
+    var o={};
+    o.piegamenti=[1,2,3].map(function(b){ return rip(d.mPiegamenti,b); });
+    o.rematore=[1,2,3].map(function(b){ return rip(d.mRematore,b); });
+    o.squat=[1,2,3].map(function(b){ return rip(d.mSquat,b); });
+    o.ponte=[1,2,3].map(function(b){ return rip(d.mPonte,b); });
+    o.plank=[1,2,3].map(function(b){ return iso(d.mPlank,b); });
+    o.planklat=[1,2,3].map(function(b){ return iso(d.mPlank!==null?d.mPlank*0.7:null,b,' per lato'); });
+    o.superman=[1,2,3].map(function(b){ return iso(d.mPlank!==null?d.mPlank*0.7:null,b); });
+    o.affondi=[1,2,3].map(function(b){ if(d.mSquat===null) return null;
+      var s=[2,3,3][b-1]; return s+' × '+Math.max(4,Math.round(d.mSquat*[0.25,0.33,0.42][b-1]))+' per gamba'; });
+    o.stepup=[1,2,3].map(function(b){ if(d.mSquat===null) return null;
+      var s=[2,3,3][b-1]; return s+' × '+Math.max(5,Math.round(d.mSquat*[0.35,0.45,0.55][b-1]))+' per gamba'; });
+    o.hinge=[1,2,3].map(function(b){ return rip(d.mSquat!==null?d.mSquat*0.8:null,b); });
+    return o;
+  }
+
+  function applica(d){
+    var o=calcola(d), n=0;
+    Array.prototype.forEach.call(ROOT.querySelectorAll('[data-ex]'),function(el){
+      var v=o[el.getAttribute('data-ex')]; if(!v) return; var fatto=false;
+      [1,2,3].forEach(function(b){ var c=el.querySelector('[data-b="'+b+'"]'); if(c&&v[b-1]){ c.textContent=v[b-1]; fatto=true; } });
+      if(fatto){ el.classList.add('personale'); n++; }
+    });
+    var st=document.getElementById('mx_statoScheda');
+    if(st&&n>0){ st.textContent='Scheda ricalcolata sui tuoi numeri. Le righe col pallino sono personalizzate.'; st.classList.add('viva'); }
+  }
+
+  function dieta(d){
+    var box=document.getElementById('mx_stimeDieta'); if(!box||d.mPeso===null) return;
+    var bmr=10*d.mPeso+6.25*ALTEZZA-5*ETA-161;
+    var tdee=bmr*(d.mAttivita||1.6);
+    var kcal=Math.round(tdee*(d.mObiettivo||1)/10)*10;
+    var mant=Math.round(tdee/10)*10;
+    var pMin=Math.round(d.mPeso*1.4), pMax=Math.round(d.mPeso*1.8);
+    var acqua=(d.mPeso*0.035).toFixed(1);
+    box.innerHTML=
+      '<div class="cella"><dt>Mantenimento stimato</dt><dd>'+mant+' <span class="unita">kcal</span></dd></div>'+
+      '<div class="cella"><dt>Per l\'obiettivo scelto</dt><dd>'+kcal+' <span class="unita">kcal</span></dd></div>'+
+      '<div class="cella"><dt>Proteine al giorno</dt><dd>'+pMin+'-'+pMax+' <span class="unita">g</span></dd></div>'+
+      '<div class="cella"><dt>Acqua</dt><dd>'+acqua+' <span class="unita">L</span></dd></div>';
+  }
+
+  function raccogli(){ var d={}; campi.forEach(function(id){ var e=document.getElementById(id); if(!e) return;
+    d[id]=(e.tagName==='SELECT')?parseFloat(e.value):num(id); }); return d; }
+  function popola(d){ campi.forEach(function(id){ var e=document.getElementById(id);
+    if(e&&d[id]!==null&&d[id]!==undefined) e.value=d[id]; }); }
+
+  var b=document.getElementById('mx_ricalcola'), a=document.getElementById('mx_azzera'), st=document.getElementById('mx_statoTest');
+  function esegui(d,salva){
+    applica(d); dieta(d);
+    if(st){ if(salva){ var ok=scrivi(d);
+        st.textContent= ok?'Dati salvati su questo dispositivo. Scheda e stime aggiornate.'
+                          :'Scheda e stime aggiornate. In questa anteprima i dati non restano salvati: sul file scaricato sì.';
+      } else { st.textContent='Ultimi dati inseriti su questo dispositivo.'; }
+      st.classList.add('viva'); }
+  }
+  if(b) b.addEventListener('click',function(){ esegui(raccogli(),true); });
+  if(a) a.addEventListener('click',function(){ try{ localStorage.removeItem(CHIAVE); }catch(e){}
+    campi.forEach(function(id){ var e=document.getElementById(id); if(e&&e.tagName!=='SELECT') e.value=''; }); location.reload(); });
+  var s=leggi(); if(s){ popola(s); esegui(s,false); }
+})();
+
+})();</script>
+<script>(function(){var ROOT=document.getElementById('app-maura');
+
+(function(){
+  var PASSI=[
+    {g:'Prima di tutto', t:'I due controlli', testo:
+      '<p>Prima di misurare qualsiasi cosa, i controlli della sezione <strong>Prima di iniziare</strong>: diastasi e pavimento pelvico. Sono due minuti e decidono cosa puoi fare oggi.</p>'+
+      '<ul><li>Se il controllo della diastasi mostra più di due dita, oppure se il centro sprofonda, fai la prova lo stesso ma tieni il plank sulle ginocchia sempre, anche più avanti.</li>'+
+      '<li>Se c\'è anche una sola risposta sì alle tre domande sul pavimento pelvico, <strong>fermati qui</strong>: la prova si fa dopo la valutazione, non prima.</li></ul>'},
+
+    {g:'Prova di partenza', t:'Riscaldamento', dis:'Respiro diaframmatico', testo:
+      '<ul><li>Due minuti: otto respiri diaframmatici lenti, poi qualche squat a mezza altezza e mobilità delle spalle.</li>'+
+      '<li>Serve anche a ritrovare la connessione del respiro, che userai in ogni prova.</li></ul>',
+      timer:{tipo:'giu',sec:120,nota:'Puoi passare avanti anche prima.'}},
+
+    {g:'Prova di partenza', t:'Piegamenti su rialzo', dis:'Piegamenti su rialzo', campo:'mPiegamenti', etichetta:'Ripetizioni pulite', testo:
+      '<ul><li>Mani su un tavolo o un piano alto, quello che pensi di usare nelle sedute.</li>'+
+      '<li>Fermati alla <strong>prima</strong> ripetizione in cui il centro della pancia si gonfia verso l\'alto, il bacino cede o trattieni il fiato.</li>'+
+      '<li>Non cercare le ultime due brutte: non servono al calcolo e non servono a te.</li></ul>'},
+
+    {g:'Prova di partenza', t:'Riposo', riposo:true, testo:'<p>Due minuti. Respira con calma, non restare immobile.</p>', timer:{tipo:'giu',sec:120}},
+
+    {g:'Prova di partenza', t:'Rematore sotto il tavolo', dis:'Rematore su barra bassa', campo:'mRematore', etichetta:'Ripetizioni pulite', testo:
+      '<ul><li>Sotto un tavolo robusto, talloni a terra, corpo disteso.</li>'+
+      '<li>Regola l\'inclinazione prima di partire: se al terzo sei finita, mettiti più verticale.</li><li><strong>Altezza del piano, da terra:</strong> 90 cm per partire facile · 75 cm, il tavolo da pranzo, è la misura normale · 60 cm è già impegnativo. Con manico di scopa su due sedie sei a 45: troppo basso per il primo blocco.</li>'+
+      '<li>Fermati quando il bacino comincia ad alzarsi per aiutare il tiro.</li></ul>'},
+
+    {g:'Prova di partenza', t:'Riposo', riposo:true, testo:'<p>Altri due minuti.</p>', timer:{tipo:'giu',sec:120}},
+
+    {g:'Prova di partenza', t:'Squat', dis:'Squat a corpo libero', campo:'mSquat', etichetta:'Ripetizioni pulite', testo:
+      '<ul><li>Scendi finché la schiena resta dritta: quello è il tuo fondo, anche se è alto.</li>'+
+      '<li>Espira salendo. Se ti accorgi che stai trattenendo il fiato, quella è l\'ultima ripetizione.</li>'+
+      '<li>Qui è facile esagerare perché le gambe reggono: taglia prima di quanto ti verrebbe.</li></ul>'},
+
+    {g:'Prova di partenza', t:'Riposo', riposo:true, testo:'<p>Due minuti.</p>', timer:{tipo:'giu',sec:120}},
+
+    {g:'Prova di partenza', t:'Ponte dei glutei', dis:'Ponte dei glutei', campo:'mPonte', etichetta:'Ripetizioni', testo:
+      '<ul><li>Spinta da talloni e glutei, salita fino alla linea ginocchia-anche-spalle.</li>'+
+      '<li>Fermati quando senti che a spingere è la zona lombare invece dei glutei.</li></ul>'},
+
+    {g:'Prova di partenza', t:'Riposo', riposo:true, testo:'<p>Due minuti: l\'ultima prova è una tenuta.</p>', timer:{tipo:'giu',sec:120}},
+
+    {g:'Prova di partenza', t:'Plank sulle ginocchia', dis:'Plank frontale', campo:'mPlank', etichetta:'Secondi', testo:
+      '<ul><li>Avvia il cronometro e mettiti in posizione: gomiti sotto le spalle, ginocchia appoggiate.</li>'+
+      '<li>Ferma alla <strong>prima</strong> volta che il bacino affonda o che la pancia si gonfia a punta al centro. Non quando cadi.</li>'+
+      '<li>I secondi finiscono da soli nel campo qui sotto.</li></ul>',
+      timer:{tipo:'su',campo:true,nota:'Ferma quando la posizione si rompe.'}},
+
+    {g:'Prova di partenza', t:'Peso', campo:'mPeso', etichetta:'Chili', decimale:true, testo:
+      '<ul><li>Al mattino, prima di mangiare. È il momento meno influenzato dal resto.</li>'+
+      '<li>Se non ti sei pesata stamattina, scrivi l\'ultimo peso che conosci e correggilo domani.</li></ul>'},
+
+    {g:'Fine', t:'Prova completata', fine:true, testo:
+      '<p>Premi Chiudi e salva: i numeri finiscono nei campi, la scheda si ricalcola sui tuoi valori e le stime alimentari si aggiornano.</p>'+
+      '<p>Si rifà lunedì 12 ottobre, lunedì 9 novembre e lunedì 7 dicembre. In mezzo conta solo il diario.</p>'}
+  ];
+
+  var box=document.getElementById('mx_guida'); if(!box) return;
+  var DIS={};
+  Array.prototype.forEach.call(ROOT.querySelectorAll('#mx_esercizi article.esercizio'),function(a){
+    var h=a.querySelector('h3'), sv=a.querySelector('svg');
+    if(h&&sv) DIS[h.textContent.trim()]=sv;
+  });
+
+  var i=0, tick=null, secondi=0, modo='giu';
+  var el={giorno:document.getElementById('mx_gGiorno'),passo:document.getElementById('mx_gPasso'),
+    titolo:document.getElementById('mx_gTitolo'),testo:document.getElementById('mx_gTesto'),
+    timer:document.getElementById('mx_gTimer'),display:document.getElementById('mx_gDisplay'),
+    start:document.getElementById('mx_gStart'),stop:document.getElementById('mx_gStop'),
+    tnota:document.getElementById('mx_gTimerNota'),fig:document.getElementById('mx_gFig'),
+    campo:document.getElementById('mx_gCampo'),etichetta:document.getElementById('mx_gEtichetta'),
+    input:document.getElementById('mx_gInput'),indietro:document.getElementById('mx_gIndietro'),
+    avanti:document.getElementById('mx_gAvanti')};
+
+  function fmt(s){ var m=Math.floor(s/60), r=s%60; return m+':'+(r<10?'0':'')+r; }
+  function ferma(){ if(tick){ clearInterval(tick); tick=null; } }
+
+  function rendi(){
+    var p=PASSI[i]; ferma();
+    el.giorno.textContent=p.g;
+    el.passo.textContent='Passo '+(i+1)+' di '+PASSI.length;
+    el.titolo.textContent=p.t;
+    el.testo.innerHTML=p.testo||'';
+    el.indietro.disabled=(i===0);
+    el.avanti.textContent=p.fine?'Chiudi e salva':'Avanti';
+    if(p.dis && DIS[p.dis]){ var c=DIS[p.dis].cloneNode(true); c.setAttribute('class','guida-svg');
+      el.fig.innerHTML=''; el.fig.appendChild(c); el.fig.hidden=false; } else { el.fig.hidden=true; }
+    if(p.timer){ el.timer.hidden=false; modo=p.timer.tipo;
+      secondi = modo==='giu'?p.timer.sec:0; el.display.textContent=fmt(secondi);
+      el.tnota.textContent=p.timer.nota||''; el.stop.hidden=(modo!=='su');
+      if(p.riposo) avvia();
+    } else { el.timer.hidden=true; }
+    if(p.campo){ el.campo.hidden=false; el.etichetta.textContent=p.etichetta;
+      el.input.step=p.decimale?'0.1':'1';
+      var e=document.getElementById(p.campo);
+      el.input.value=(e&&e.value)?e.value:'';
+    } else { el.campo.hidden=true; }
+  }
+
+  function avvia(){ ferma(); tick=setInterval(function(){
+    if(modo==='giu'){ secondi--; if(secondi<=0){ secondi=0; ferma(); el.display.textContent='0:00'; el.tnota.textContent='Tempo.'; return; } }
+    else { secondi++; }
+    el.display.textContent=fmt(secondi);
+  },1000); }
+
+  el.start.addEventListener('click',function(){ if(modo==='su'){ secondi=0; el.display.textContent='0:00'; } avvia(); });
+  el.stop.addEventListener('click',function(){ ferma(); var p=PASSI[i]; if(p.timer&&p.timer.campo) el.input.value=secondi; });
+
+  function salvaCampo(){ var p=PASSI[i]; if(p.campo&&el.input.value!==''){ var t=document.getElementById(p.campo); if(t) t.value=el.input.value; } }
+  el.avanti.addEventListener('click',function(){ salvaCampo();
+    if(PASSI[i].fine){ chiudi(true); return; }
+    if(i<PASSI.length-1){ i++; rendi(); box.scrollIntoView({block:'start'}); } });
+  el.indietro.addEventListener('click',function(){ salvaCampo(); if(i>0){ i--; rendi(); } });
+
+  function chiudi(salva){ ferma(); box.hidden=true; ROOT.querySelector('.avvio-guida').hidden=false;
+    if(salva){ var r=document.getElementById('mx_ricalcola'); if(r) r.click(); } }
+  document.getElementById('mx_gEsci').addEventListener('click',function(){ salvaCampo(); chiudi(false); });
+  document.getElementById('mx_avviaGuida').addEventListener('click',function(){ i=0; box.hidden=false;
+    ROOT.querySelector('.avvio-guida').hidden=true; rendi(); box.scrollIntoView({block:'start'}); });
+})();
+
+})();</script>
 </body>
 </html>
